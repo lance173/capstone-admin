@@ -9,6 +9,58 @@
             <div class="page-heading">
                 <h3 class="page-title"> <i class="fa fa-home"></i> Home / Dashboard </h3>
             </div>
+
+            <!-- Info boxes -->
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                            <span class="info-box-icon todaysviews-infobox"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+
+                            <div class="info-box-content">
+                              <span class="info-box-text">Today's Visits</span>
+                              <span class="info-box-number">90<small>%</small></span>
+                            </div>
+                          </div>                 
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                            <span class="info-box-icon noofusers-infobox"><i class="fas fa-user-friends"></i></span>
+
+                            <div class="info-box-content">
+                              <span class="info-box-text">Users</span>
+                              <span class="info-box-number">210,146</span>
+                            </div>
+                      </div>
+                    </div>
+                    
+
+                    <!-- fix for small devices only -->
+                    <div class="clearfix visible-sm-block"></div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                            <span class="info-box-icon avgrate-infobox"><i class="fa fa-star-half-alt" aria-hidden="true"></i></span>
+
+                            <div class="info-box-content">
+                              <span class="info-box-text">Average Virtual Tour Rating</span>
+                              <span class="info-box-number">3.5</span>
+                            </div>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="info-box">
+                            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+                            <div class="info-box-content">
+                              <span class="info-box-text">New Members</span>
+                              <span class="info-box-number">2,000</span>
+                            </div>
+                      </div>
+                    </div> -->
+                </div>
+            <!--End of Info Boxes-->
+
             <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-md-6">
