@@ -18,7 +18,7 @@
 
                             <div class="info-box-content">
                               <span class="info-box-text">Today's Visits</span>
-                              <span class="info-box-number">90<small>%</small></span>
+                              <span class="info-box-number"> 1,100 </span>
                             </div>
                           </div>                 
                     </div>
@@ -32,8 +32,7 @@
                               <span class="info-box-number">210,146</span>
                             </div>
                       </div>
-                    </div>
-                    
+                    </div>                    
 
                     <!-- fix for small devices only -->
                     <div class="clearfix visible-sm-block"></div>
@@ -48,18 +47,25 @@
                             </div>
                       </div>
                     </div>
-                    <!-- <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="info-box">
-                            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-
-                            <div class="info-box-content">
-                              <span class="info-box-text">New Members</span>
-                              <span class="info-box-number">2,000</span>
-                            </div>
-                      </div>
-                    </div> -->
                 </div>
             <!--End of Info Boxes-->
+
+            <!--Jumbotron-->
+                <div class="jumbotron jumbo-viewsite">
+                    <div class="viewsite-cover">
+                        <center>
+                            <img src="../assets/img/usclibsystem-transp-whitetxt.png" class="usclogo-jumbo">
+                            
+                            <div class="buttonset-jumbo">
+                                <div class="wrapper">
+                                    <a class="editsite-btn" href="#" role="button">EDIT WEBSITE</a>
+                                    <a class="viewsite-btn" href="#" role="button">VIEW WEBSITE  </a> 
+                                </div>
+                            </div>                           
+                        </center>                        
+                    </div>
+                </div>
+            <!--End of Jumbotron-->
 
             <div class="page-content fade-in-up">
                 <div class="row">
