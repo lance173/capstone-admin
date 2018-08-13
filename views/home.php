@@ -68,7 +68,7 @@
             <!--End of Jumbotron-->
 
             <div class="page-content fade-in-up">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-6">
                         <div class="ibox">
                             <div class="ibox-head">
@@ -93,28 +93,92 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Radar Chart</div>
+                                <div class="ibox-title"> <i class="fa fa-file-alt"></i> Current Articles</div>
                             </div>
                             <div class="ibox-body">
-                                <div>
-                                    <canvas id="radar_chart" style="height:200px;"></canvas>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>                                            
+                                                <th>PHOTO</th>
+                                                <th>TITLE</th>
+                                                <th>AUTHOR</th>
+                                                <th>DATE</th>
+                                                <th width="100px"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td> <img src="../assets/img/lnch212.jpg" class="img-artvw">  </td>
+                                                <td> <div class="td-content">USC Library La..</div></td>
+                                                <td> <div class="td-content">Steve Rogers </div></td>
+                                                <td> <div class="td-content"> 02/08/2017 </div></td>
+                                                <td>
+                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <img src="../assets/img/bk-fr2121.jpg" class="img-artvw"> </td>
+                                                <td> <div class="td-content"> USC Book Fair.. </div></td>
+                                                <td> <div class="td-content">Reed Richards</div></td>
+                                                <td> <div class="td-content">08/10/2017</div></td>
+                                                <td>
+                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <img src="../assets/img/facl-212121.jpg" class="img-artvw"> </td>
+                                                <td> <div class="td-content"> New Facilities.. </div></td>
+                                                <td> <div class="td-content"> Susan Storm </div></td>
+                                                <td> <div class="td-content"> 14/11/2017 </div></td>
+                                                <td>
+                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
+                                                </td>
+                                            </tr>                                       
+                                        </tbody>
+                                    </table>
+                                        <center> <a class="btn btn-artvwall" href="#" role="button"> View All </a> </center>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Doughnut Chart</div>
+                                <div class="ibox-title"> <i class="fas fa-flag"></i> Reported Users</div>
                             </div>
                             <div class="ibox-body">
-                                <div>
-                                    <canvas id="doughnut_chart" style="height:200px;"></canvas>
+                                <div class="table-responsive">  
+                                    <table class="table">                                            
+                                        <tbody>
+                                            <tr>
+                                                <td> <i class="fas fa-flag"></i> <b>Jon Snow</b> has been reported on <b>2 counts</b> </td>
+                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b> </td>>
+                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </td>
+                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>                                                
+                                            </tr>
+                                            <tr>
+                                                <td> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </td>
+                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>                                                
+                                            </tr>
+                                            <tr>
+                                                <td> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </td>
+                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>                                                
+                                            </tr>                                       
+                                        </tbody>
+                                    </table>
+                                        <center> <a class="btn btn-artvwall" href="#" role="button"> View All </a> </center>
                                 </div>
                             </div>
                         </div>
