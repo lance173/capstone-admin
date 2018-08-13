@@ -158,27 +158,27 @@
                                         <tbody>
                                             <tr>
                                                 <td> <i class="fas fa-flag"></i> <b>Jon Snow</b> has been reported on <b>2 counts</b> </td>
-                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b> </td>>
-                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>
+                                                <td> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b> </td>
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>
                                             </tr>
                                             <tr>
                                                 <td> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </td>
-                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>                                                
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                                
                                             </tr>
                                             <tr>
                                                 <td> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </td>
-                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>                                                
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                                
                                             </tr>
                                             <tr>
                                                 <td> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </td>
-                                                <td> <a class="btn btn-artvw" href="#" role="button"> View </a> </td>                                                
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                                
                                             </tr>                                       
                                         </tbody>
                                     </table>
-                                        <center> <a class="btn btn-artvwall" href="#" role="button"> View All </a> </center>
+                                        <center> <a class="btn btn-rptusrall" href="#" role="button"> View All </a> </center>
                                 </div>
                             </div>
                         </div>

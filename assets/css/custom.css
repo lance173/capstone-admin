@@ -240,6 +240,42 @@
     background-image: none; 
   }
 
+  .btn-rptusr {
+    color: #fff;
+    background-color:   #F73534;
+    border-color: #F73534; 
+    border-radius: 3px;
+    padding: 6px 20px;
+  }
+
+  .btn-rptusr:focus, .btn-rptusr.focus, .btn-rptusr:hover, .btn-rptusr.active, .btn-rptusr:active, .btn-rptusr:disabled, .btn-rptusr.disabled 
+  {
+    color: #fff !important;
+    background-color: #e02f2f !important;
+    border-color: #e02f2f !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-image: none; 
+  }
+
+  .btn-rptusrall {
+    color: #fff;
+    background-color:   #F73534;
+    border-color: #F73534; 
+    border-radius: 3px;
+    padding: 10px 100px;
+  }
+
+  .btn-rptusrall:focus, .btn-rptusrall.focus, .btn-rptusrall:hover, .btn-rptusrall.active, .btn-rptusrall:active, .btn-rptusrall:disabled, .btn-rptusrall.disabled 
+  {
+    color: #fff !important;
+    background-color: #e02f2f !important;
+    border-color: #e02f2f !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-image: none; 
+  }
+
   .img-artvw{
     height: 70px;
     width: 100px;
