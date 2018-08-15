@@ -203,7 +203,7 @@
   } 
 }
 
-/** Article View Button - Home Page**/
+/** Article Review - Home Page**/
 .btn-artvw {
     color: #fff;
     background-color: #02A554;
@@ -240,6 +240,18 @@
     background-image: none; 
   }
 
+  .img-artvw{
+    height: 70px;
+    width: 100px;
+  }
+
+  .td-content{
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+
+
+/** Report Review - Home Page**/
   .btn-rptusr {
     color: #fff;
     background-color:   #F73534;
@@ -276,11 +288,46 @@
     background-image: none; 
   }
 
-  .img-artvw{
-    height: 70px;
-    width: 100px;
+  /** Rating Review - Home Page**/
+  .img-ratvw{
+    border-radius: 100%;
+    height: 75px; 
+    width: 80px;
   }
 
-  .td-content{
-    margin-top: 20px;
+  .ratvw-usrnam{
+    text-transform: uppercase;
+    color: #008FFF;
+  }
+
+  .star-checked {
+    color: orange;
+  }
+
+  .btn-ratvwall {
+    color: #fff;
+    background-color:   #008FFF;
+    border-color: #008FFF; 
+    border-radius: 3px;
+    padding: 10px 100px;
+  }
+
+  .btn-ratvwall:focus, .btn-ratvwall.focus, .btn-ratvwall:hover, .btn-ratvwall.active, .btn-ratvwall:active, .btn-ratvwall:disabled, .btn-ratvwall.disabled 
+  {
+    color: #fff !important;
+    background-color: #0367b5 !important;
+    border-color: #0367b5 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-image: none; 
+  }
+
+  /** Activity Log Review - Home Page **/
+
+  .btn-actlog {
+    color: #4c4f51;
+    background-color:   #FFF;
+    border-color: #008FFF; 
+    border-radius: 3px;
+    padding: 5px 20px;
   }
