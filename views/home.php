@@ -321,8 +321,7 @@
                     </div>
                 </a>
             </div>
-        </div>
-            
+   
             <!-- END PAGE CONTENT-->
 <?php
     require('footer.php');
