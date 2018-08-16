@@ -7,7 +7,7 @@
                     <span class="brand"> <img src="../assets/img/usclibsystem-transp-whitetxt.png" width="60px" height="30px" />
                         <span class="brand-tip"> <img src="../assets/img/usc-completelogo-whitetxt.png" width="150px" height="35px" /> </span>
                     </span>
-                    <span class="brand-mini"> <img src="../assets/img/usclibsystem-transp-whitetxt.png" width="60px" height="20px" /> </span>
+                    <span class="brand-mini" id="usccmplg"> <img src="../assets/img/usclibsystem-transp-whitetxt.png" width="60px" height="20px" /> </span>
                 </a>
             </div>
             <div class="flexbox flex-1">
@@ -165,12 +165,17 @@
         <nav class="page-sidebar" id="sidebar">
             <div id="sidebar-collapse">
                 <div class="admin-block d-flex">
-                    <div>
-                        <img src="../assets/img/admin-avatar.png" width="45px" />
-                    </div>
-                    <div class="admin-info">
-                        <div class="font-strong">Juan Dela Cruz</div><small>Administrator</small></div>
+                    <div class="">
+                        <img src="../assets/img/admin-avatar.png" width="80px" />
+                    </div>                    
                 </div>
+                <div class="admin-info">
+                        <div class="font-strong">Juan Dela Cruz</div><small>Administrator</small>
+                        <div style="display: block; margin: 10px 0px 25px;">
+                           <a class="btn btn-edtacct" href="#" role="button"> Edit Account </a> 
+                        </div>                       
+                </div>
+
                 <ul class="side-menu metismenu">
                     <li class="active">
                         <a href="index.html"><i class="sidebar-item-icon fa fa-home"></i> 

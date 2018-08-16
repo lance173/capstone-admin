@@ -13,8 +13,25 @@
   color: #fff;
 }
 
+@media screen and (max-width: 100px) {
+  #usccmplg{
+    display: none;
+  }
+}
 
+.btn-edtacct {
+  border: 2px solid #FFB041;
+  background-color: #FFB041;
+  color: #fff;
+  padding: 5px 5px;
+  font-size: 12px;
+}
 
+.btn-edtacct:hover {
+  border: 2px solid #FFB041;
+  background-color: #FFF;
+  color: #FFB041;
+}
 
 
 /*
@@ -162,7 +179,7 @@
 }
 
 .editsite-btn:hover {
-  color: #02A554;
+  color: #333;
   background-color: #FFF;
 }
 
