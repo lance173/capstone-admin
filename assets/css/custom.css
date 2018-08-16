@@ -13,14 +13,14 @@
   color: #fff;
 }
 
-@media screen and (max-width: 100px) {
+@media screen and (max-width: 200px) {
   #usccmplg{
     display: none;
   }
 }
 
 .btn-edtacct {
-  border: 2px solid #FFB041;
+  border: 6px solid #FFB041;
   background-color: #FFB041;
   color: #fff;
   padding: 5px 5px;
@@ -28,7 +28,7 @@
 }
 
 .btn-edtacct:hover {
-  border: 2px solid #FFB041;
+  border: 6px solid #FFB041;
   background-color: #FFF;
   color: #FFB041;
 }
