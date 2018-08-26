@@ -13,7 +13,11 @@
   color: #fff;
 }
 
-@media screen and (max-width: 200px) {
+#usccmplg{
+    display: all;
+  }
+
+@media screen and (max-width: 350px) {
   #usccmplg{
     display: none;
   }
@@ -32,7 +36,6 @@
   background-color: #FFF;
   color: #FFB041;
 }
-
 
 /*
  * Component: Info Box

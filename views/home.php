@@ -323,6 +323,7 @@
             </div>
    
             <!-- END PAGE CONTENT-->
+    <!--content-wrapper closing tag will be found in footer.php -->
 <?php
     require('footer.php');
 ?>  
