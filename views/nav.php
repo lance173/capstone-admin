@@ -178,7 +178,7 @@
 
                 <ul class="side-menu metismenu">
                     <li class="active">
-                        <a href="index.html"><i class="sidebar-item-icon fa fa-home"></i> 
+                        <a href="home.php"><i class="sidebar-item-icon fa fa-home"></i> 
                             <span class="nav-label"> Home / Dashboard</span>
                         </a>
                     </li>

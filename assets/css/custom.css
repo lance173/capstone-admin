@@ -3,6 +3,12 @@
 
 /**sidebar**/
 
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .adm-pic
 {
 
@@ -182,8 +188,8 @@
 }
 
 .editsite-btn:hover {
-  color: #333;
-  background-color: #FFF;
+  color: #FFF;
+  background-color: rgba(7,7,7,0);
 }
 
 .viewsite-btn{
@@ -193,8 +199,8 @@
 }
 
 .viewsite-btn:hover {
-  color: #333;  
-  background-color: #FFF;
+  color: #FFF;  
+  background-color: rgba(7,7,7,0);
 }
 
 .wrapper:before,.wrapper:after{
@@ -352,4 +358,104 @@
     padding: 5px 20px;
   }
 
+
+
+ /** loginpage **/
+
+ .admin-loginbg {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_RnZRTavUACXSxX5zlHkf7W4EuDl9410u1nV0iWl4uGlPJ__W");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin:0;
+    overflow: hidden;
+ }
+
  
+
+#login {
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+#login .form-signin {
+    max-width: 500px;
+    padding: 19px 50px 29px;
+    margin: 0 auto 20px;
+    
+}
+
+#login .form-signin input[type="text"],
+#login .form-signin input[type="password"] {
+    width: 100%;
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 10px 9px;
+    border-radius: 5px;
+}
+#login .form-signin button{
+  width: 100%;
+  padding: 12px 9px;
+  border-radius: 5px;
+}
+
+.login-uscliblogo {
+    height: 70px;
+    width: 130px;
+    margin-bottom: 50px;
+}
+
+.login-usclogo {
+    height: 30px;
+    width: 100px;
+    margin-bottom: : 50px;
+}
+
+.loginheading {
+  font-family: Roboto;
+  color: #FFF;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.loginfooter {
+  font-family: Roboto;
+  color: #dbdbdb;
+  text-align: center;
+  font-size: 11px;
+  margin-top: 40px;
+}
+
+
+.btn-login {
+    color: #fff;
+    background-color: #02A554;
+    border-color: #02A554; 
+    font-family: Roboto;
+}
+
+.btn-login:focus, .btn-login.focus, .btn-login:hover, .btn-login.active, .btn-login:active, .btn-login:disabled, .btn-login.disabled 
+  {
+    color: #fff !important;
+    background-color: #29b765 !important;
+    border-color: #229854 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-image: none; 
+  }
+
+/**datatables **/
+.add-btn{
+  border: 2px solid #02A554;
+  background-color: #02A554;
+  color: #FFF;
+}
+
+.add-btn:hover {
+  color: #333;
+  background-color: #FFF;
+}
