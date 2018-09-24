@@ -1,8 +1,15 @@
 /**    CUSTOM CSS     **/
 /** by Lance Sasedor **/
 
-/**sidebar**/
 
+
+/*
+*
+  nav.php
+*---------------
+*/
+
+/**sidebar**/
 html, body{
   height: 100%;
   margin: 0;
@@ -44,9 +51,11 @@ html, body{
 }
 
 /*
- * Component: Info Box
+ * home.php
  * -------------------
  */
+
+ /* Component Info Box - Home Page*/
 .info-box {
   display: block;
   min-height: 90px;
@@ -130,13 +139,10 @@ html, body{
 }
 
 
-
-
-/**JUMBOTRON**/
+/**Jumbotron View-Edit Site  - Home Page**/
 .jumbo-viewsite{
   background-image: url("../img/usc-jb-lrc.jpg");
   background-position: 0% 0%;
-  /*background-position: center;*/
   background-repeat: no-repeat;
   background-size: cover;
   margin:0;
@@ -359,8 +365,10 @@ html, body{
   }
 
 
-
- /** loginpage **/
+ /*
+ * login.php 
+ *----------------
+ */
 
  .admin-loginbg {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_RnZRTavUACXSxX5zlHkf7W4EuDl9410u1nV0iWl4uGlPJ__W");
@@ -448,6 +456,14 @@ html, body{
     background-image: none; 
   }
 
+
+
+/*
+*
+  Data Tables in general
+*----------
+*/
+
 /**datatables **/
 .add-btn{
   border: 2px solid #02A554;
@@ -458,4 +474,52 @@ html, body{
 .add-btn:hover {
   color: #333;
   background-color: #FFF;
+}
+
+/*
+*
+  Site Page / Article - Editor
+*----------
+*/
+
+.input-title {
+  width: 100%; 
+  padding: 8px 5px;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.input-title:focus {
+  border: 1px solid #4286f4;
+  box-shadow: 1px 1px #888888;
+}
+
+
+.newibox-title {
+  font-size: 13px;
+  font-weight: 600; 
+}
+.newibox-title small {
+  font-weight: 400;
+  font-size: 13px;
+  color: #777; 
+
+}
+
+.newiboxtitle small a {
+  color: inherit; 
+}
+
+.ibox-footercontent {
+  margin-left: 15px;
+}
+
+.publishpage-btn{
+  margin-right: 10px;
+  text-align: right;
+}
+
+.setfeat-img{
+  font-size: 13px;
+  text-decoration: underline;
 }
