@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="row" style="display: none;">
-                <div style="width: 90%; margin: 25px 20px 0px;">
+                <div class="inpage-alerts">
                     <div class="alert alert-success">
                         Page is published successfully.
                     </div>
@@ -38,9 +38,9 @@
                                 <div class="newibox-title"> Featured Image  </div>
                                 <div> <i class="fas fa-caret-down"></i> </div>
                             </div>
-                            <!-- <div class="ibox-body">
-                                
-                            </div> -->
+                            <div class="ibox-body" style="display: none;">
+                                <img src="../assets/img/image.png" style="height: 130px; width: 100%;">
+                            </div>
                             <div class="ibox-footer">
                                 <div class="ibox-footercontent"> <a href="#"><span class="setfeat-img">Set featured image</span></a> </div>
                             </div>
