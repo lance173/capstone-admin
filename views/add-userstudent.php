@@ -1,3 +1,4 @@
+
 <?php 
     require('header.php');
     include('nav.php');
@@ -9,7 +10,7 @@
             <div class="row" style="display: none;">
                 <div class="inpage-alerts">
                     <div class="alert alert-success">
-                        User Admin is added successfully.
+                        Srudent user is added successfully.
                     </div>
                 </div>
             </div>
@@ -19,20 +20,20 @@
             </div>
 
             
-            <form class="form-horizontal" action="" method="post">
+            <form class="form-horizontal" action="../controllers/StudentUserControlller.php" method="post">
                 <fieldset>
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-6 use-dud">
 
                             <div class="imgupld-section">
                                 <img src="../assets/img/default-avatar.jpg" class="default-adminimg" >
-                                <input type="file" name="fileToUpload" id="fileToUpload">
+                                <input type="file" name="student_photo" id="fileToUpload">
                             </div>
                             
                                 <!-- USC ID input-->   
                                 <div class="form-group">
                                     <label class="control-label" for="name">USC ID Number</label>
-                                    <input id="name" name="name" type="text" placeholder="USC ID Number" class="form-control"> 
+                                    <input id="name" name="id_number" type="text" placeholder="USC ID Number" class="form-control"> 
                                 </div>                                                             
                                 <!-- First Name input-->
                                 <div class="row" style="margin-bottom: 1rem;">
@@ -53,15 +54,15 @@
                                     </div>
                                     <!-- Last Name input-->
                                     <div class="col-md-3">
-                                        <label class="control-label" for="year">Year</label>
-                                        <input id="year" name="year" type="text" placeholder="Year" class="form-control">    
+                                        <label class="control-label" for="year">Year Level</label>
+                                        <input id="yearlvl" name="yearlvl" type="text" placeholder="Year Level" class="form-control">    
                                     </div>
                                 </div>                               
                                
                                 <!-- Password input-->
                                 <div class="form-group">
-                                    <label class="control-label" for="email">Password</label>
-                                    <input id="password" name="Password" type="text" placeholder="Password is set to USC ID Number as default" class="form-control" disabled="disabled">
+                                    <label class="control-label" for="password">Password</label>
+                                    <input id="password" name="password" type="text" placeholder="Password is set to USC ID Number as default" class="form-control" disabled="disabled">
                                 </div>  
 
             

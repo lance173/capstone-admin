@@ -188,32 +188,11 @@
                             <span class="nav-label">Student Users</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="colors.html">Colors</a>
+                                <a href="colors.html">All Student Users</a>
                             </li>
                             <li>
-                                <a href="typography.html">Typography</a>
-                            </li>
-                            <li>
-                                <a href="panels.html">Panels</a>
-                            </li>
-                            <li>
-                                <a href="buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="tabs.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="alerts_tooltips.html">Alerts &amp; Tooltips</a>
-                            </li>
-                            <li>
-                                <a href="badges_progress.html">Badges &amp; Progress</a>
-                            </li>
-                            <li>
-                                <a href="lists.html">List</a>
-                            </li>
-                            <li>
-                                <a href="cards.html">Card</a>
-                            </li>
+                                <a href="add-userstudent.php">Add New</a>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -221,30 +200,21 @@
                             <span class="nav-label">Admins</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="form_basic.html">All Admin Users</a>
                             </li>
                             <li>
-                                <a href="form_advanced.html">Advanced Plugins</a>
-                            </li>
-                            <li>
-                                <a href="form_masks.html">Form input masks</a>
-                            </li>
-                            <li>
-                                <a href="form_validation.html">Form Validation</a>
-                            </li>
-                            <li>
-                                <a href="text_editors.html">Text Editors</a>
+                                <a href="add-useradmin.php">Add New</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-flag"></i>
-                            <span class="nav-label">Reports</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
+                            <span class="nav-label">Reports</span><!-- <i class="fa fa-angle-left arrow"></i> --></a>
+                       <!--  <ul class="nav-2-level collapse">
                             <li>
                                 <a href="maps_vector.html">Vector maps</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li class="heading">SITE CONTENT</li>
                     <li>
@@ -252,10 +222,10 @@
                             <span class="nav-label">Website</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="table_basic.html">Basic Tables</a>
+                                <a href="table_basic.html">Edit Slider</a>
                             </li>
                             <li>
-                                <a href="datatables.html">Datatables</a>
+                                <a href="datatables.html">Edit / Add Pages</a>
                             </li>
                         </ul>
                     </li>
@@ -264,16 +234,10 @@
                             <span class="nav-label">Articles</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="charts_flot.html">Flot Charts</a>
+                                <a href="charts_flot.html">All Articles</a>
                             </li>
                             <li>
-                                <a href="charts_morris.html">Morris Charts</a>
-                            </li>
-                            <li>
-                                <a class="active" href="chartjs.html">Chart.js</a>
-                            </li>
-                            <li>
-                                <a href="charts_sparkline.html">Sparkline Charts</a>
+                                <a href="add-webpage.php">Post New Article</a>
                             </li>
                         </ul>
                     </li>   

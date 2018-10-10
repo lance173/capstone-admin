@@ -9,7 +9,7 @@
             <div class="row" style="display: none;">
                 <div class="inpage-alerts">
                     <div class="alert alert-success">
-                        User Admin is added successfully.
+                        Admin user is added successfully.
                     </div>
                 </div>
             </div>
