@@ -553,6 +553,10 @@ html, body{
   text-align: center;
 }
 
+.site-roleselect select:active, .site-roleselect select:focus{
+  margin-bottom: 70px;
+}
+
 .role-descrip{
   margin-top: 20px;
   margin-left: 15px;

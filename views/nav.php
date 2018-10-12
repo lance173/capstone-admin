@@ -188,7 +188,7 @@
                             <span class="nav-label">Student Users</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="colors.html">All Student Users</a>
+                                <a href="students-table.php">All Student Users</a>
                             </li>
                             <li>
                                 <a href="add-userstudent.php">Add New</a>

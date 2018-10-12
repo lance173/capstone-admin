@@ -2,15 +2,15 @@
 <?php 
     require('header.php');
     include('nav.php');
+    require('../controllers/StudentUserController.php'); 
 ?>
-
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="row" style="display: none;">
                 <div class="inpage-alerts">
                     <div class="alert alert-success">
-                        Srudent user is added successfully.
+                        Student user is added successfully.
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             </div>
 
             
-            <form class="form-horizontal" action="../controllers/StudentUserControlller.php" method="post">
+            <form class="form-horizontal" method="POST" action="../controllers/StudentUserController.php" >
                 <fieldset>
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-6 use-dud">
@@ -69,7 +69,7 @@
                                 <!-- Form actions -->
                                 <div class="form-group">
                                   <div class="col-md-12 text-right">
-                                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                                    <button type="submit" class="btn btn-success btn-lg" name="btnAddStudentUser">Submit</button>
                                   </div>
                                 </div>                              
                         </div>

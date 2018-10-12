@@ -66,20 +66,21 @@
 
                                 
 
-                                <div class="form-group">
+                                <div class="form-group site-roleselect">
                                     <label class="control-label" for="site-role">Site Role</label>
-                                    <select id="" name="" type="" class="form-control">
+                                    <select id="roleselect" name="" type="" class="form-control"  onchange="roleSelect();">
+                                        <option selected disabled hidden>Select Role for admin in this website</option>
                                         <option>System Admin</option>
                                         <option>Editor</option>
                                         <option>Author / Writer</option>
                                     </select>
-                                    <div class="role-descrip">
+                                    <div class="role-descrip" id="role-do">
                                         <i class="fas fa-info-circle"></i> System Admin can:
-                                        <ul>
-                                            <li> Can everything in t </li>
-                                            <li>edfdd</li>
-                                            <li>fdfd</li>
-                                        </ul>
+                                            <ul>
+                                                 <li> Can everything in t </li>
+                                                 <li>edfdd</li>
+                                                 <li>fdfd</li>
+                                            </ul>
                                     </div>
                                     
                                 </div>
