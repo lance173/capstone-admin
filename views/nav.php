@@ -200,7 +200,7 @@
                             <span class="nav-label">Admins</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic.html">All Admin Users</a>
+                                <a href="admin-table.php">All Admin Users</a>
                             </li>
                             <li>
                                 <a href="add-useradmin.php">Add New</a>
