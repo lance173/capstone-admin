@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h3 class="page-title"> <i class="sidebar-item-icon fa fa-users"></i> Student Users </h3>
+                <h3 class="page-title"> <i class="sidebar-item-icon fa fa-user-shield"></i> Admin Users </h3>
             </div>
 
             <div class="row">
@@ -15,7 +15,7 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title">Line tabs</div>
-                                <div> <button class="btn add-btn"> <i class="fas fa-plus"></i> Add Something</button> </div>
+                                <div> <a href="add-useradmin.php"> <button class="btn add-btn"> <i class="fas fa-plus"></i> Add New Admin</button> </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <ul class="nav nav-tabs tabs-line">
