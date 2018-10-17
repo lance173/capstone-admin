@@ -146,7 +146,7 @@ html, body{
   background-repeat: no-repeat;
   background-size: cover;
   margin:0;
-  margin-top: 20px;
+  margin-top: 5px;
   overflow: hidden;
   height: 100%;
   
@@ -572,3 +572,23 @@ html, body{
   margin-left: 10%;
   }
 }
+
+/** Reported User Page **/
+
+.btn-vwrptusr {
+    color: #fff;
+    background-color:   #ff7700;
+    border-color: #ff7700; 
+    border-radius: 3px;
+    padding: 6px 20px;
+  }
+
+  .btn-vwrptusr:focus, .btn-vwrptusr.focus, .btn-vwrptusr:hover, .btn-vwrptusr.active, .btn-vwrptusr:active, .btn-vwrptusr:disabled, .btn-vwrptusr.disabled 
+  {
+    color: #fff !important;
+    background-color: #ff831c !important;
+    border-color: #ff7700 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-image: none; 
+  }

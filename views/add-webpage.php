@@ -38,23 +38,12 @@
                                 <div class="newibox-title"> Featured Image  </div>
                                 <div> <i class="fas fa-caret-down"></i> </div>
                             </div>
-                            <div class="ibox-body" style="display: none;">
+                            <div class="ibox-body" style="display: ;">
                                 <img src="../assets/img/image.png" style="height: 130px; width: 100%;">
                             </div>
                             <div class="ibox-footer">
                                 <div class="ibox-footercontent"> <a href="#"><span class="setfeat-img">Set featured image</span></a> </div>
                             </div>
-                        </div>
-
-                        <div class="ibox">
-                            <div class="ibox-head">
-                                <div class="newibox-title"> Tags  </div>
-                                <div> <i class="fas fa-caret-down"></i> </div>
-                            </div>
-                            <div class="ibox-body">
-                                <input type="text" style="width: 70%;" name=""> <button style="margin-top: 10px;"> Add </button>
-                            </div>
-                            
                         </div>
 
                         <div class="ibox">

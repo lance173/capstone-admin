@@ -23,8 +23,8 @@
                 <fieldset>
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-3 imgupld-section">
-                            <img src="../assets/img/admin-avatar.png" class="default-adminimg" >
-                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            <img src="../assets/img/admin-avatar.png" class="default-adminimg" id="output_image">
+                            <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" onchange="preview_image(event)">
                         </div>
 
                         <div class="col-md-9">                  

@@ -208,7 +208,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-flag"></i>
+                        <a href="reported-table.php"><i class="sidebar-item-icon fa fa-flag"></i>
                             <span class="nav-label">Reports</span><!-- <i class="fa fa-angle-left arrow"></i> --></a>
                        <!--  <ul class="nav-2-level collapse">
                             <li>
@@ -237,7 +237,7 @@
                                 <a href="charts_flot.html">All Articles</a>
                             </li>
                             <li>
-                                <a href="add-webpage.php">Post New Article</a>
+                                <a href="add-article.php">Post New Article</a>
                             </li>
                         </ul>
                     </li>   

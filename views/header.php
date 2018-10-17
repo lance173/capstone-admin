@@ -14,6 +14,7 @@
     <link href="../assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- PLUGINS STYLES-->
     <link href="../assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
@@ -24,4 +25,5 @@
      <!-- PAGE LEVEL SCRIPTS-->
     <script src="../assets/js/tinymce/tinymce.min.js"></script>
     <script>tinymce.init({ selector: '#richtexteditor' });</script>
+    <script src="../assets/js/pre-customjs.js"></script>
 </head>

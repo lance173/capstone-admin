@@ -14,7 +14,7 @@
     </div>
     <!-- END PAGA BACKDROPS-->
     <!-- CORE PLUGINS-->
-    <script src="../assets/js/customjs.js"></script>
+    <script src="../assets/js/post-customjs.js"></script>
     <script src="../assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
     <script src="../assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
