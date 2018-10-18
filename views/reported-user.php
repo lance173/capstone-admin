@@ -38,13 +38,50 @@
                 </div>
                 <div class="col-md-9">
                     <div class="ibox">                        
-                        <div class="ibox-body">
-                             <!-- USC ID input-->   
-                                <div class="form-group">
-                                    Reported by <b> Joshua Jaluag </b>
-                                </div>                                               
+                        <div class="ibox-head">                              
+                            <div class="ibox-title"> 
+                                <img src="../assets/img/default-avatar.jpg" class="reporter-img"> Joshua Jaluag <span style="font-weight: normal;"> reported: </span> 
+                            </div>
+                            <div>
+                                May 15, 2018
+                            </div>                                                                          
+                        </div>
+                        <div class="ibox-body">                           
+                            <h4 class="report-reason"> Use of profanity. </h4>
+                            <div class="reported-comment">
+                                <img src="../assets/img/default-avatar.jpg"> <div class="reported-nombre"> Lemon Blue </div>
+                                <p>
+                                    The new website is so fucking ugly. I prefer the old website more.
+                                </p>
+                            </div>                                                             
+                        </div>
+                        <div class="ibox-footer">
+                            <div style="padding-left: 10px;"> From Article: <a href="#"> USC Library Launches New Website </a> </div>                            
                         </div>
                     </div>
+                    <div class="ibox">                        
+                        <div class="ibox-head">                              
+                            <div class="ibox-title"> 
+                                <img src="../assets/img/default-avatar.jpg" class="reporter-img"> Lance Sasedor <span style="font-weight: normal;"> reported: </span> 
+                            </div>
+                            <div>
+                                June 25, 2018
+                            </div>                                                                          
+                        </div>
+                        <div class="ibox-body">                           
+                            <h4 class="report-reason"> Unruly behavior. </h4>
+                            <div class="reported-comment">
+                                <img src="../assets/img/default-avatar.jpg"> <div class="reported-nombre"> Lemon Blue </div>
+                                <p>
+                                    You are so stupid.
+                                </p>
+                            </div>                                                             
+                        </div>
+                        <div class="ibox-footer">
+                            <div style="padding-left: 10px;"> From Article: <a href="#"> New Facilities at LRC </a> </div>                            
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
                     

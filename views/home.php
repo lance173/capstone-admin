@@ -50,46 +50,16 @@
                 </div>
             <!--End of Info Boxes-->
 
-            <!--Jumbotron-->
-                <!-- <div class="jumbotron jumbo-viewsite">
-                    <div class="viewsite-cover">
-                        <center>
-                            <img src="../assets/img/usclibsystem-transp-whitetxt.png" class="usclogo-jumbo">
-                            
-                            <div class="buttonset-jumbo">
-                                <div class="wrapper">
-                                    <a class="editsite-btn" href="#" role="button">EDIT WEBSITE</a>
-                                    <a class="viewsite-btn" href="#" role="button">VIEW WEBSITE  </a> 
-                                </div>
-                            </div>                           
-                        </center>                        
-                    </div>
-                </div> -->
-            <!--End of Jumbotron-->
-
             <div class="page-content fade-in-up">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Line Chart</div>
+                                <div class="ibox-title">Weekly Visitor Record</div>
                             </div>
                             <div class="ibox-body">
-                                <div>
-                                    <canvas id="line_chart" style="height:200px;"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="ibox">
-                            <div class="ibox-head">
-                                <div class="ibox-title">Bar Chart</div>
-                            </div>
-                            <div class="ibox-body">
-                                <div>
-                                    <canvas id="bar_chart" style="height:200px;"></canvas>
-                                </div>
+                                <div class="chart" id="flot_visitors" style="height:280px;"></div>
+                                <div class="chart" id="flot_visitors_overview" style="height:100px;"></div>
                             </div>
                         </div>
                     </div>
@@ -114,7 +84,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td> <img src="../assets/img/lnch212.jpg" class="img-artvw">  </td>
+                                                <td> <img src="../assets/img/posts/lnch212.jpg" class="img-artvw">  </td>
                                                 <td> <div class="td-content">USC Library La..</div></td>
                                                 <td> <div class="td-content">Steve Rogers </div></td>
                                                 <td> <div class="td-content"> 02/08/2017 </div></td>
@@ -123,7 +93,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td> <img src="../assets/img/bk-fr2121.jpg" class="img-artvw"> </td>
+                                                <td> <img src="../assets/img/posts/bk-fr2121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> USC Book Fair.. </div></td>
                                                 <td> <div class="td-content">Reed Richards</div></td>
                                                 <td> <div class="td-content">08/10/2017</div></td>
@@ -132,10 +102,19 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td> <img src="../assets/img/facl-212121.jpg" class="img-artvw"> </td>
+                                                <td> <img src="../assets/img/posts/facl-212121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> New Facilities.. </div></td>
                                                 <td> <div class="td-content"> Susan Storm </div></td>
                                                 <td> <div class="td-content"> 14/11/2017 </div></td>
+                                                <td>
+                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <img src="../assets/img/posts/uscnc-bkrdng.jpg" class="img-artvw"> </td>
+                                                <td> <div class="td-content"> North Campus.. </div></td>
+                                                <td> <div class="td-content"> Johnny Storm </div></td>
+                                                <td> <div class="td-content"> 14/12/2017 </div></td>
                                                 <td>
                                                     <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
                                                 </td>
@@ -166,7 +145,7 @@
                                             </tr>
                                             <tr>
                                                 <td> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                                
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
                                             </tr>
                                             <tr>
                                                 <td> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </td>
@@ -174,8 +153,12 @@
                                             </tr>
                                             <tr>
                                                 <td> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                                
-                                            </tr>                                       
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                            </tr>
+                                            <tr>
+                                                <td> <i class="fas fa-flag"></i> <b>Yellow Green</b> has been reported on <b>1 counts</b> </td>
+                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                            </tr>                                        
                                         </tbody>
                                     </table>
                                         <center> <a class="btn btn-rptusrall" href="#" role="button"> View All </a> </center>
