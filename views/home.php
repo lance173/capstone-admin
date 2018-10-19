@@ -86,8 +86,8 @@
                                             <tr>
                                                 <td> <img src="../assets/img/posts/lnch212.jpg" class="img-artvw">  </td>
                                                 <td> <div class="td-content">USC Library La..</div></td>
-                                                <td> <div class="td-content">Steve Rogers </div></td>
-                                                <td> <div class="td-content"> 02/08/2017 </div></td>
+                                                <td> <div class="td-content">Reed Richards </div></td>
+                                                <td> <div class="td-content"> 07/08/2018 </div></td>
                                                 <td>
                                                     <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
                                                 </td>
@@ -95,8 +95,8 @@
                                             <tr>
                                                 <td> <img src="../assets/img/posts/bk-fr2121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> USC Book Fair.. </div></td>
-                                                <td> <div class="td-content">Reed Richards</div></td>
-                                                <td> <div class="td-content">08/10/2017</div></td>
+                                                <td> <div class="td-content">Ben Grimm</div></td>
+                                                <td> <div class="td-content">03/01/2018</div></td>
                                                 <td>
                                                     <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
                                                 </td>
@@ -105,7 +105,7 @@
                                                 <td> <img src="../assets/img/posts/facl-212121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> New Facilities.. </div></td>
                                                 <td> <div class="td-content"> Susan Storm </div></td>
-                                                <td> <div class="td-content"> 14/11/2017 </div></td>
+                                                <td> <div class="td-content"> 01/19/2018 </div></td>
                                                 <td>
                                                     <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
                                                 </td>
@@ -114,7 +114,7 @@
                                                 <td> <img src="../assets/img/posts/uscnc-bkrdng.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> North Campus.. </div></td>
                                                 <td> <div class="td-content"> Johnny Storm </div></td>
-                                                <td> <div class="td-content"> 14/12/2017 </div></td>
+                                                <td> <div class="td-content"> 11/12/2017 </div></td>
                                                 <td>
                                                     <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
                                                 </td>

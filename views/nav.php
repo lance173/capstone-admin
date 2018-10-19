@@ -222,6 +222,9 @@
                             <span class="nav-label">Website</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
+                                <a href="site-editor.php">Site Editor</a>
+                            </li>
+                            <li>
                                 <a href="table_basic.html">Edit Slider</a>
                             </li>
                             <li>
@@ -234,7 +237,7 @@
                             <span class="nav-label">Articles</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="charts_flot.html">All Articles</a>
+                                <a href="articles-table.php">All Articles</a>
                             </li>
                             <li>
                                 <a href="add-article.php">Post New Article</a>

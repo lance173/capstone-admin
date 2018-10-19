@@ -16,7 +16,7 @@
                     <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Line tabs</div>
+                                <div class="ibox-title">All Student Users</div>
                                 <div> <a href="add-userstudent.php"> <button class="btn add-btn"> <i class="fas fa-plus"></i> Add New Student</button> </a> </div>
                             </div>
                             <div class="ibox-body">
