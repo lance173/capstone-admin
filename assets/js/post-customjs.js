@@ -17,3 +17,19 @@
 		$("#upload-file").click();
 	});
 
+
+
+    //On Slide editor
+
+    //file upload via anchor tag
+    $("#fileupload1").click(function(){
+        $("#upload-file1").click();
+    });
+
+    $("#fileupload2").click(function(){
+        $("#upload-file2").click();
+    });
+
+    $("#fileupload3").click(function(){
+        $("#upload-file3").click();
+    });

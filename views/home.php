@@ -176,7 +176,7 @@
                             
                             <div class="buttonset-jumbo">
                                 <div class="wrapper">
-                                    <a class="editsite-btn" href="#" role="button">EDIT WEBSITE</a>
+                                    <a class="editsite-btn" href="site-editor.php" role="button">EDIT WEBSITE</a>
                                     <a class="viewsite-btn" href="#" role="button">VIEW WEBSITE  </a> 
                                 </div>
                             </div>                           

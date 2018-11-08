@@ -44,7 +44,7 @@
                                 <div class="ibox-footer">
                                     <div class="ibox-footercontent">                                    
                                         <a href="#" id="fileupload"><span class="setfeat-img">Set featured image</span></a> </div>
-                                        <input id="upload-file" type="file"  style="display: none" accept="image/*" onchange="preview_image(event)" />
+                                        <input id="upload-file" type="file" accept="image/*" onchange="preview_image(event)" />
                                 </div>
                             </div>
 

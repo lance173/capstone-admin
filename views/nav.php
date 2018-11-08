@@ -225,10 +225,10 @@
                                 <a href="site-editor.php">Site Editor</a>
                             </li>
                             <li>
-                                <a href="table_basic.html">Edit Slider</a>
+                                <a href="slider-editor.php">Edit Slider</a>
                             </li>
                             <li>
-                                <a href="datatables.html">Edit / Add Pages</a>
+                                <a href="webpage-table.php">Site Pages</a>
                             </li>
                         </ul>
                     </li>
