@@ -129,8 +129,9 @@
                           
 
                         </div>                  
-                </div>  
-            </div>                  
+                  </div>  
+                </div> 
+            </div>                 
 
                 <!--content-wrapper closing tag will be found in footer.php -->
 <?php

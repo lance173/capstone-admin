@@ -33,7 +33,7 @@ function addStudentUser(){
 	}
 }
 
-function loadStudents(){
+function loadAllStudents(){
    $conn = myConnect();
    $sql = "SELECT * FROM students";
    $result = mysqli_query($conn, $sql);
@@ -43,7 +43,31 @@ function loadStudents(){
       $rows[] = $row;
    }
    return $rows;  
+}
 
+
+function loadClearedStudents(){
+   $conn = myConnect();
+   $sql = "SELECT * FROM students WHERE Status = 'CLEARED'";
+   $result = mysqli_query($conn, $sql);
+
+   while($row=mysqli_fetch_array($result)){
+      //do something as long as there's a remaining row.
+      $rows[] = $row;
+   }
+   return $rows;  
+}
+
+function loadBlockedStudents(){
+   $conn = myConnect();
+   $sql = "SELECT * FROM students WHERE Status = 'BLOCKED'";
+   $result = mysqli_query($conn, $sql);
+
+   while($row=mysqli_fetch_array($result)){
+      //do something as long as there's a remaining row.
+      $rows[] = $row;
+   }
+   return $rows;  
 }
 
 ?>

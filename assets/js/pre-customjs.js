@@ -50,3 +50,14 @@ function preview_imageslide3(event)
  }
  reader.readAsDataURL(event.target.files[0]);
 }
+
+//show & hide Edit | View | Delete
+function showpgelnks(id) {
+	x = id;
+    document.getElementById(x).style.visibility = "visible";
+}
+
+function hidepgelnks(id) {
+	x = id;
+    document.getElementById(x).style.visibility = "hidden";
+}

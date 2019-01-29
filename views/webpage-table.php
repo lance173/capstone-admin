@@ -20,7 +20,7 @@
                             <div class="ibox-body">
                                 <ul class="nav nav-tabs tabs-line">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#tab-7-1" data-toggle="tab"><i class="far fa-window-maximize"></i> Published Articles</a>
+                                        <a class="nav-link active" href="#tab-7-1" data-toggle="tab"><i class="far fa-window-maximize"></i> Published Pages</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#tab-7-2" data-toggle="tab"><i class="fas fa-file-signature"></i> Pending Approval</a>
@@ -38,36 +38,54 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>                                                    
+
+                                                <?php $lnkid = "showpgelnk1";?> <!-- TO BE ADDED: $lnkid will increment every <tr> -->
+
+                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                  
                                                     <td> <div class="pagetabletitle"> Montessori Campus </div> 
-                                                        <div class="pagetableminlink"> 
+                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
                                                             <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
                                                         </div>
                                                     </td>
                                                     <td>Reed Richards</td>
                                                     <td>07/08/2018</td>
                                                 </tr> 
-                                                <tr>                                                    
-                                                    <td> <div class="pagetabletitle"> Montessori Campus </div> 
-                                                        <div class="pagetableminlink"> 
+
+                                                                   <!-- Just here to catch attention--> 
+                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
+                                                                    <!-- Just here to catch attention-->
+
+                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
+                                                    <td> <div class="pagetabletitle"> North Campus </div> 
+                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
                                                             <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
                                                         </div>
                                                     </td>
                                                     <td>Ben Grimm</td>
                                                     <td>03/01/2018</td>
                                                 </tr>
-                                                <tr>                                                    
-                                                    <td> <div class="pagetabletitle"> Montessori Campus </div> 
-                                                        <div class="pagetableminlink"> 
+
+                                                                   <!-- Just here to catch attention--> 
+                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
+                                                                    <!-- Just here to catch attention-->
+
+                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
+                                                    <td> <div class="pagetabletitle"> Talamban Campus </div> 
+                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
                                                             <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
                                                         </div>
                                                     </td>
                                                     <td>Susan Storm</td>
                                                     <td>01/19/2018 </td>
                                                 </tr>
-                                                <tr>
-                                                    <td> <div class="pagetabletitle"> Montessori Campus </div> 
-                                                        <div class="pagetableminlink"> 
+
+                                                                   <!-- Just here to catch attention--> 
+                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
+                                                                    <!-- Just here to catch attention-->
+
+                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">
+                                                    <td> <div class="pagetabletitle"> South Campus </div> 
+                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
                                                             <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
                                                         </div>
                                                     </td>

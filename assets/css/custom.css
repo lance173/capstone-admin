@@ -727,14 +727,18 @@ html, body{
 /*Webpage Table*/
 
 .pagetabletitle{
-  padding-bottom: 3px;
+  padding-bottom: 8px;
 }
 
 .pagetableminlink{
-  font-size: 12px;
-  padding-left: 3px;
+  font-size: 13px;
+  /*padding-left: 3px;*/
   display: block;
   visibility: hidden;
+}
+
+#showpgelnk{
+  /*visibility: hidden;*/
 }
 
 .page-deletelink{

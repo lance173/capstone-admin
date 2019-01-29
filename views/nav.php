@@ -166,7 +166,7 @@
             <div id="sidebar-collapse">
                 <div class="admin-block d-flex">
                     <div class="">
-                        <img src="../assets/img/admin-avatar.png" width="80px" />
+                        <img src="../assets/img/admin-avatar.png" width="80px" style="border-radius: 100px;" />
                     </div>                    
                 </div>
                 <div class="admin-info">
@@ -180,6 +180,11 @@
                     <li class="active">
                         <a href="home.php"><i class="sidebar-item-icon fa fa-home"></i> 
                             <span class="nav-label"> Home / Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="activitylog-page.php"><i class="sidebar-item-icon fas fa-hourglass-start"></i> 
+                            <span class="nav-label"> Activity Log</span>
                         </a>
                     </li>
                     <li class="heading">USERS</li>
@@ -223,6 +228,9 @@
                         <ul class="nav-2-level collapse">
                             <li>
                                 <a href="site-editor.php">Site Editor</a>
+                            </li>
+                            <li>
+                                <a href="menu-editor.php">Edit Menu Bar</a>
                             </li>
                             <li>
                                 <a href="slider-editor.php">Edit Slider</a>

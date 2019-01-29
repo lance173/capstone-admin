@@ -17,8 +17,6 @@
 		$("#upload-file").click();
 	});
 
-
-
     //On Slide editor
 
     //file upload via anchor tag
@@ -33,3 +31,6 @@
     $("#fileupload3").click(function(){
         $("#upload-file3").click();
     });
+
+
+    

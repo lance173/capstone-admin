@@ -2,7 +2,9 @@
     require('header.php');
     include('nav.php');
     require('../controllers/StudentUserController.php'); 
-    $students = loadStudents();
+    $Allstudents = loadAllStudents();
+    $Clearedstudents = loadClearedStudents();
+    $Blockedstudents = loadBlockedStudents();
 ?>
 
 
@@ -45,29 +47,72 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach($students as $s){  ?>
+                                                <?php if(isset($Allstudents)){foreach($Allstudents as $as){  ?>
                                                     <tr>
-                                                        <td><?php echo $s['USCIDNo'];?></td>
-                                                        <td><?php echo $s['FirstName'];?> <?php echo $s['LastName'];?></td>
-                                                        <td><?php echo $s['Course'];?> - <?php echo $s['YearLevel'];?> </td>
-                                                        <td><?php echo $s['Status'];?></td>
+                                                        <td><?php echo $as['USCIDNo'];?></td>
+                                                        <td><?php echo $as['FirstName'];?> <?php echo $as['LastName'];?></td>
+                                                        <td><?php echo $as['Course'];?> - <?php echo $as['YearLevel'];?> </td>
+                                                        <td><?php echo $as['Status'];?></td>
                                                     </tr> 
-                                                <?php } ?>                                                
+                                                <?php }} ?>                                                
                                             </tbody>
                                         </table>
 
                                     </div>
                                     <div class="tab-pane" id="tab-7-2">
+                                    
 
-                                        Display all students with CLEARED status.
+                                        <!-- Display all students with CLEARED status only. -->
+                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID No.</th>
+                                                    <th>Name</th>
+                                                    <th>Course & Year</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if(isset($Clearedstudents)){foreach($Clearedstudents as $cs){  ?>
+                                                    <tr>
+                                                        <td><?php echo $cs['USCIDNo'];?></td>
+                                                        <td><?php echo $cs['FirstName'];?> <?php echo $cs['LastName'];?></td>
+                                                        <td><?php echo $cs['Course'];?> - <?php echo $cs['YearLevel'];?> </td>
+                                                        <td><?php echo $cs['Status'];?></td>
+                                                    </tr> 
+                                                <?php }} ?>                                                
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                     <div class="tab-pane fade"  id="tab-7-3">
+                                    
 
-                                        Display all students with BLOCKED status.
+                                        <!-- Display all students with BLOCKED status only. -->
+                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID No.</th>
+                                                    <th>Name</th>
+                                                    <th>Course & Year</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if(isset($Blockedstudents)){foreach($Blockedstudents as $bs){  ?>
+                                                    <tr>
+                                                        <td><?php echo $bs['USCIDNo'];?></td>
+                                                        <td><?php echo $bs['FirstName'];?> <?php echo $bs['LastName'];?></td>
+                                                        <td><?php echo $bs['Course'];?> - <?php echo $bs['YearLevel'];?> </td>
+                                                        <td><?php echo $bs['Status'];?></td>
+                                                    </tr> 
+                                                <?php }} ?>                                                
+                                            </tbody>
+                                        </table>
 
                                     </div>
-                                </div><br></div>
+                                </div><br>
+                            </div>
                         </div>                  
                     </div>
                     

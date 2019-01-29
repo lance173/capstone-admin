@@ -253,9 +253,9 @@
                     <div class="col-md-4">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title"> <i class="fas fa-hourglass"></i> Activity Log</div>
+                                <div class="ibox-title"> <i class="fas fa-hourglass-start"></i> Activity Log</div>
                                 <div>
-                                    <a class="btn btn-actlog btn-sm" href=" :;">View All</a>
+                                    <a class="btn btn-actlog btn-sm" href="activitylog-page.php">View All</a>
                                 </div>
                             </div>
                             <div class="ibox-body">
@@ -272,7 +272,7 @@
                                                 <td> <div class="td-content"> <i class="fas fa-check"></i> <b>Phil Couson</b> approved an Article </div> </td>                                 
                                             </tr>
                                             <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-pen"></i> <b>Carol Denvers</b> edited an Article </div> </td>  
+                                                <td> <div class="td-content"> <i class="fas fa-pen"></i> <b>Carol Danvers</b> edited an Article </div> </td>  
                                             </tr>
                                             <tr>
                                                 <td> <div class="td-content"> <i class="fas fa-file-alt"></i> <b>Steve Rogers</b>  wrote an Article </div> </td>
