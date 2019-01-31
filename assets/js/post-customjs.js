@@ -1,14 +1,29 @@
 
     function roleSelect() {
     	var x = document.getElementById("roleselect").value;
+
+        var w = document.getElementById("role-sysad");
+        var y = document.getElementById("role-editr");
+        var z = document.getElementById("role-autr");
+
         if (x == "System Admin") {
             
-            document.getElementById("role-do").innerHTML = "System Admin can:"
+            w.style.display = 'block';
+            y.style.display = 'none';
+            z.style.display = 'none';
                                        
-        // } else {
-        //     document.getElementById("role-do").innerHTML = "none";
-        // }
-    	}
+        } else if (x == "Editor") {
+
+            y.style.display = 'block';
+            w.style.display = 'none';
+            z.style.display = 'none';
+
+    	} else if (x == "Author / Writer") {
+
+            z.style.display = 'block';
+            w.style.display = 'none';
+            y.style.display = 'none';
+        }
 	}
 
 

@@ -74,8 +74,27 @@
                                         <option>Editor</option>
                                         <option>Author / Writer</option>
                                     </select>
-                                    <div class="role-descrip" id="role-do">
+
+                                    <div class="role-descrip" id="role-sysad">
                                         <i class="fas fa-info-circle"></i> System Admin can:
+                                            <ul>
+                                                 <li> Can everything in t </li>
+                                                 <li>edfdd</li>
+                                                 <li>fdfd</li>
+                                            </ul>
+                                    </div>
+
+                                    <div class="role-descrip" id="role-editr">
+                                        <i class="fas fa-info-circle"></i> Editor can:
+                                            <ul>
+                                                 <li> Can everything in t </li>
+                                                 <li>edfdd</li>
+                                                 <li>fdfd</li>
+                                            </ul>
+                                    </div>
+
+                                    <div class="role-descrip" id="role-autr">
+                                        <i class="fas fa-info-circle"></i> Author/Writer can:
                                             <ul>
                                                  <li> Can everything in t </li>
                                                  <li>edfdd</li>

@@ -560,6 +560,7 @@ html, body{
 .role-descrip{
   margin-top: 20px;
   margin-left: 15px;
+  display: none;
 }
 
 /**New Student User**/
