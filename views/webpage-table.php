@@ -15,7 +15,7 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title">Site Pages</div>
-                                <div> <a href="add-article.php"> <button class="btn add-btn"> <i class="fas fa-plus"></i> Add New Page </button> </a> </div>
+                                <div> <a href="add-webpage.php"> <button class="btn add-btn"> <i class="fas fa-plus"></i> Add New Page </button> </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <ul class="nav nav-tabs tabs-line">

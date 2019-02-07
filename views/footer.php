@@ -24,6 +24,7 @@
     <script src="../assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script src="../assets/js/scripts/chartjs_demo.js" type="text/javascript"></script>
+
     <!-- PAGE LEVEL PLUGINS-->
     <script src="../assets/vendors/chart.js/dist/Chart.min.js" type="text/javascript"></script>
     <script src="../assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
@@ -37,6 +38,7 @@
     <script src="../assets/vendors/Flot/jquery.flot.stack.js" type="text/javascript"></script>
     <script src="../assets/vendors/Flot/jquery.flot.selection.js" type="text/javascript"></script>
     <script src="../assets/vendors/flot-orderBars/js/jquery.flot.orderBars.js" type="text/javascript"></script>
+    <script src="../assets/vendors/summernote/dist/summernote.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
         $(function() {
@@ -52,7 +54,15 @@
                 ]*/
             });
         })
-    </script>   
+    </script>  
+    <script type="text/javascript">
+        $(function() {
+            $('#summernote').summernote();
+            $('#summernote_air').summernote({
+                airMode: true
+            });
+        });
+    </script> 
     <script src="../assets/js/scripts/charts_flot_demo.js" type="text/javascript"></script>
 
 </body>

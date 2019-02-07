@@ -69,7 +69,6 @@
                                                     <th>ID No.</th>
                                                     <th>Name</th>
                                                     <th>Course & Year</th>
-                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -78,7 +77,6 @@
                                                         <td><?php echo $cs['USCIDNo'];?></td>
                                                         <td><?php echo $cs['FirstName'];?> <?php echo $cs['LastName'];?></td>
                                                         <td><?php echo $cs['Course'];?> - <?php echo $cs['YearLevel'];?> </td>
-                                                        <td><?php echo $cs['Status'];?></td>
                                                     </tr> 
                                                 <?php }} ?>                                                
                                             </tbody>
@@ -95,7 +93,6 @@
                                                     <th>ID No.</th>
                                                     <th>Name</th>
                                                     <th>Course & Year</th>
-                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -104,7 +101,6 @@
                                                         <td><?php echo $bs['USCIDNo'];?></td>
                                                         <td><?php echo $bs['FirstName'];?> <?php echo $bs['LastName'];?></td>
                                                         <td><?php echo $bs['Course'];?> - <?php echo $bs['YearLevel'];?> </td>
-                                                        <td><?php echo $bs['Status'];?></td>
                                                     </tr> 
                                                 <?php }} ?>                                                
                                             </tbody>

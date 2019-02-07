@@ -471,7 +471,14 @@ html, body{
   color: #FFF;
 }
 
-.add-btn:hover {
+
+.add-btn2{
+  border: 2px solid #FFB041;
+  background-color: #FFB041;
+  color: #FFF;
+}
+
+.add-btn:hover, .add-btn2:hover {
   color: #333;
   background-color: #FFF;
 }
@@ -522,6 +529,21 @@ html, body{
 .setfeat-img{
   font-size: 13px;
   text-decoration: underline;
+}
+
+.caret-hidetoggle{
+  padding: 0px 6px;
+  border:1px #FFF solid;   
+  border-radius: 100%;
+}
+
+.caret-hidetoggle:hover, .caret-hidetoggle:active {
+  border: 1px blue solid;  
+}
+
+.prvwfeatimg {
+  height: 130px; 
+  width: 100%;
 }
 
 /*
@@ -748,4 +770,78 @@ html, body{
 
 .page-deletelink:hover {
   color: #ce0404;
+}
+
+/*Menu Bar Editor */
+
+.mnurow{
+  margin-left: 15px; 
+  margin-top: 20px;
+}
+
+.menubar-preview {
+  overflow: hidden;
+  background-color: #02A554;
+  font-family: Arial;
+  width: 100%;
+}
+
+.menubar-preview a {
+  float: left;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  padding: 15px 16px;
+  text-decoration: none;   
+  transition: 0.6s;
+  margin-left: 10px;
+}
+
+.drpdwn-prvw {
+  float: left;
+  overflow: hidden;  
+  margin-left: 10px;
+}
+
+.drpdwn-prvw .dropbtn {
+  font-size: 14px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 15px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  transition: 0.3s;
+}
+
+.menubar-preview a:hover, .drpdwn-prvw:hover .dropbtn {
+  background-color: #FFB041;
+
+}
+
+.drpdwn-prvw-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.drpdwn-prvw-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.drpdwn-prvw-content a:hover {
+  background-color: #ddd;
+}
+
+.drpdwn-prvw:hover .drpdwn-prvw-content {
+  display: block;
 }

@@ -27,40 +27,44 @@
                         </form>
 
                         <div class="ibox">
-                            <textarea id="richtexteditor" style="height: 320px;"> </textarea>
+                            <textarea class="input-block-level" id="summernote" name="content">
+                            </textarea>
                         </div>
 
                     </div>  
                     <div class="col-md-3">
-                        
+                                            
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="newibox-title"> Featured Image  </div>
-                                <div> <i class="fas fa-caret-down"></i> </div>
+                                <div class="caret-hidetoggle" onclick="hdeshwftimg()"> <span id="featimg-down" style="display: none"><i class="fas fa-caret-down"></i></span> <span id="featimg-up"><i class="fas fa-caret-up"></i> </span> </div>
                             </div>
-                            <div class="ibox-body" style="display: ;">
-                                <img src="../assets/img/image.png" style="height: 130px; width: 100%;">
-                            </div>
-                            <div class="ibox-footer">
-                                <div class="ibox-footercontent"> <a href="#"><span class="setfeat-img">Set featured image</span></a> </div>
-                            </div>
+                            <div id="featimg-body">
+                                <div class="ibox-body">
+                                    <img src="../assets/img/image.png" class="prvwfeatimg" id="output_image">
+                                </div>
+                                <div class="ibox-footer">
+                                    <div class="ibox-footercontent">                                    
+                                        <a href="#" id="fileupload"><span class="setfeat-img">Set featured image</span></a> </div>
+                                        <input id="upload-file" type="file" accept="image/*" onchange="preview_image(event)" />
+                                </div>
+                            </div>                            
                         </div>
 
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="newibox-title"> Publish  </div>
-                                <div> <i class="fas fa-caret-down"></i> </div>
+                                <div class="caret-hidetoggle" onclick="hdeshwpblsh()"> <span id="pblsh-down" style="display: none"><i class="fas fa-caret-down"></i></span> <span id="pblsh-up"><i class="fas fa-caret-up"></i> </span> </div>
                             </div>
-                            <div class="ibox-body">
-                                <i class="fas fa-info-circle"></i> publishing page info
-                            </div>
-                            <div class="ibox-footer">
-                                <div class="ibox-footercontent publishpage-btn"> <button class="btn btn-primary"> Publish Page </button> </div>
-                            </div>
-                        </div>
-
-                        
-
+                            <div id="pblsh-body">
+                                <div class="ibox-body">
+                                    <i class="fas fa-info-circle"></i> publishing page info
+                                </div>
+                                <div class="ibox-footer">
+                                    <div class="ibox-footercontent publishpage-btn"> <button class="btn btn-primary"> Publish Page </button> </div>
+                                </div>
+                            </div>                            
+                        </div>                       
                              
                     </div>                
             </div>

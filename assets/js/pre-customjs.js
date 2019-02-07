@@ -11,6 +11,44 @@ function preview_image(event)
  reader.readAsDataURL(event.target.files[0]);
 }
 
+//preview featured image and publish show and hide
+
+function hdeshwftimg()
+{
+  var x = document.getElementById("featimg-down");
+  var y = document.getElementById("featimg-up");
+  var z = document.getElementById("featimg-body");
+
+  if(x.style.display == "none"){
+    x.style.display = "block";
+    y.style.display = "none";
+    z.style.display = "none";
+
+  } else {
+    y.style.display = "block";
+    x.style.display = "none";
+    z.style.display = "block";
+  }  
+}
+
+function hdeshwpblsh()
+{
+  var x = document.getElementById("pblsh-down");
+  var y = document.getElementById("pblsh-up");
+  var z = document.getElementById("pblsh-body");
+
+  if(x.style.display == "none"){
+    x.style.display = "block";
+    y.style.display = "none";
+    z.style.display = "none";
+
+  } else {
+    y.style.display = "block";
+    x.style.display = "none";
+    z.style.display = "block";
+  }
+  
+}
 
 //On Slide editor
 

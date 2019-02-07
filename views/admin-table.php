@@ -40,10 +40,8 @@
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th>Role</th>
+                                                    <th>Age</th>                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -52,8 +50,6 @@
                                                     <td>Chief Marketing Officer (CMO)</td>
                                                     <td>New York</td>
                                                     <td>40</td>
-                                                    <td>2009/06/25</td>
-                                                    <td>$675,000</td>
                                                 </tr>                                               
                                             </tbody>
                                         </table>

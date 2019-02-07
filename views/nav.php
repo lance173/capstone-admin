@@ -3,7 +3,7 @@
         <!-- START HEADER-->
         <header class="header">
             <div class="page-brand">
-                <a class="link" href="index.html">
+                <a class="link" href="index.php">
                     <span class="brand"> <img src="../assets/img/usclibsystem-transp-whitetxt.png" width="60px" height="30px" />
                         <span class="brand-tip"> <img src="../assets/img/usc-completelogo-whitetxt.png" width="150px" height="35px" /> </span>
                     </span>
@@ -196,7 +196,7 @@
                                 <a href="students-table.php">All Student Users</a>
                             </li>
                             <li>
-                                <a href="add-userstudent.php">Add New</a>
+                                <a href="add-userstudent.php">Add New </a>
                             </li>                            
                         </ul>
                     </li>

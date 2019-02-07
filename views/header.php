@@ -17,13 +17,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- PLUGINS STYLES-->
     <link href="../assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="../assets/vendors/summernote/dist/summernote.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="../assets/css/main.min.css" rel="stylesheet" />
     <link href="../assets/css/custom.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
 
      <!-- PAGE LEVEL SCRIPTS-->
-    <script src="../assets/js/tinymce/tinymce.min.js"></script>
-    <script>tinymce.init({ selector: '#richtexteditor' });</script>
     <script src="../assets/js/pre-customjs.js"></script>
 </head>

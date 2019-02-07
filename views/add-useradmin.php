@@ -87,17 +87,15 @@
                                     <div class="role-descrip" id="role-editr">
                                         <i class="fas fa-info-circle"></i> Editor can:
                                             <ul>
-                                                 <li> Can everything in t </li>
+                                                 <li> Edit churva ek-ek </li>
                                                  <li>edfdd</li>
-                                                 <li>fdfd</li>
                                             </ul>
                                     </div>
 
                                     <div class="role-descrip" id="role-autr">
                                         <i class="fas fa-info-circle"></i> Author/Writer can:
                                             <ul>
-                                                 <li> Can everything in t </li>
-                                                 <li>edfdd</li>
+                                                 <li> Write Articles and stuff </li>
                                                  <li>fdfd</li>
                                             </ul>
                                     </div>
