@@ -68,7 +68,7 @@
 
                                 <div class="form-group site-roleselect">
                                     <label class="control-label" for="site-role">Site Role</label>
-                                    <select id="roleselect" name="" type="" class="form-control"  onchange="roleSelect();">
+                                    <select id="roleselect" name="" class="form-control"  onchange="roleSelect();">
                                         <option selected disabled hidden>Select Role for admin in this website</option>
                                         <option>System Admin</option>
                                         <option>Editor</option>

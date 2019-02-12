@@ -26,6 +26,47 @@
         }
 	}
 
+    function staticordropdown() {
+        var x = document.getElementById("sttcordrpdwn").value;
+
+        var a = document.getElementById("chosenstatic");
+        var b = document.getElementById("chosendropdown");
+
+        if (x == "Static") {
+
+            a.style.display = 'block';
+            b.style.display = 'none';
+
+        } else if (x == "Drop-down") {
+
+            a.style.display = 'none';
+            b.style.display = 'block';
+        }
+    }
+
+    function ifcustomlink1() {
+        var chosenpage1 = document.getElementById("pageorcustomlink1").value;
+
+        var w = document.getElementById("chosencustomlink1");
+
+        if (chosenpage1 == "Custom Link"){
+            w.style.display = 'block';
+        } else if (chosenpage1 != "Custom Link") {
+            w.style.display = 'none';
+        }
+    }
+
+    function ifcustomlink2() {
+        var chosenpage2 = document.getElementById("pageorcustomlink2").value;
+
+        var z = document.getElementById("chosencustomlink2");
+
+        if (chosenpage2 == "Custom Link"){
+            z.style.display = 'block';
+        } else if (chosenpage2 != "Custom Link") {
+            z.style.display = 'none';
+        }
+    }
 
 	//file upload via anchor tag
 	$("#fileupload").click(function(){
