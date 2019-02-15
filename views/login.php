@@ -14,7 +14,7 @@
 					 USC Library Personnel can only login to this section. 
 				</div>
 				
-				<form name="signupForm" class="form-signin" method="POST" action="#">
+				<form name="loginForm" class="form-signin" method="POST" action="#">
               		              
 		              <input name="username" type="text" class="input-block-level" placeholder="Username" required>		          
 		              <input name="password" type="password" class="input-block-level" placeholder="Password" required>
@@ -23,23 +23,14 @@
 
             	<div class="loginfooter">
 
-            		 USC Library System 2.0 - All rights reserved © 2018.
+            		 USC Library System Website 2.0 - All rights reserved © 2019.
             		 <br> <br>
             		 <img src="../assets/img/usc-completelogo-whitetxt.png" class="login-usclogo">
             	</div>
-
-
 			</div>				
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
 
 
 <!-- END PAGA BACKDROPS-->
@@ -50,11 +41,8 @@
     <script src="../assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
     <script src="../assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
-    <script src="../assets/vendors/chart.js/dist/Chart.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
     <script src="../assets/js/app.min.js" type="text/javascript"></script>
-    <!-- PAGE LEVEL SCRIPTS-->
-    <script src="../assets/js/scripts/chartjs_demo.js" type="text/javascript"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title> Admin Side - USC Website </title>
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/usclibsystem-transp-logotest.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/usclibsystem-transp-logo.png" />
     <!-- GLOBAL MAINLY STYLES-->
     <link href="../assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!--font  and icon links -->
