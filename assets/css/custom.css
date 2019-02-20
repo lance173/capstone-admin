@@ -923,3 +923,11 @@ html, body{
 #chosenstatic, #chosencustomlink1, #chosendropdown, #chosencustomlink2{
   display: none;
 }
+
+
+.men-itm:hover {
+  /*background-color: #6ba3ff; */
+  border: 3px solid #6ba3ff;
+  /*color: #FFF;*/
+}
+

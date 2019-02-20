@@ -5,6 +5,8 @@
     require('../controllers/StudentUserController.php'); 
 ?>
 
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuStudentUsers'); activePageAtSideNav('MenuAddStudentUser'); </script>
+
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="row" style="display: none;">

@@ -110,3 +110,12 @@ function hidevwdetails(id) {
   x = id;
     document.getElementById(x).style.visibility = "hidden";
 }
+
+//activate side nav item
+
+function activePageAtSideNav(id) {
+    x = id;
+    document.getElementById(x).style.color = "#fff";
+    document.getElementById(x).style.backgroundColor = "#6e7884";
+
+}

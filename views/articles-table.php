@@ -2,7 +2,7 @@
     require('header.php');
     include('nav.php');
 ?>
-
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuArticles'); activePageAtSideNav('MenuArticlesTable'); </script>
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->

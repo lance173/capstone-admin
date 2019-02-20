@@ -6,7 +6,7 @@
     $Clearedstudents = loadClearedStudents();
     $Blockedstudents = loadBlockedStudents();
 ?>
-
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuStudentUsers'); activePageAtSideNav('MenuStudentUsersTable'); </script>
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
@@ -111,6 +111,7 @@
                             </div>
                         </div>                  
                     </div>
+                </div>
                     
 
                 <!--content-wrapper closing tag will be found in footer.php -->

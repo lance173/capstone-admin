@@ -2,7 +2,7 @@
     require('header.php');
     include('nav.php');
 ?>
-
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor'); </script>
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
@@ -66,21 +66,21 @@
                             <div class="ibox-title"> <i class="fas fa-bars"></i> &nbsp; Menu Items </div>
                         </div>
                         <div class="ibox-body">
-                            <table class="table table-hover" style="margin-bottom: 0px;">                            
+                            <table class="table" style="margin-bottom: 0px;">                            
                                 <tbody>
-                                    <tr>
-                                        <td style="background-color: #6ba3ff; color: #FFF">Home</td>                                        
+                                    <tr class="men-itm">
+                                        <td> Home </td>                                        
                                     </tr>
-                                    <tr>
+                                    <tr class="men-itm">
                                         <td>Libraries</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="men-itm">
                                         <td>Other Services</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="men-itm">
                                         <td>Linkages</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="men-itm">
                                         <td>Electronic Resources</td>
                                     </tr>
                                 </tbody>

@@ -177,78 +177,73 @@
                 </div>
 
                 <ul class="side-menu metismenu">
-                    <li class="active">
-                        <a href="home.php"><i class="sidebar-item-icon fa fa-home"></i> 
+                    <li>
+                        <a href="home.php" id="MenuHomePage"><i class="sidebar-item-icon fa fa-home"></i> 
                             <span class="nav-label"> Home / Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="activitylog-page.php"><i class="sidebar-item-icon fas fa-hourglass-start"></i> 
+                        <a href="activitylog-page.php" id="MenuActivityLogPage"><i class="sidebar-item-icon fas fa-hourglass-start"></i> 
                             <span class="nav-label"> Activity Log</span>
                         </a>
                     </li>
                     <li class="heading">USERS</li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-users"></i>
+                        <a href="javascript:;" id="MenuStudentUsers"><i class="sidebar-item-icon fa fa-users"></i>
                             <span class="nav-label">Student Users</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="students-table.php">All Student Users</a>
+                                <a href="students-table.php" id="MenuStudentUsersTable">All Student Users</a>
                             </li>
                             <li>
-                                <a href="add-userstudent.php">Add New </a>
+                                <a href="add-userstudent.php" id="MenuAddStudentUser">Add New </a>
                             </li>                            
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-user-shield"></i>
+                        <a href="javascript:;" id="MenuAdminUsers"><i class="sidebar-item-icon fa fa-user-shield"></i>
                             <span class="nav-label">Admins</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="admin-table.php">All Admin Users</a>
+                                <a href="admin-table.php" id="MenuAdminUsersTable">All Admin Users</a>
                             </li>
                             <li>
-                                <a href="add-useradmin.php">Add New</a>
+                                <a href="add-useradmin.php" id="MenuAddAdminUser">Add New</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="reported-table.php"><i class="sidebar-item-icon fa fa-flag"></i>
-                            <span class="nav-label">Reports</span><!-- <i class="fa fa-angle-left arrow"></i> --></a>
-                       <!--  <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="maps_vector.html">Vector maps</a>
-                            </li>
-                        </ul> -->
+                        <a href="reported-table.php" id="MenuReportPage"><i class="sidebar-item-icon fa fa-flag"></i>
+                            <span class="nav-label">Reports</span></a>
                     </li>
                     <li class="heading">SITE CONTENT</li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-desktop"></i>
-                            <span class="nav-label">Website</span><i class="fa fa-angle-left arrow"></i></a>
+                        <a href="javascript:;" id="MenuWebApprnc"><i class="sidebar-item-icon fa fa-desktop"></i>
+                            <span class="nav-label">Website Appearance</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="site-editor.php">Site Editor</a>
+                                <a href="site-editor.php" id="MenuSiteEditor">Site Editor</a>
                             </li>
                             <li>
-                                <a href="menu-editor.php">Edit Menu Bar</a>
+                                <a href="menu-editor.php" id="MenuMnBarEditor">Edit Menu Bar</a>
                             </li>
                             <li>
-                                <a href="slider-editor.php">Edit Slider</a>
+                                <a href="slider-editor.php" id="MenuSliderEditor">Edit Slider</a>
                             </li>
                             <li>
-                                <a href="webpage-table.php">Site Pages</a>
+                                <a href="webpage-table.php" id="MenuWebApprncSitePages">Site Pages</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-file-alt"></i>
+                        <a href="javascript:;" id="MenuArticles"><i class="sidebar-item-icon fa fa-file-alt"></i>
                             <span class="nav-label">Articles</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="articles-table.php">All Articles</a>
+                                <a href="articles-table.php" id="MenuArticlesTable">All Articles</a>
                             </li>
                             <li>
-                                <a href="add-article.php">Post New Article</a>
+                                <a href="add-article.php" id="MenuAddArticle">Post New Article</a>
                             </li>
                         </ul>
                     </li>   
