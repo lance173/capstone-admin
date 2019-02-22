@@ -18,11 +18,12 @@ function addStudentUser(){
 		$course = $_POST['course'];
 		$yearlvl = $_POST['yearlvl'];
 		$password = $_POST['id_number'];
-		$status = "Cleared";
+		$status = "CLEARED";
 		
 
 		$sql =  "INSERT INTO students(USCIDNo, FirstName, LastName, Password, Course, YearLevel, Status) VALUES ('$id_number', '$firstname', '$lastname', '$password', '$course', '$yearlvl', '$status')";
-        $result = mysqli_query($conn,$sql);       
+    
+    $result = mysqli_query($conn,$sql);       
 		if($result){
 	      $str="Student successfully added!";
 	      header("Location: ../views/add-userstudent.php");
@@ -70,4 +71,12 @@ function loadBlockedStudents(){
    return $rows;  
 }
 
+function countStudentUsers(){
+  $conn = myConnect();
+  $result = mysqli_query($conn, "SELECT COUNT(*) AS `count` FROM `Students`");
+  $row = mysqli_fetch_array($result);
+  $count = $row['count'];
+
+  return $count;
+}
 ?>

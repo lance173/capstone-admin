@@ -1,6 +1,9 @@
 <?php 
     require('header.php');
     include('nav.php');
+    require('../controllers/StudentUserController.php'); 
+
+    $NoOfUsers = countStudentUsers();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuHomePage'); </script>
 
@@ -29,7 +32,7 @@
 
                             <div class="info-box-content">
                               <span class="info-box-text">Users</span>
-                              <span class="info-box-number">210,146</span>
+                              <span class="info-box-number"> <?php echo $NoOfUsers ?> </span>
                             </div>
                       </div>
                     </div>                    

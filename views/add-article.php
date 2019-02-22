@@ -1,7 +1,9 @@
 <?php 
     require('header.php');
     include('nav.php');
+    require('../controllers/ArticleController.php'); 
 ?>
+
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuArticles'); activePageAtSideNav('MenuAddArticle'); </script>
 
         <div class="content-wrapper">
@@ -9,7 +11,7 @@
             <div class="row" style="display: none;">
                 <div class="inpage-alerts">
                     <div class="alert alert-success">
-                        Page is published successfully.
+                        Article is published successfully.
                     </div>
                 </div>
             </div>
@@ -19,11 +21,11 @@
             </div>
 
             
-            <form>
+            <form method="POST" action="../controllers/ArticleController.php">
                 <div class="row">
                         <div class="col-md-9">
                             
-                                <input type="text" name="" class="input-title" placeholder="Article Title"  >
+                                <input type="text" name="title" class="input-title" placeholder="Article Title"  >
                             
 
                             <div class="ibox">
@@ -46,7 +48,7 @@
                                     <div class="ibox-footer">
                                         <div class="ibox-footercontent">                                    
                                             <a href="#" id="fileupload"><span class="setfeat-img">Set featured image</span></a> </div>
-                                            <input id="upload-file" type="file" accept="image/*" onchange="preview_image(event)" />
+                                            <input id="upload-file" type="file" accept="image/*" onchange="preview_image(event)" name="featureimage" />
                                     </div>
                                 </div>                            
                             </div>
@@ -61,7 +63,7 @@
                                         <i class="fas fa-info-circle"></i> publishing article info
                                     </div>
                                     <div class="ibox-footer">
-                                        <div class="ibox-footercontent publishpage-btn"> <button class="btn btn-primary"> Publish Page </button> </div>
+                                        <div class="ibox-footercontent publishpage-btn"> <button type="submit" name="btnAddArticle" class="btn btn-primary"> Publish Page </button> </div>
                                     </div>
                                 </div>                            
                             </div> 
