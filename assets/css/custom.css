@@ -486,6 +486,10 @@ html, body{
   background-color: #FFF;
 }
 
+.center-tabledata{
+  text-align: center;
+}
+
 /*
 *
   Site Page / Article - Editor

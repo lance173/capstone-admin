@@ -1,6 +1,8 @@
 <?php 
     require('header.php');
     include('nav.php');
+    require('../controllers/ArticleController.php'); 
+    $PendingArticles = loadPendingArticles();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuArticles'); activePageAtSideNav('MenuArticlesTable'); </script>
 
@@ -86,18 +88,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-check"></i> Approve </a>  </td>
-                                                    <td style="text-align: center;"> <img src="../assets/img/posts/sliman-vst.jpg" class="img-artvw"> </td>
-                                                    <td>Siliman University Siliman University Visitors</td>
-                                                    <td>Reed Richards</td>
-                                                    <td>10/18/2018</td>
-                                                    <td> 
-                                                        
-                                                        <a class="btn btn-primary" href="#" role="button"> View </a>
-                                                        <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> </a>
-                                                    </td>
-                                                </tr>                                                                                               
+                                                <?php if(isset($PendingArticles)){foreach($PendingArticles as $pa){ ?>
+                                                    <tr>
+                                                        <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-check"></i> Approve </a>  </td>
+                                                        <td class="center-tabledata"> <img src="../assets/img/<?php echo $pa['FeaturePhoto'];?>" class="img-artvw"> </td>
+                                                        <td> <?php echo $pa['Title'];?> </td>
+                                                        <td>Reed Richards</td>
+                                                        <td> <?php echo $pa['DateWritten'];?> </td>
+                                                        <td> 
+                                                            
+                                                            <a class="btn btn-primary" href="#" role="button"> View </a>
+                                                            <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> </a>
+                                                        </td>
+                                                    </tr>
+                                                <?php }} ?>                                                                                               
                                             </tbody>
                                         </table> 
 
