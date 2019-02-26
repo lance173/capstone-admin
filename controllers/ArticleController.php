@@ -4,9 +4,8 @@
 if(isset($_POST['btnAddArticle'])){
       addArticle();
     }
-?>
 
-<?php
+
 function addArticle(){
     $conn = myConnect();
 
@@ -18,7 +17,7 @@ function addArticle(){
 		$status = "PENDING";
 		$publisher = "1";
 
-		$sql = "INSERT INTO article(Title, FeaturePhoto, Content, Status, AdminID) VALUES ('$title', '$featureimage', '$content', '$status', '$publisher')";
+		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, Status, AdminID) VALUES ('$title', '$featureimage', '$content', '$status', '$publisher')";
 
 		$result = mysqli_query($conn,$sql);    
 		if($result){
@@ -30,4 +29,29 @@ function addArticle(){
 		    }	
 	}
 }
+
+function loadPublishedArticles(){
+   $conn = myConnect();
+   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED'";
+   $result = mysqli_query($conn, $sql);
+
+   while($row=mysqli_fetch_array($result)){
+      //do something as long as there's a remaining row.
+      $rows[] = $row;
+   }
+   return $rows;  
+}
+
+function loadPendingArticles(){
+   $conn = myConnect();
+   $sql = "SELECT * FROM articles WHERE Status = 'PENDING'";
+   $result = mysqli_query($conn, $sql);
+
+   while($row=mysqli_fetch_array($result)){
+      //do something as long as there's a remaining row.
+      $rows[] = $row;
+   }
+   return $rows;  
+}
+
 ?>
