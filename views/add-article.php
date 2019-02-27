@@ -16,6 +16,10 @@
                 </div>
             </div>
 
+            <div style="margin-top: 20px;">
+                <a href="articles-table.php"> <i class="fas fa-arrow-left"></i> Back to Articles List </a>
+            </div>
+
             <div class="page-heading">
                 <h3 class="page-title"> Post New Article </h3>
             </div>

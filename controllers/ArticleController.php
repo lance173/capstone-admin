@@ -14,6 +14,7 @@ function addArticle(){
 		$title = $_POST['title'];
 		$content = $_POST['content'];
 		$status = "PENDING";
+		$datewritten = Date("Y/m/d");
 		$publisher = "1";
 
     $featureimage = '';
@@ -40,7 +41,7 @@ function addArticle(){
         }
       }
 
-		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$status', '$publisher')";
+		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, DateWritten, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$datewritten', '$status', '$publisher')";
 
 		$result = mysqli_query($conn,$sql);    
 		if($result){
