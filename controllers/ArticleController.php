@@ -13,11 +13,34 @@ function addArticle(){
 
 		$title = $_POST['title'];
 		$content = $_POST['content'];
-		$featureimage = $_POST['featureimage'];
 		$status = "PENDING";
 		$publisher = "1";
 
-		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, Status, AdminID) VALUES ('$title', '$featureimage', '$content', '$status', '$publisher')";
+    $featureimage = '';
+
+      if(isset($_FILES['featureimage'])){
+        $errors= array();
+        $file_name = $_FILES['featureimage']['name'];
+        $file_size =$_FILES['featureimage']['size'];
+        $file_tmp =$_FILES['featureimage']['tmp_name'];
+        $file_type=$_FILES['featureimage']['type'];
+        $file_ext=strtolower(end(explode('.',$_FILES['featureimage']['name'])));
+
+        $extensions= array("jpeg","jpg","png");
+
+        if(in_array($file_ext,$extensions)=== false){
+         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+        }
+
+        if(empty($errors)){
+        $featureimage = "../assets/img/post-featureimages/".$file_name;
+        move_uploaded_file($file_tmp, $featureimage);
+        }else{
+        
+        }
+      }
+
+		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$status', '$publisher')";
 
 		$result = mysqli_query($conn,$sql);    
 		if($result){

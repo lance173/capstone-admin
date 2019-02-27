@@ -43,28 +43,28 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/posts/lnch212.jpg" class="img-artvw"> </td>
+                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/lnch212.jpg" class="img-artvw"> </td>
                                                     <td>USC Library Launched New Website</td>
                                                     <td>Reed Richards</td>
                                                     <td>07/08/2018</td>
                                                     <td> <a class="btn btn-primary" href="#" role="button"> Edit </a> <a class="btn btn-success" href="#" role="button"> View </a> <a class="btn btn-danger" href="#" role="button"> Bin </a> </td>
                                                 </tr> 
                                                 <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/posts/bk-fr2121.jpg" class="img-artvw"> </td>
+                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/bk-fr2121.jpg" class="img-artvw"> </td>
                                                     <td>USC Book Fair</td>
                                                     <td>Ben Grimm</td>
                                                     <td>03/01/2018</td>
                                                     <td> <a class="btn btn-primary" href="#" role="button"> Edit </a> <a class="btn btn-success" href="#" role="button"> View </a> <a class="btn btn-danger" href="#" role="button"> Bin </a> </td>
                                                 </tr>
                                                 <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/posts/facl-212121.jpg" class="img-artvw"> </td>
+                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/facl-212121.jpg" class="img-artvw"> </td>
                                                     <td>New Facilities at JB-LRC</td>
                                                     <td>Susan Storm</td>
                                                     <td>01/19/2018 </td>
                                                     <td> <a class="btn btn-primary" href="#" role="button"> Edit </a> <a class="btn btn-success" href="#" role="button"> View </a> <a class="btn btn-danger" href="#" role="button"> Bin </a> </td>
                                                 </tr>
                                                 <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/posts/uscnc-bkrdng.jpg" class="img-artvw"> </td>
+                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/uscnc-bkrdng.jpg" class="img-artvw"> </td>
                                                     <td>North Campus Story Telling Day</td>
                                                     <td>Johnny Storm</td>
                                                     <td>11/12/2017</td>
@@ -91,7 +91,7 @@
                                                 <?php if(isset($PendingArticles)){foreach($PendingArticles as $pa){ ?>
                                                     <tr>
                                                         <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-check"></i> Approve </a>  </td>
-                                                        <td class="center-tabledata"> <img src="../assets/img/<?php echo $pa['FeaturePhoto'];?>" class="img-artvw"> </td>
+                                                        <td class="center-tabledata"> <img src="<?php echo $pa['FeaturePhoto'];?>" class="img-artvw"> </td>
                                                         <td> <?php echo $pa['Title'];?> </td>
                                                         <td>Reed Richards</td>
                                                         <td> <?php echo $pa['DateWritten'];?> </td>
