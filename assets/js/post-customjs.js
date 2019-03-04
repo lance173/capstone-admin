@@ -68,6 +68,26 @@
         }
     }
 
+    function loadApproveArticle(article_id){
+        if (confirm('Approve Article?')){
+            window.location='../controllers/ArticleController.php?approveID='+article_id;
+        }else{
+            return false;
+        }
+    }
+
+    function loadDeleteArticle(article_id){
+        if (confirm('Do you want to delete this Article?')){
+            window.location='../controllers/ArticleController.php?deleteID='+article_id;
+        }else{
+            return false;
+        }
+    }
+
+    function loadEditArticle(article_id){
+        window.location='edit-article.php?editID='+article_id;        
+    }
+
 	//file upload via anchor tag
 	$("#fileupload").click(function(){
 		$("#upload-file").click();

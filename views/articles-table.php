@@ -2,6 +2,7 @@
     require('header.php');
     include('nav.php');
     require('../controllers/ArticleController.php'); 
+    $PublishedArticles = loadPublishedArticles();
     $PendingArticles = loadPendingArticles();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuArticles'); activePageAtSideNav('MenuArticlesTable'); </script>
@@ -11,7 +12,11 @@
             <div class="page-heading">
                 <h3 class="page-title"> <i class="fas fa-file-alt"></i> Article Posts </h3>
             </div>
-
+            <div class="row">
+                <div class="inpage-alerts">
+                    <?php include('../controllers/NotificationManager.php');?>
+                </div>
+            </div>
             <div class="row">
                     <div class="col-md-12">
                         <div class="ibox">
@@ -42,34 +47,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/lnch212.jpg" class="img-artvw"> </td>
-                                                    <td>USC Library Launched New Website</td>
-                                                    <td>Reed Richards</td>
-                                                    <td>07/08/2018</td>
-                                                    <td> <a class="btn btn-primary" href="#" role="button"> Edit </a> <a class="btn btn-success" href="#" role="button"> View </a> <a class="btn btn-danger" href="#" role="button"> Bin </a> </td>
-                                                </tr> 
-                                                <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/bk-fr2121.jpg" class="img-artvw"> </td>
-                                                    <td>USC Book Fair</td>
-                                                    <td>Ben Grimm</td>
-                                                    <td>03/01/2018</td>
-                                                    <td> <a class="btn btn-primary" href="#" role="button"> Edit </a> <a class="btn btn-success" href="#" role="button"> View </a> <a class="btn btn-danger" href="#" role="button"> Bin </a> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/facl-212121.jpg" class="img-artvw"> </td>
-                                                    <td>New Facilities at JB-LRC</td>
-                                                    <td>Susan Storm</td>
-                                                    <td>01/19/2018 </td>
-                                                    <td> <a class="btn btn-primary" href="#" role="button"> Edit </a> <a class="btn btn-success" href="#" role="button"> View </a> <a class="btn btn-danger" href="#" role="button"> Bin </a> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: center;"> <img src="../assets/img/post-featureimages/uscnc-bkrdng.jpg" class="img-artvw"> </td>
-                                                    <td>North Campus Story Telling Day</td>
-                                                    <td>Johnny Storm</td>
-                                                    <td>11/12/2017</td>
-                                                    <td> <a class="btn btn-primary" href="#" role="button"> Edit </a> <a class="btn btn-success" href="#" role="button"> View </a> <a class="btn btn-danger" href="#" role="button"> Bin </a> </td>
-                                                </tr>                                              
+                                                <?php if(isset($PublishedArticles)){foreach($PublishedArticles as $pubA){ ?>
+                                                    <tr>
+                                                        <td style="text-align: center;"> <img src="<?php echo $pubA['FeaturePhoto'];?>" class="img-artvw"> </td>
+                                                        <td> <?php echo $pubA['Title'];?> </td>
+                                                        <td>Reed Richards</td>
+                                                        <td> <?php echo $pubA['DatePublished'];?> </td>
+                                                        <td> <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $pubA['ArticleID'];?>)"> Edit </button> <a class="btn btn-success" href="#" role="button"> View </a> <button class="btn btn-danger" onclick="loadDeleteArticle(<?php echo $pubA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> </button> </td>
+                                                    </tr> 
+                                                <?php }} ?>                                                               
                                             </tbody>
                                         </table>
 
@@ -83,22 +69,22 @@
                                                     <th>Photo</th>
                                                     <th>Title</th>
                                                     <th>Author</th>
-                                                    <th>Date</th>
+                                                    <th>Date Written</th>
                                                     <th>  </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php if(isset($PendingArticles)){foreach($PendingArticles as $pa){ ?>
+                                                <?php if(isset($PendingArticles)){foreach($PendingArticles as $penA){ ?>
                                                     <tr>
-                                                        <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-check"></i> Approve </a>  </td>
-                                                        <td class="center-tabledata"> <img src="<?php echo $pa['FeaturePhoto'];?>" class="img-artvw"> </td>
-                                                        <td> <?php echo $pa['Title'];?> </td>
+                                                        <td style="padding: 30px;"> <button class="btn btn-artvw" onclick="loadApproveArticle(<?php echo $penA['ArticleID'];?>)"> <i class="fas fa-check"></i> Approve </button>  </td>
+                                                        <td class="center-tabledata"> <img src="<?php echo $penA['FeaturePhoto'];?>" class="img-artvw"> </td>
+                                                        <td> <?php echo $penA['Title'];?> </td>
                                                         <td>Reed Richards</td>
-                                                        <td> <?php echo $pa['DateWritten'];?> </td>
+                                                        <td> <?php echo $penA['DateWritten'];?> </td>
                                                         <td> 
                                                             
-                                                            <a class="btn btn-primary" href="#" role="button"> View </a>
-                                                            <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> </a>
+                                                            <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $penA['ArticleID'];?>)"> View / Edit </button>
+                                                            <button class="btn btn-rptusr" onclick="loadDeleteArticle(<?php echo $penA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> </button>
                                                         </td>
                                                     </tr>
                                                 <?php }} ?>                                                                                               
