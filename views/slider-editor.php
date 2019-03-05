@@ -70,7 +70,7 @@
                                           <h4> First Slide </h4>
                                           <a href="#fileupload1" id="fileupload1">
                                             <div class="slide-editimgonclick">
-                                              <img class="slide-displayimg" src="../assets/img/slider/usc-jb-lrc.jpg" id="output_image-slide1">
+                                              <img class="slide-displayimg" src="<?php echo $slide['FirstSlideImage']; ?>" id="output_image-slide1">
                                               <div class="hoveronimg">
                                                 <div class="editicon-slide"> <i class="fas fa-pen-square"></i> </div>
                                               </div>
@@ -79,8 +79,8 @@
                                           <input id="upload-file1" type="file" accept="image/*" onchange="preview_imageslide1(event)" />
                                         </div>
                                         <div class="col-md-6">
-                                          <input type="text" name="" class="slide-title" value="USC LIBRARY WEBSITE VERSION 2.0"  >
-                                          <textarea class="slide-desc" cols="7"> This is a description for the first slide. </textarea>
+                                          <input type="text" name="" class="slide-title" value="<?php echo $slide['FirstSlideTitle']; ?>"  >
+                                          <textarea class="slide-desc" cols="7"> <?php echo $slide['FirstSlideDescription']; ?> </textarea>
                                           <br>                            
                                         </div>
                                       </div>
@@ -90,7 +90,7 @@
                                           <h4> Second Slide </h4>
                                           <a href="#fileupload2" id="fileupload2">
                                             <div class="slide-editimgonclick">
-                                              <img class="slide-displayimg" src="../assets/img/slider/1900x1080.png" id="output_image-slide2">
+                                              <img class="slide-displayimg" src="<?php echo $slide['SecondSlideImage']; ?>" id="output_image-slide2">
                                               <div class="hoveronimg">
                                                 <div class="editicon-slide"> <i class="fas fa-pen-square"></i> </div>
                                               </div>
@@ -99,8 +99,8 @@
                                           <input id="upload-file2" type="file" accept="image/*" onchange="preview_imageslide2(event)" />
                                         </div>
                                         <div class="col-md-6">
-                                          <input type="text" name="" class="slide-title" value="Second Slide"  >
-                                          <textarea class="slide-desc" cols="7"> This is a description for the second slide. </textarea>
+                                          <input type="text" name="" class="slide-title" value="<?php echo $slide['SecondSlideTitle']; ?>"  >
+                                          <textarea class="slide-desc" cols="7"> <?php echo $slide['SecondSlideDescription']; ?> </textarea>
                                           <br>                            
                                         </div>
                                       </div>
@@ -110,7 +110,7 @@
                                           <h4> Third Slide </h4>
                                           <a href="#fileupload3" id="fileupload3">
                                             <div class="slide-editimgonclick">
-                                              <img class="slide-displayimg" src="../assets/img/slider/1900x1080.png" id="output_image-slide3">
+                                              <img class="slide-displayimg" src="<?php echo $slide['ThirdSlideImage']; ?>" id="output_image-slide3">
                                               <div class="hoveronimg">
                                                 <div class="editicon-slide"> <i class="fas fa-pen-square"></i> </div>
                                               </div>
@@ -119,8 +119,8 @@
                                           <input id="upload-file3" type="file" accept="image/*" onchange="preview_imageslide3(event)" />
                                         </div>
                                         <div class="col-md-6">
-                                          <input type="text" name="" class="slide-title" value="Third Slide"  >
-                                          <textarea class="slide-desc" cols="7"> This is a description for the third slide. </textarea>
+                                          <input type="text" name="" class="slide-title" value="<?php echo $slide['ThirdSlideTitle']; ?>"  >
+                                          <textarea class="slide-desc" cols="7"> <?php echo $slide['ThirdSlideDescription']; ?> </textarea>
                                           <br>                            
                                         </div>
                                       </div>
