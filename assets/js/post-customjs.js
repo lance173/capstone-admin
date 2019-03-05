@@ -88,6 +88,14 @@
         window.location='edit-article.php?editID='+article_id;        
     }
 
+    function discardChangesOnSliderEditor(){
+        if (confirm('Do you want to discard all changes?')){
+            window.location='slider-editor.php?warning-msg=slider%20unchanged';  
+        }else{
+            return false;
+        }      
+    }
+
 	//file upload via anchor tag
 	$("#fileupload").click(function(){
 		$("#upload-file").click();
