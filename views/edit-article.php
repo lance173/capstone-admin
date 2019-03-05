@@ -27,7 +27,7 @@
             </div>
 
             
-            <form method="POST" action="test.php" enctype="multipart/form-data">
+            <form method="POST" action="../controllers/ArticleController.php" enctype="multipart/form-data">
                 <div class="row">
                         <div class="col-md-9">
                             

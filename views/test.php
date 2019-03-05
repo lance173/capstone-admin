@@ -13,10 +13,13 @@
 		$content = $_POST['content'];
 
 
-		$sql = "SELECT * FROM articles WHERE ArticleID= '$id' LIMIT 1";
-		$articleimage = mysqli_query($conn, $sql);
+		$photo = mysqli_query($conn, "SELECT * FROM articles WHERE ArticleID= '$id' LIMIT 1") or die ('Error: '.mysql_error ());
+		while($row = mysqli_fetch_array($photo))
+		{
+		  $featureimage = $row['FeaturePhoto'];		 
+		}
 
-		echo $articleimage[2];
+		 echo 'photo: ' . $featureimage;
 
 		// $featureimage = '';
 	 //      if(isset($_FILES['featureimage'])){

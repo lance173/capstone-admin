@@ -114,7 +114,12 @@ function updateArticle(){
 	$id = $_POST['articleID'];
 	$title = $_POST['title'];
 	$content = $_POST['content'];
-	$featureimage = '';
+	
+	$photo = mysqli_query($conn, "SELECT * FROM articles WHERE ArticleID= '$id' LIMIT 1") or die ('Error: '.mysql_error ());
+		while($row = mysqli_fetch_array($photo))
+		{
+		  $featureimage = $row['FeaturePhoto'];		 
+		}
 
       if(isset($_FILES['featureimage'])){
         $errors= array();
