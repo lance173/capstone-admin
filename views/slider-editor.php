@@ -76,11 +76,11 @@
                                               </div>
                                             </div>
                                           </a> 
-                                          <input id="upload-file1" type="file" accept="image/*" onchange="preview_imageslide1(event)" />
+                                          <input id="upload-file1" type="file" accept="image/*" name="firstimage" onchange="preview_imageslide1(event)" />
                                         </div>
                                         <div class="col-md-6">
-                                          <input type="text" name="" class="slide-title" value="<?php echo $slide['FirstSlideTitle']; ?>"  >
-                                          <textarea class="slide-desc" cols="7"> <?php echo $slide['FirstSlideDescription']; ?> </textarea>
+                                          <input type="text" name="firsttitle" class="slide-title" value="<?php echo $slide['FirstSlideTitle']; ?>"  >
+                                          <textarea class="slide-desc" name="firstdescription" cols="7"><?php echo $slide['FirstSlideDescription']; ?> </textarea>
                                           <br>                            
                                         </div>
                                       </div>
@@ -96,11 +96,11 @@
                                               </div>
                                             </div>
                                           </a> 
-                                          <input id="upload-file2" type="file" accept="image/*" onchange="preview_imageslide2(event)" />
+                                          <input id="upload-file2" type="file" accept="image/*" name="secondimage" onchange="preview_imageslide2(event)" />
                                         </div>
                                         <div class="col-md-6">
-                                          <input type="text" name="" class="slide-title" value="<?php echo $slide['SecondSlideTitle']; ?>"  >
-                                          <textarea class="slide-desc" cols="7"> <?php echo $slide['SecondSlideDescription']; ?> </textarea>
+                                          <input type="text" name="secondtitle" class="slide-title" value="<?php echo $slide['SecondSlideTitle']; ?>"  >
+                                          <textarea class="slide-desc" name="seconddescription" cols="7"><?php echo $slide['SecondSlideDescription']; ?> </textarea>
                                           <br>                            
                                         </div>
                                       </div>
@@ -116,11 +116,11 @@
                                               </div>
                                             </div>
                                           </a> 
-                                          <input id="upload-file3" type="file" accept="image/*" onchange="preview_imageslide3(event)" />
+                                          <input id="upload-file3" type="file" accept="image/*" name="thirdimage" onchange="preview_imageslide3(event)" />
                                         </div>
                                         <div class="col-md-6">
-                                          <input type="text" name="" class="slide-title" value="<?php echo $slide['ThirdSlideTitle']; ?>"  >
-                                          <textarea class="slide-desc" cols="7"> <?php echo $slide['ThirdSlideDescription']; ?> </textarea>
+                                          <input type="text" name="thirdtitle" class="slide-title" value="<?php echo $slide['ThirdSlideTitle']; ?>"  >
+                                          <textarea class="slide-desc" name="thirddescription" cols="7"><?php echo $slide['ThirdSlideDescription']; ?> </textarea>
                                           <br>                            
                                         </div>
                                       </div>
@@ -128,7 +128,7 @@
                                       <div class="btns-saveNdiscard"> 
                                         <center> 
                                             <button class="btn btn-lg btn-success" type="submit" name="btnEditSlider"> Save Changes </button> 
-                                            <button class="btn btn-lg btn-warning" onclick="discardChangesOnSliderEditor()"> Discard </button> 
+                                            <button class="btn btn-lg btn-warning" type="reset" onclick="discardChangesOnSliderEditor()"> Discard </button> 
                                         </center>
                                       </div>  
                                 </div> 

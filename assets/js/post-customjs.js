@@ -90,7 +90,7 @@
 
     function discardChangesOnSliderEditor(){
         if (confirm('Do you want to discard all changes?')){
-            window.location='slider-editor.php?warning-msg=slider%20unchanged';  
+            window.location='slider-editor.php?warning-msg=No%20changes%20are%20made%20to%20slider.';  
         }else{
             return false;
         }      

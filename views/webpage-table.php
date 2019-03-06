@@ -20,10 +20,10 @@
                             <div class="ibox-body">
                                 <ul class="nav nav-tabs tabs-line">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#tab-7-1" data-toggle="tab"><i class="far fa-window-maximize"></i> Published Pages</a>
+                                        <a class="nav-link active" href="#tab-7-1" data-toggle="tab"><i class="far fa-window-maximize"></i> Active Pages</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#tab-7-2" data-toggle="tab"><i class="fas fa-file-signature"></i> Pending Approval</a>
+                                        <a class="nav-link" href="#tab-7-2" data-toggle="tab"> <i class="fa fa-trash" aria-hidden="true"></i> Page Bin </a>
                                     </li>                                    
                                 </ul>
                                 <div class="tab-content">
@@ -44,7 +44,7 @@
                                                 <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                  
                                                     <td> <div class="pagetabletitle"> Montessori Campus </div> 
                                                         <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
+                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
                                                         </div>
                                                     </td>
                                                     <td>Reed Richards</td>
@@ -58,7 +58,7 @@
                                                 <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
                                                     <td> <div class="pagetabletitle"> North Campus </div> 
                                                         <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
+                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
                                                         </div>
                                                     </td>
                                                     <td>Ben Grimm</td>
@@ -111,15 +111,15 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-check"></i> Approve </a>  </td>
+                                                    <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-reply"></i> Restore </a>  </td>
                                                     <td style="text-align: center;"> <img src="../assets/img/posts/sliman-vst.jpg" class="img-artvw"> </td>
                                                     <td>Siliman University Siliman University Visitors</td>
                                                     <td>Reed Richards</td>
                                                     <td>10/18/2018</td>
                                                     <td> 
                                                         
-                                                        <a class="btn btn-primary" href="#" role="button"> View </a>
-                                                        <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> </a>
+                                                        <a class="btn btn-primary" href="#" role="button"> Edit </a>
+                                                        <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> Delete </a>
                                                     </td>
                                                 </tr>                                                                                               
                                             </tbody>
