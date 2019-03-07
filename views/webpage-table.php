@@ -11,6 +11,12 @@
             </div>
 
             <div class="row">
+                <div class="inpage-alerts">
+                    <?php include('../controllers/NotificationManager.php');?>
+                </div>
+            </div>
+
+            <div class="row">
                     <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-head">
@@ -72,7 +78,7 @@
                                                 <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
                                                     <td> <div class="pagetabletitle"> Talamban Campus </div> 
                                                         <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
+                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
                                                         </div>
                                                     </td>
                                                     <td>Susan Storm</td>
@@ -86,7 +92,7 @@
                                                 <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">
                                                     <td> <div class="pagetabletitle"> South Campus </div> 
                                                         <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
+                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
                                                         </div>
                                                     </td>
                                                     <td>Johnny Storm</td>
@@ -100,27 +106,23 @@
 
                                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                                             <thead>
-                                                <tr>
-                                                    <th> </th>
-                                                    <th>Photo</th>
+                                                <tr>                                                    
                                                     <th>Title</th>
                                                     <th>Author</th>
                                                     <th>Date</th>
-                                                    <th>  </th>
+                                                    <th> </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-reply"></i> Restore </a>  </td>
-                                                    <td style="text-align: center;"> <img src="../assets/img/posts/sliman-vst.jpg" class="img-artvw"> </td>
-                                                    <td>Siliman University Siliman University Visitors</td>
+                                                <tr>                                                                                                  
+                                                    <td> <b> Siliman University Siliman University Visitors </b>  </td>
                                                     <td>Reed Richards</td>
                                                     <td>10/18/2018</td>
                                                     <td> 
-                                                        
-                                                        <a class="btn btn-primary" href="#" role="button"> Edit </a>
+                                                        <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-reply"></i> Restore </a>
+                                                        <a class="btn btn-primary" href="#" role="button"> <i class="fas fa-pen"></i> Edit </a>
                                                         <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> Delete </a>
-                                                    </td>
+                                                    </td>                                                 
                                                 </tr>                                                                                               
                                             </tbody>
                                         </table> 

@@ -92,9 +92,8 @@ function approvePendingArticle(){
 	$sql = "UPDATE articles SET Status='PUBLISHED', DatePublished='$datepublished' WHERE ArticleID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
-	// $str="Article successfully published!";
-	// header("Location:../views/articles-table.php?success-msg=".$str);
-	header("Location:../views/articles-table.php");
+  	$str="Article successfully published!";
+  	header("Location:../views/articles-table.php?success-msg=".$str);
 	}
 	else{
 	  echo "ERROR!".mysqli_error($conn);

@@ -11,15 +11,16 @@
             <div style="margin-top: 20px;">
                 <a href="articles-table.php"> <i class="fas fa-arrow-left"></i> Back to Articles List </a>
             </div>
+            
+            <div class="page-heading">
+                <h3 class="page-title"> Post New Article </h3>
+            </div>
+            
             <div class="row">
                 <div class="inpage-alerts">
                     <?php include('../controllers/NotificationManager.php');?>
                 </div>
             </div>
-            <div class="page-heading">
-                <h3 class="page-title"> Post New Article </h3>
-            </div>
-
             
             <form method="POST" action="../controllers/ArticleController.php" enctype="multipart/form-data">
                 <div class="row">

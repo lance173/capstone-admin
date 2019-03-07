@@ -6,6 +6,10 @@
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
+            <div style="margin-top: 20px;">
+                <a href="webpage-table.php"> <i class="fas fa-arrow-left"></i> Back to Pages List </a>
+            </div>
+
             <div class="row" style="display: none;">
                 <div class="inpage-alerts">
                     <div class="alert alert-success">
@@ -18,7 +22,20 @@
                 <h3 class="page-title"> Add New Page </h3>
             </div>
 
+
+            <div class="jumbotron jumbotron-fluid" style="background: url(../assets/img/image.png); background-repeat: no-repeat; background-position: center; background-size: cover; color: #FFF;">
+              <div class="container" style="text-align: center;">
+                <div style="background-color: rgba(0,0,0,0.5); padding: 20px;">
+                    <h1 class="display-4">Page Title</h1>
+                </div>                
+              </div>
+            </div>
             
+            <div class="row">
+                <div class="inpage-alerts">
+                    <?php include('../controllers/NotificationManager.php');?>
+                </div>
+            </div>
 
             <div class="row">
                     <div class="col-md-9">

@@ -795,6 +795,7 @@ html, body{
 
 .pagetabletitle{
   padding-bottom: 8px;
+  font-weight: bold;
 }
 
 .pagetableminlink{
