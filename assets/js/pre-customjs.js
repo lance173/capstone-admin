@@ -19,7 +19,7 @@ function preview_imageaddwebpage(event)
   var output1 = document.getElementById('output_image');
   var output2 = document.getElementById('pagetitlejumboimage');
   output1.src = reader.result;
-  output2.style.backgroundImage = reader.result;
+  output2.style.backgroundImage = 'url('+reader.result+')';
  }
  reader.readAsDataURL(event.target.files[0]);
 

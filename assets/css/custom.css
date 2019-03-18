@@ -263,14 +263,14 @@ html, body{
     background-color: #02A554;
     border-color: #02A554; 
     border-radius: 3px;
-    padding: 10px 100px;
+    padding: 5px 20px;
   }
 
   .btn-artvwall:focus, .btn-artvwall.focus, .btn-artvwall:hover, .btn-artvwall.active, .btn-artvwall:active, .btn-artvwall:disabled, .btn-artvwall.disabled 
   {
-    color: #fff !important;
-    background-color: #29b765 !important;
-    border-color: #229854 !important;
+    color: #333 !important;
+    background-color: #fff !important;
+    border-color: #02A554 !important;
     -webkit-box-shadow: none;
     box-shadow: none;
     background-image: none; 
@@ -368,6 +368,15 @@ html, body{
     padding: 5px 20px;
   }
 
+  .btn-actlog:focus, .btn-actlog.focus, .btn-actlog:hover, .btn-actlog.active, .btn-actlog:active, .btn-actlog:disabled, .btn-actlog.disabled 
+  {
+    color: #fff !important;
+    background-color: #008FFF!important;
+    border-color: #008FFF !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-image: none; 
+  }
 
  /*
  * login.php 
@@ -789,7 +798,7 @@ html, body{
 }
 
 .activityrow:hover{
-  background-color: #efd5bd;
+  background-color: #e5e7f9;
 }
 
 /*Webpage Table*/

@@ -72,6 +72,7 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title"> <i class="fa fa-file-alt"></i> Current Articles</div>
+                                <div> <a class="btn btn-artvwall" href="webpage-table.php" role="button"> View All </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <div class="table-responsive">
@@ -82,7 +83,6 @@
                                                 <th>TITLE</th>
                                                 <th>AUTHOR</th>
                                                 <th>DATE</th>
-                                                <th width="100px"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -90,41 +90,28 @@
                                                 <td> <img src="../assets/img/post-featureimages/lnch212.jpg" class="img-artvw">  </td>
                                                 <td> <div class="td-content">USC Library La..</div></td>
                                                 <td> <div class="td-content">Reed Richards </div></td>
-                                                <td> <div class="td-content"> 07/08/2018 </div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
+                                                <td> <div class="td-content"> 07/08/2018 </div></td>                                                
                                             </tr>
                                             <tr>
                                                 <td> <img src="../assets/img/post-featureimages/bk-fr2121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> USC Book Fair.. </div></td>
                                                 <td> <div class="td-content">Ben Grimm</div></td>
                                                 <td> <div class="td-content">03/01/2018</div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td> <img src="../assets/img/post-featureimages/facl-212121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> New Facilities.. </div></td>
                                                 <td> <div class="td-content"> Susan Storm </div></td>
                                                 <td> <div class="td-content"> 01/19/2018 </div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td> <img src="../assets/img/post-featureimages/uscnc-bkrdng.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> North Campus.. </div></td>
                                                 <td> <div class="td-content"> Johnny Storm </div></td>
                                                 <td> <div class="td-content"> 11/12/2017 </div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
                                             </tr>                                       
                                         </tbody>
                                     </table>
-                                        <center> <a class="btn btn-artvwall" href="#" role="button"> View All </a> </center>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +151,7 @@
                                             </tr>                                        
                                         </tbody>
                                     </table>
-                                        <center> <a class="btn btn-rptusrall" href="#" role="button"> View All </a> </center>
+                                        <center> <a class="btn btn-rptusrall" href="reported-table.php" role="button"> View All </a> </center>
                                 </div>
                             </div>
                         </div>
