@@ -161,6 +161,7 @@ html, body{
 .viewsite-cover{
   background-color: rgba(7,7,7,0.5);
   height: 100%;
+  padding: 1px;
 }
 
 .usclogo-jumbo{
@@ -942,6 +943,13 @@ html, body{
   /*background-color: #6ba3ff; */
   border: 3px solid #6ba3ff;
   /*color: #FFF;*/
+}
+
+/** Add Webpage Table**/
+
+.pagetitlejumbo-title {
+  background-color: rgba(0,0,0,0.5); 
+  padding: 20px;
 }
 
 

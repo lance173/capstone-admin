@@ -23,9 +23,9 @@
             </div>
 
 
-            <div class="jumbotron jumbotron-fluid" style="background: url(../assets/img/image.png); background-repeat: no-repeat; background-position: center; background-size: cover; color: #FFF;">
+            <div class="jumbotron jumbotron-fluid" id="pagetitlejumboimage" style="background: url(../assets/img/image.png); background-repeat: no-repeat; background-position: center; background-size: cover; color: #FFF;">
               <div class="container" style="text-align: center;">
-                <div style="background-color: rgba(0,0,0,0.5); padding: 20px;">
+                <div class="pagetitlejumbo-title">
                     <h1 class="display-4">Page Title</h1>
                 </div>                
               </div>
@@ -63,7 +63,7 @@
                                 <div class="ibox-footer">
                                     <div class="ibox-footercontent">                                    
                                         <a href="#" id="fileupload"><span class="setfeat-img">Set featured image</span></a> </div>
-                                        <input id="upload-file" type="file" accept="image/*" onchange="preview_image(event)" />
+                                        <input id="upload-file" type="file" accept="image/*" onchange="preview_imageaddwebpage(event)" />
                                 </div>
                             </div>                            
                         </div>

@@ -93,6 +93,14 @@
 		$("#upload-file").click();
 	});
 
+    //On add webpage
+
+    $('.input-title').keyup(function(event) {
+        newText = event.target.value;
+    $('.display-4').text(newText);
+    });
+
+
     //On Slide editor
 
     //file upload via anchor tag

@@ -11,6 +11,21 @@ function preview_image(event)
  reader.readAsDataURL(event.target.files[0]);
 }
 
+function preview_imageaddwebpage(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output1 = document.getElementById('output_image');
+  var output2 = document.getElementById('pagetitlejumboimage');
+  output1.src = reader.result;
+  output2.style.backgroundImage = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+
+}
+
+
 //preview featured image and publish show and hide
 
 function hdeshwftimg()
