@@ -47,10 +47,10 @@ html, body{
   font-size: 12px;
 }
 
-.btn-edtacct:hover {
-  border: 6px solid #FFB041;
+.btn-edtacct:hover, .btn-edtacct:active, .btn-edtacct:focus, .btn-edtacct:disabled {
+  border: 6px solid #FFF;
   background-color: #FFF;
-  color: #FFB041;
+  color: #FFB041 !important;
 }
 
 /*
@@ -798,7 +798,7 @@ html, body{
 }
 
 .activityrow:hover{
-  background-color: #e5e7f9;
+  background-color: #b2ccf7;
 }
 
 /*Webpage Table*/

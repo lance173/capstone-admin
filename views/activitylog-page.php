@@ -32,14 +32,15 @@
 
                                         <?php $viewdetailsid = "viewdtls1";?>
 
-                                            <tr class="activityrow" onmouseover="showvwdetails('<?php echo $viewdetailsid ?>')" onmouseout="hidevwdetails('<?php echo $viewdetailsid ?>')">
+                                           
+                                            <tr class="activityrow" onmouseover="showvwdetails('<?php echo $viewdetailsid ?>')" onmouseout="hidevwdetails('<?php echo $viewdetailsid ?>')" data-toggle="modal" data-target=".bd-example-modal-lg">
                                                 <td width="100px;">
                                                     <img src="../assets/img/users/u5.jpg" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
                                                     <div class="activity-actiondone"> <b> Michael Jordan </b> added a new Page  
                                                         <div class="activity-timeanddate">
-                                                            <i class="fas fa-clone"></i> May 22, 2018 • 12:34 PM
+                                                            <i class="far fa-window-restore"></i> May 22, 2018 • 12:34 PM
                                                         </div>
                                                     </div>                                          
                                                 </td>
@@ -50,6 +51,7 @@
                                                 </td>
                                             </tr>
 
+                                           <?php include('activity-detailsmodal.php'); ?>                                                                                          
                                         <?php $viewdetailsid++; ?>
 
                                             <tr class="activityrow" onmouseover="showvwdetails('<?php echo $viewdetailsid ?>')" onmouseout="hidevwdetails('<?php echo $viewdetailsid ?>')">

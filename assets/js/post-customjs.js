@@ -115,6 +115,3 @@
     $("#fileupload3").click(function(){
         $("#upload-file3").click();
     });
-
-
-    

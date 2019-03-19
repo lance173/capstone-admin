@@ -170,9 +170,9 @@
                     </div>                    
                 </div>
                 <div class="admin-info">
-                        <div class="font-strong">Juan Dela Cruz</div><small>Administrator</small>
+                        <div class="font-strong">Juan Dela Cruz</div><small>System Admin</small>
                         <div style="display: block; margin: 10px 0px 25px;">
-                           <a class="btn btn-edtacct" href="#" role="button"> Edit Account </a> 
+                           <a class="btn btn-edtacct" role="button" data-toggle="modal" data-target="#editAccount"> Edit Account </a>                            
                         </div>                       
                 </div>
 
