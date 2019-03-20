@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h3 class="page-title"> <i class="fas fa-file-alt"></i> Admin Users </h3>
+                <h3 class="page-title"> <i class="fa fa-user-shield"></i> Admin Users </h3>
             </div>
 
             <div class="row">

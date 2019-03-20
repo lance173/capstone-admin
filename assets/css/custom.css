@@ -801,6 +801,11 @@ html, body{
   background-color: #b2ccf7;
 }
 
+.activity-data{
+  display: block;
+  margin-bottom: 5px;
+}
+
 /*Webpage Table*/
 
 .pagetabletitle{

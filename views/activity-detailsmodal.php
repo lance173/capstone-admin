@@ -17,15 +17,15 @@
             <div class="col-md-7">
               <div class="activity-actiondone"> <h2> Michael Jordan </h2>  
                   <div class="activity-timeanddate">
-                      <h6> <i class="far fa-window-restore"></i> May 22, 2018 • 12:34 PM </h6>
+                      <h6> May 22, 2018 • 12:34 PM </h6>
                   </div>
               </div> 
             </div>
         </div>
-        <div class="row">
-          <hr width="70%" style="border: 1px solid #bababa; margin-top: 10px;">
-          <div style="margin-left: 130px; margin-top: 10px;">
-             added an article <b> "<a href="">North Campus Story Telling Day</a>" </b>
+        <div class="row" style="margin-top: 20px;">
+          <hr width="70%" style="border: 1px solid #bababa;">
+          <div style="margin-left: 140px; margin-top: 15px;">
+             <i class="far fa-window-restore"></i> added a page <b> <a href="">Montessori Campus</a> </b>
           </div>
         </div>
         
