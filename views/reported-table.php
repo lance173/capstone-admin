@@ -17,7 +17,7 @@
                             <div class="ibox-title" >Summary of Reported Users </div>
                         </div>
                         <div class="ibox-body">
-                            <table class="table table-responsive-lg">
+                            <table class="table table-responsive-lg" id="reports-table">
                                 <thead>
                                     <tr>
                                         <th>#</th>

@@ -115,17 +115,6 @@ function hidepgelnks(id) {
     document.getElementById(x).style.visibility = "hidden";
 }
 
-//show View Details
-function showvwdetails(id) {
-  x = id;
-    document.getElementById(x).style.visibility = "visible";
-}
-
-function hidevwdetails(id) {
-  x = id;
-    document.getElementById(x).style.visibility = "hidden";
-}
-
 //activate side nav item
 
 function activePageAtSideNav(id) {

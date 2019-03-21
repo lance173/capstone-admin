@@ -36,7 +36,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-7-1">
 
-                                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                         <table class="table table-striped table-bordered table-hover" id="publishedarticles-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>Photo</th>
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="tab-pane" id="tab-7-2">
 
-                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                        <table class="table table-striped table-bordered table-hover" id="pendingarticles-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th> </th>

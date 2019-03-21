@@ -120,38 +120,32 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title"> <i class="fas fa-flag"></i> Reported Users</div>
+                                <div> <a class="btn btn-rptusrall" href="reported-table.php" role="button"> View All </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <div class="table-responsive">  
                                     <table class="table">                                            
                                         <tbody>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Jon Snow</b> has been reported on <b>2 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Jon Snow</b> has been reported on <b>2 counts</b> </div> </td>
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b>  </div> </td>
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </div> </td>                                            
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                                
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </div>  </td>                                         
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </div> </td>                                              
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Yellow Green</b> has been reported on <b>1 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Yellow Green</b> has been reported on <b>1 counts</b> </div> </td>                                                       
                                             </tr>                                        
                                         </tbody>
-                                    </table>
-                                        <center> <a class="btn btn-rptusrall" href="reported-table.php" role="button"> View All </a> </center>
+                                    </table>                                         
                                 </div>
                             </div>
                         </div>

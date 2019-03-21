@@ -35,7 +35,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-7-1">
 
-                                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                         <table class="table table-striped table-bordered table-hover" id="alladmins-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>
@@ -59,15 +59,70 @@
 
                                         Display All System admins.
 
+                                        <table class="table table-striped table-bordered table-hover" id="systemadmins-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Role</th>
+                                                    <th>Age</th>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Yuri Berry</td>
+                                                    <td>Chief Marketing Officer (CMO)</td>
+                                                    <td>New York</td>
+                                                    <td>40</td>
+                                                </tr>                                               
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                     <div class="tab-pane fade"  id="tab-7-3">
 
                                     Display All Editors.
+                                    <table class="table table-striped table-bordered table-hover" id="editors-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Role</th>
+                                                    <th>Age</th>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Yuri Berry</td>
+                                                    <td>Chief Marketing Officer (CMO)</td>
+                                                    <td>New York</td>
+                                                    <td>40</td>
+                                                </tr>                                               
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                     <div class="tab-pane fade"  id="tab-7-4">
 
                                     Display All Authors.
+                                    <table class="table table-striped table-bordered table-hover" id="authors-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Role</th>
+                                                    <th>Age</th>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Yuri Berry</td>
+                                                    <td>Chief Marketing Officer (CMO)</td>
+                                                    <td>New York</td>
+                                                    <td>40</td>
+                                                </tr>                                               
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                 </div><br></div>

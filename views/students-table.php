@@ -37,7 +37,7 @@
                                     <div class="tab-pane fade show active" id="tab-7-1">
 
                                         <!-- Display all students. -->
-                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                        <table class="table table-striped table-bordered table-hover" id="allstudents-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>ID No.</th>
@@ -63,7 +63,7 @@
                                     
 
                                         <!-- Display all students with CLEARED status only. -->
-                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                        <table class="table table-striped table-bordered table-hover" id="clearedstudents-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>ID No.</th>
@@ -87,7 +87,7 @@
                                     
 
                                         <!-- Display all students with BLOCKED status only. -->
-                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                        <table class="table table-striped table-bordered table-hover" id="blockedstudents-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>ID No.</th>

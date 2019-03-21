@@ -35,7 +35,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-7-1">
 
-                                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                         <table class="table table-striped table-bordered table-hover" id="activepages-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>                                                    
                                                     <th>Title</th>
@@ -104,7 +104,7 @@
                                     </div>
                                     <div class="tab-pane" id="tab-7-2">
 
-                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                        <table class="table table-striped table-bordered table-hover" id="pagebin-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>                                                    
                                                     <th>Title</th>
