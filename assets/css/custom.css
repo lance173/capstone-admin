@@ -979,9 +979,11 @@ body:not(.fixed-layout).sidebar-mini .contentwrapper-custom {
 }
 
 .site-editorjumbo {
-  background-image: url(../img/usc-jb-lrc.jpg); 
+  background-image: url(../img/jb-lrc2.jpg); 
   background-repeat: no-repeat; 
   background-position: center; 
   background-size: cover;
-  padding: 100px;
+  padding: 50px 0px 0px;
+  color: #FFF;
+  text-align: center
 }
