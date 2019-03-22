@@ -121,11 +121,8 @@
                                 <div class="form-group">
                                     <label>Choose Page</label>
                                     <select class="form-control" id="pageorcustomlink1" onchange="ifcustomlink1();">
-                                        <option selected disabled hidden>Select Page</option>
-                                        <option>Libraries</option>
-                                        <option>Other Services</option>
+                                        <option selected disabled hidden>Select Page</option>                                        
                                         <option>Linkages</option>
-                                        <option>Electronic Resources</option>
                                         <option>Custom Link</option>
                                     </select>
                                 </div>
@@ -163,10 +160,7 @@
                                             <label>Choose Page</label>
                                             <select class="form-control" id="pageorcustomlink2" onchange="ifcustomlink2();">
                                                 <option selected disabled hidden>Select Page</option>
-                                                <option>Libraries</option>
-                                                <option>Other Services</option>
                                                 <option>Linkages</option>
-                                                <option>Electronic Resources</option>
                                                 <option>Custom Link</option>
                                             </select>
                                         </div>
