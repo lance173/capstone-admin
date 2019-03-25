@@ -4,6 +4,7 @@
     require('../controllers/MenuController.php');
 
     $menuitem = loadMenuItems();
+    $menudropdown = loadMenuDropdown();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor'); </script>
 
@@ -26,38 +27,47 @@
                 <div class="col-md-11 mnurow"> 
                   
                     <div class="menubar-preview">
-                      <a href="#home">Home</a>
-                      <div class="drpdwn-prvw">
-                        <button class="dropbtn">Libraries
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="drpdwn-prvw-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                      <div class="drpdwn-prvw">
-                        <button class="dropbtn">Other Services
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="drpdwn-prvw-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div>
-                      <a href="#home">Linkages</a> 
-                      <div class="drpdwn-prvw">
-                        <button class="dropbtn">Electronic Resources
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="drpdwn-prvw-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </div> 
+                        <a href="#home">Home</a>                    
+
+                        <?php 
+                            if(isset($menuitem)){foreach($menuitem as $prevwmenitm){   
+
+                                if($prevwmenitm['Type']=='Static'){
+                        ?>
+
+                        <a href="<?php echo $prevwmenitm['PageLink'];?>"> <?php echo $prevwmenitm['ItemName'];?> </a> 
+
+                        <?php
+                           } elseif($prevwmenitm['Type']=='Dropdown') {                                                  
+                        ?>
+
+                        <div class="drpdwn-prvw">
+                            <button class="dropbtn"> <?php echo $prevwmenitm['ItemName'];?>
+                              <i class="fa fa-caret-down"></i>
+                            </button>
+
+                            <div class="drpdwn-prvw-content">
+
+                                <?php 
+                                    if(isset($menudropdown)){foreach($menudropdown as $mndrpdn){  
+
+                                    if($mndrpdn['MenuID']==$prevwmenitm['MenuItemID']){
+                                ?>
+
+                                        <a href="<?php echo $mndrpdn['PageLink'];?>"><?php echo $mndrpdn['DropItemName'];?></a>
+
+                                <?php 
+                                    } 
+                                }} 
+                                ?>
+
+                            </div>
+                        </div> 
+
+                        <?php 
+                            } 
+                        }}
+                        ?>
                     </div>
                 </div>
             </div> 
