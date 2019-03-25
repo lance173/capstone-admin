@@ -1,28 +1,30 @@
-<?php require('MysqlConnect.php'); ?> 
+<?php require('MysqlConnect.php'); 
 
-<?php
-if(isset($_POST['btnAddArticle'])){
-      addArticle();
+if(isset($_POST['btnAddPage'])){
+      addWebPage();
     }
-if(isset($_GET['approveID'])){
-      approvePendingArticle();
-}
 if(isset($_GET['deleteID'])){
-      deleteArticle();
-}
-if(isset($_POST['btnEditArticle'])){
-      updateArticle();
+      deleteWebPage();
+	}
+if(isset($_GET['restoreID'])){
+      restoreWebPage();
+	}
+if(isset($_GET['binID'])){
+      binWebPage();
+	}
+if(isset($_POST['btnEditPage'])){
+      updatePage();
 }
 
-function addArticle(){
+function addWebPage(){
     $conn = myConnect();
 
-	if(isset($_POST['btnAddArticle'])){
+	if(isset($_POST['btnAddPage'])){
 
 		$title = $_POST['title'];
 		$content = $_POST['content'];
-		$status = "PENDING";
-		$datewritten = Date("Y/m/d H:i:s");
+		$status = "ACTIVE";
+		$date = Date("Y/m/d H:i:s");
 		$publisher = "1";
 
     	$featureimage = '';
@@ -42,28 +44,28 @@ function addArticle(){
 	        }
 
 	        if(empty($errors)){
-	        $featureimage = "../assets/img/post-featureimages/".$file_name;
+	        $featureimage = "../assets/img/page-featureimages/".$file_name;
 	        move_uploaded_file($file_tmp, $featureimage);
 	        }else{
 	        
 	        }
 	      }
 
-		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, DateWritten, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$datewritten', '$status', '$publisher')";
+		$sql = "INSERT INTO webpages(PageTitle, FeaturePhoto, Content, DateCreated, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$date', '$status', '$publisher')";
 
 		$result = mysqli_query($conn,$sql);    
 		if($result){
-		      $str="Article successfully added!";
-		      header("Location: ../views/add-article.php?success-msg=".$str);
+		      $str="Page successfully added!";
+		      header("Location: ../views/add-webpage.php?success-msg=".$str);
 	     	}else{
 		      echo "Error!!!! ".mysqli_error($conn);
 		    }	
 	}
 }
 
-function loadPublishedArticles(){
+function loadActivePages(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED' ORDER BY DateWritten DESC";
+   $sql = "SELECT * FROM webpages WHERE Status = 'ACTIVE' ORDER BY DateCreated DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -73,9 +75,9 @@ function loadPublishedArticles(){
    return $rows;  
 }
 
-function loadPendingArticles(){
+function loadPageBin(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PENDING' ORDER BY DateWritten DESC";
+   $sql = "SELECT * FROM webpages WHERE Status = 'BIN' ORDER BY DateCreated DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -85,36 +87,65 @@ function loadPendingArticles(){
    return $rows;  
 }
 
-function approvePendingArticle(){
+
+
+function deleteWebPage(){
 	$conn = myConnect();
-	$id = $_GET['approveID'];
-	$datepublished = Date("Y/m/d H:i:s");
-	$sql = "UPDATE articles SET Status='PUBLISHED', DatePublished='$datepublished' WHERE ArticleID ='$id'";
+	$id = $_GET['deleteID'];
+	$sql = "DELETE FROM webpages WHERE WebPageID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
-  	$str="Article successfully published!";
-  	header("Location:../views/articles-table.php?success-msg=".$str);
+	$str="Page successfully deleted!";
+	header("Location:../views/webpage-table.php?success-msg=".$str);
 	}
 	else{
 	  echo "ERROR!".mysqli_error($conn);
 	}
 }
 
-function viewArticleToEdit($id){
+function restoreWebPage(){
 	$conn = myConnect();
-	$sql = "SELECT * FROM articles WHERE ArticleID= '$id' LIMIT 1 ";
+	$id = $_GET['restoreID'];
+	$sql = "UPDATE webpages SET Status='ACTIVE' WHERE WebPageID ='$id'";
+	$result = mysqli_query($conn,$sql);
+	if($result){
+	$str="Page successfully restored!";
+	header("Location:../views/webpage-table.php?success-msg=".$str);
+	}
+	else{
+	  echo "ERROR!".mysqli_error($conn);
+	}
+}
+
+function binWebPage(){
+	$conn = myConnect();
+	$id = $_GET['binID'];
+	$sql = "UPDATE webpages SET Status='BIN' WHERE WebPageID ='$id'";
+	$result = mysqli_query($conn,$sql);
+	if($result){
+	$str="Page placed to bin";
+	header("Location:../views/webpage-table.php?success-msg=".$str);
+	}
+	else{
+	  echo "ERROR!".mysqli_error($conn);
+	}
+}
+
+function viewPageToEdit($id){
+	$conn = myConnect();
+	$sql = "SELECT * FROM webpages WHERE WebPageID= '$id' LIMIT 1 ";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result);
 	return $row;
 }
 
-function updateArticle(){
+function updatePage(){
 	$conn = myConnect();
-	$id = $_POST['articleID'];
+	$id = $_POST['webpageID'];
 	$title = $_POST['title'];
 	$content = $_POST['content'];
 	
-	$photo = mysqli_query($conn, "SELECT * FROM articles WHERE ArticleID= '$id' LIMIT 1") or die ('Error: '.mysql_error ());
+	$photo = mysqli_query($conn, "SELECT * FROM webpages WHERE WebPageID= '$id' LIMIT 1") or die ('Error: '.mysql_error ());
 		while($row = mysqli_fetch_array($photo))
 		{
 		  $featureimage = $row['FeaturePhoto'];		 
@@ -142,31 +173,17 @@ function updateArticle(){
         }
       }
 
-	$sql = "UPDATE articles SET 
-	Title='$title', Content='$content', FeaturePhoto='$featureimage' WHERE ArticleID = '$id'";
+	$sql = "UPDATE webpages SET 
+	PageTitle='$title', Content='$content', FeaturePhoto='$featureimage' WHERE WebPageID = '$id'";
 	$result = mysqli_query($conn, $sql);
 	
 	if($result){
-		$str="Article successfully updated!";
-		header('Location:../views/edit-article.php?editID='.$id.'&success-msg='.$str);
+		$str="Page successfully updated!";
+		header('Location:../views/edit-webpage.php?editID='.$id.'&success-msg='.$str);
 		}
 		else{
-			echo "ERROR UPDATING ARTICLE.".mysqli_error($conn);
+			echo "ERROR UPDATING PAGE.".mysqli_error($conn);
 		}  
-}
-
-function deleteArticle(){
-	$conn = myConnect();
-	$id = $_GET['deleteID'];
-	$sql = "DELETE FROM articles WHERE ArticleID ='$id'";
-	$result = mysqli_query($conn,$sql);
-	if($result){
-	$str="Article successfully deleted!";
-	header("Location:../views/articles-table.php?success-msg=".$str);
-	}
-	else{
-	  echo "ERROR!".mysqli_error($conn);
-	}
 }
 
 ?>

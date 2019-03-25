@@ -6,6 +6,7 @@ function myConnect(){
 	$username = "root";
 	$password = "";
 	$db="usc-library";
+	date_default_timezone_set("Asia/Manila");
 
 	static $conn;
 	$conn = mysqli_connect($servername, $username, $password,$db);

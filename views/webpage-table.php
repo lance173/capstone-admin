@@ -1,6 +1,9 @@
 <?php 
     require('header.php');
     include('nav.php');
+    require('../controllers/WebPagesController.php');
+    $ActivePages = loadActivePages();
+    $PageBin = loadPageBin()
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuWebApprncSitePages'); </script>
 
@@ -45,59 +48,24 @@
                                             </thead>
                                             <tbody>
 
-                                                <?php $lnkid = "showpgelnk1";?> <!-- TO BE ADDED: $lnkid will increment every <tr> -->
+                                                <!-- TO BE ADDED: $lnkid will increment every <tr> -->
+                                                <?php $lnkid = "showpgelnk1"; 
+                                                if(isset($ActivePages)){foreach($ActivePages as $actP){ 
+                                                ?> 
 
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                  
-                                                    <td> <div class="pagetabletitle"> Montessori Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Reed Richards</td>
-                                                    <td>07/08/2018</td>
-                                                </tr> 
-
-                                                                   <!-- Just here to catch attention--> 
-                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
-                                                                    <!-- Just here to catch attention-->
-
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
-                                                    <td> <div class="pagetabletitle"> North Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Ben Grimm</td>
-                                                    <td>03/01/2018</td>
-                                                </tr>
-
-                                                                   <!-- Just here to catch attention--> 
-                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
-                                                                    <!-- Just here to catch attention-->
-
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
-                                                    <td> <div class="pagetabletitle"> Talamban Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Susan Storm</td>
-                                                    <td>01/19/2018 </td>
-                                                </tr>
-
-                                                                   <!-- Just here to catch attention--> 
-                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
-                                                                    <!-- Just here to catch attention-->
-
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">
-                                                    <td> <div class="pagetabletitle"> South Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Bin </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Johnny Storm</td>
-                                                    <td>11/12/2017</td>
-                                                </tr>                                              
+                                                    <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                  
+                                                        <td> <div class="pagetabletitle"> <?php echo $actP['PageTitle'];?> </div> 
+                                                            <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
+                                                                <a href="#" onclick="loadEditWebPage(<?php echo $actP['WebPageID'];?>)"> Edit </a> |  <a href="" class="green-theme"> View </a> | <a href="#" class="page-deletelink" onclick="loadBinWebPage(<?php echo $actP['WebPageID'];?>)"> Bin </a> 
+                                                            </div>
+                                                        </td>
+                                                        <td>Reed Richards</td>
+                                                        <td><?php $dateCreat=date_create($actP['DateCreated']); echo date_format($dateCreat,"F d, Y"); ?></td>
+                                                    </tr> 
+                                                                  
+                                                <?php $lnkid++;
+                                                }} ?> <!-- Exactly what i said from the first comment -->
+                                                                    <!-- Just here to catch attention-->                                                                                            
                                             </tbody>
                                         </table>
 
@@ -114,16 +82,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>                                                                                                  
-                                                    <td> <b> Siliman University Siliman University Visitors </b>  </td>
-                                                    <td>Reed Richards</td>
-                                                    <td>10/18/2018</td>
-                                                    <td> 
-                                                        <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-reply"></i> Restore </a>
-                                                        <a class="btn btn-primary" href="#" role="button"> <i class="fas fa-pen"></i> Edit </a>
-                                                        <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> Delete </a>
-                                                    </td>                                                 
-                                                </tr>                                                                                               
+                                                <?php if(isset($PageBin)){foreach($PageBin as $binP){  ?>
+                                                    <tr>                                                                                                  
+                                                        <td> <b> <?php echo $binP['PageTitle'];?> </b>  </td>
+                                                        <td>Reed Richards</td>
+                                                        <td><?php $dateCreat=date_create($binP['DateCreated']); echo date_format($dateCreat,"F d, Y"); ?></td>
+                                                        <td> 
+                                                            <a class="btn btn-artvw" href="#" role="button" onclick="loadRestoreWebPage(<?php echo $binP['WebPageID'];?>)"> <i class="fas fa-reply"></i> Restore </a>
+                                                            <a class="btn btn-primary" href="#" role="button" onclick="loadEditWebPage(<?php echo $binP['WebPageID'];?>)"> <i class="fas fa-pen"></i> Edit </a>
+                                                            <a class="btn btn-rptusr" href="#" role="button" onclick="loadDeleteWebPage(<?php echo $binP['WebPageID'];?>)"> <i class="fas fa-trash-alt"></i> Delete </a>
+                                                        </td>                                                 
+                                                    </tr>
+                                                <?php }} ?>                                                                                               
                                             </tbody>
                                         </table> 
 

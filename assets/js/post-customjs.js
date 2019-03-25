@@ -100,6 +100,34 @@
     $('.display-4').text(newText);
     });
 
+    function loadDeleteWebPage(page_id){
+        if (confirm('Do you want to delete this Page?')){
+            window.location='../controllers/WebPagesController.php?deleteID='+page_id;
+        }else{
+            return false;
+        }
+    }
+
+    function loadRestoreWebPage(page_id){
+        if (confirm('Restore this Page?')){
+            window.location='../controllers/WebPagesController.php?restoreID='+page_id;
+        }else{
+            return false;
+        }
+    }
+
+    function loadBinWebPage(page_id){
+        if (confirm('Place Page to Bin?')){
+            window.location='../controllers/WebPagesController.php?binID='+page_id;
+        }else{
+            return false;
+        }
+    }
+
+    function loadEditWebPage(page_id){
+        window.location='edit-webpage.php?editID='+page_id;        
+    }
+
 
     //On Slide editor
 
