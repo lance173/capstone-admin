@@ -102,7 +102,7 @@
                     <div class="ibox">
                         <div class="ibox-head">
                             <div class="ibox-title"> Home </div>
-                            <div> <a href="#"> <button class="btn add-btn2"> <i class="far fa-edit"></i> Edit</button> </a> </div>
+                            <div> <a href="#"> <button class="btn add-btn2"> <i class="far fa-edit"></i> Edit</button> </a> <a href="#"> <button class="btn delete-btn"> Remove from Menu <i class="fas fa-times"></i> </button> </a> </div>
                         </div>
                         <div class="ibox-body">
                             <div class="form-group">

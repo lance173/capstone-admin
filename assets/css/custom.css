@@ -490,10 +490,18 @@ html, body{
   color: #FFF;
 }
 
-.add-btn:hover, .add-btn2:hover {
+.delete-btn{
+  border: 2px solid #F73534;
+  background-color: #F73534;
+  color: #FFF;  
+}
+
+.add-btn:hover, .add-btn2:hover, .delete-btn:hover {
   color: #333;
   background-color: #FFF;
 }
+
+
 
 .center-tabledata{
   text-align: center;
