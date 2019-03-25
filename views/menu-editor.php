@@ -1,6 +1,9 @@
 <?php 
     require('header.php');
     include('nav.php');
+    require('../controllers/MenuController.php');
+
+    $menuitem = loadMenuItems();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor'); </script>
 
@@ -71,18 +74,11 @@
                                     <tr class="men-itm">
                                         <td> Home </td>                                        
                                     </tr>
-                                    <tr class="men-itm">
-                                        <td>Libraries</td>
-                                    </tr>
-                                    <tr class="men-itm">
-                                        <td>Other Services</td>
-                                    </tr>
-                                    <tr class="men-itm">
-                                        <td>Linkages</td>
-                                    </tr>
-                                    <tr class="men-itm">
-                                        <td>Electronic Resources</td>
-                                    </tr>
+                                    <?php if(isset($menuitem)){foreach($menuitem as $menitm){  ?>
+                                        <tr class="men-itm">
+                                            <td> <?php echo $menitm['ItemName'];?> </td>
+                                        </tr>
+                                    <?php }} ?>
                                 </tbody>
                             </table>
                         </div>
