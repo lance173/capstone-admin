@@ -123,3 +123,6 @@ function activePageAtSideNav(id) {
     document.getElementById(x).style.backgroundColor = "#6e7884";
 
 }
+
+//menu editor
+

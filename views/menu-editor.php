@@ -6,29 +6,28 @@
     $menuitem = loadMenuItems();
     $menudropdown = loadMenuDropdown();
 ?>
-    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor'); </script>
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); 
+    </script>
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
-            <div class="row" style="display: none;">
-                <div class="inpage-alerts">
-                    <div class="alert alert-success">
-                        Menu bar changed successfully.
-                    </div>
-                </div>
-            </div>
-
-
+            
             <div class="page-heading">
                 <h3 class="page-title"> <i class="fas fa-window-maximize"></i> Edit Menu Bar </h3>
             </div>
 
             <div class="row">
+                <div class="inpage-alerts">
+                    <?php include('../controllers/NotificationManager.php');?>
+                </div>
+            </div>
+
+
+            <div class="row">
                 <div class="col-md-11 mnurow"> 
                   
                     <div class="menubar-preview">
-                        <a href="#home">Home</a>                    
-
+                        <a href="#home" id="menprvwitm-home" style="background-color: #FFB041;">Home</a>                                   
                         <?php 
                             if(isset($menuitem)){foreach($menuitem as $prevwmenitm){   
 
@@ -81,14 +80,17 @@
                         <div class="ibox-body">
                             <table class="table" style="margin-bottom: 0px;">                            
                                 <tbody>
-                                    <tr class="men-itm">
+
+                                    <tr class="men-itm" id="menitm-home" style="background-color: #6ba3ff; border: 3px solid #6ba3ff; color: #FFF;">
                                         <td> Home </td>                                        
                                     </tr>
+
                                     <?php if(isset($menuitem)){foreach($menuitem as $menitm){  ?>
                                         <tr class="men-itm">
                                             <td> <?php echo $menitm['ItemName'];?> </td>
                                         </tr>
                                     <?php }} ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -98,8 +100,51 @@
                     </div>
                 </div>
 
-                <div class="col-md-7">
-                    <div class="ibox">
+                
+                <div class="col-md-7" >
+
+                    <!-- If 'Home' is Selected -->
+                    <div class="ibox" id="home-mnuitmform">
+                        <div class="ibox-head">
+                            <div class="ibox-title"> Home </div>
+                        </div>
+                        <div class="ibox-body">
+                            <div class="form-group">
+                                <label>Position</label>
+                                <select class="form-control" disabled>
+                                    <option selected >Beginning</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select class="form-control" disabled>
+                                    <option selected>Static</option>
+                                </select>                                                                   
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label>Choose Page</label>
+                                    <select class="form-control" disabled>
+                                        <option selected>Custom Link</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input class="form-control" type="text" value="Home" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>URL or Link</label>                                            
+                                            <input class="form-control" type="text" value="capstone-user/index.php" disabled>
+                                        </div>
+                                    </div>    
+                                </div>    
+                            </div>                                
+                        </div>                        
+                    </div>
+
+                    <div class="ibox" id="mnuitmform" style="display: none;">
                         <div class="ibox-head">
                             <div class="ibox-title"> Home </div>
                             <div> <a href="#"> <button class="btn add-btn2"> <i class="far fa-edit"></i> Edit</button> </a> <a href="#"> <button class="btn delete-btn"> Remove from Menu <i class="fas fa-times"></i> </button> </a> </div>
@@ -182,11 +227,9 @@
                                                     <input class="form-control" type="text" placeholder="url">
                                                 </div>
                                             </div>
-                                        </div>
-                                         
+                                        </div>                                         
                                         <button> Add to List </button>
-                                    </div>
-                                     
+                                    </div>                                     
                                 </div>                                
                             </div>                            
                         </div>
