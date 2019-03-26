@@ -126,3 +126,12 @@ function activePageAtSideNav(id) {
 
 //menu editor
 
+function showmnuitemhomeborder(id) {
+  x = id;
+  document.getElementById(x).style.border = "3px solid #6ba3ff";
+}
+
+function hidemnuitemhomeborder(id) {
+  x = id;
+  document.getElementById(x).style.border = "0px";
+}

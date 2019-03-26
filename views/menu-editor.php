@@ -81,15 +81,21 @@
                             <table class="table" style="margin-bottom: 0px;">                            
                                 <tbody>
 
-                                    <tr class="men-itm" id="menitm-home" style="background-color: #6ba3ff; border: 3px solid #6ba3ff; color: #FFF;">
+                                    <tr class="men-itm" id="menitm-home" style="background-color: #6ba3ff; border: 3px solid #6ba3ff; color: #FFF;" onmouseover="showmnuitemhomeborder('menitm-home')" onmouseout="hidemnuitemhomeborder('menitm-home')" >
                                         <td> Home </td>                                        
                                     </tr>
 
-                                    <?php if(isset($menuitem)){foreach($menuitem as $menitm){  ?>
-                                        <tr class="men-itm">
+                                    <?php 
+                                        $listmenitm = "clickmnitm1"; 
+                                        if(isset($menuitem)){foreach($menuitem as $menitm){  
+                                    ?>
+                                        <tr class="men-itm" onclick="selectMenuItem()">
                                             <td> <?php echo $menitm['ItemName'];?> </td>
                                         </tr>
-                                    <?php }} ?>
+                                    <?php 
+                                        $listmenitm++;
+                                        }} 
+                                    ?>
 
                                 </tbody>
                             </table>

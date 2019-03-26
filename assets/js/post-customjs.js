@@ -107,10 +107,12 @@
 
     //On Menu Editor
     
-    // function activeHomeOnMenuEditor() {
-    //     x1 = document.getElementById("menprvwitm-home")
-    //     x1.style.backgroundColor = "#FFB041";
-    // }
+    function selectMenuItem() {
+        x1 = document.getElementById("menitm-home")
+        x1.style.backgroundColor = "#FFF";
+        x1.style.color = "#333";
+        x1.style.border = "0px";         
+    }
     
 
     function staticordropdown() {
