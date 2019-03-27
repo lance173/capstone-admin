@@ -20,7 +20,7 @@
                 <div class="row featurette siteeditor-itemrow">
                     <div class="col-md-6">
                         <div style="padding-top: 120px;">
-                            <h2 class="featurette-heading"> Customize the <span class="orange-theme"><b>Menu Bar</b></span>.</h2>
+                            <h2 class="featurette-heading"> Customize the <span class="orangetheme-span"><b>Menu Bar</b></span>.</h2>
                             <a href="menu-editor.php"> <button class="btn btn-steedtr1" > Menu Bar Editor </button> </a>
                         </div>
                         
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-6">
                         <div style="padding-top: 120px;">
-                            <h2 class="featurette-heading"> Edit the <span class="green-theme"><b>Home Slider</b></span>.</h2>
+                            <h2 class="featurette-heading"> Edit the <span class="greentheme-span"><b>Home Slider</b></span>.</h2>
                             <a href="slider-editor.php"> <button class="btn btn-steedtr2"> Slider Editor </button> </a>
                         </div>                        
                     </div>                      
@@ -43,7 +43,7 @@
                 <div class="row featurette siteeditor-itemrow">
                     <div class="col-md-6">
                         <div style="padding-top: 120px;">
-                            <h2 class="featurette-heading"> Create new <span class="orange-theme"><b>Pages</b></span> for the website.</h2>
+                            <h2 class="featurette-heading"> Create new <span class="orangetheme-span"><b>Pages</b></span> for the website.</h2>
                             <a href="webpage-table.php"> <button class="btn btn-steedtr1"> See All Pages </button> </a>
                         </div>
                         

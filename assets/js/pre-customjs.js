@@ -136,12 +136,12 @@ function hidemnuitemborder(id) {
   document.getElementById(x).style.border = "0px";
 }
 
-// function hoverinHomemnuprv(id) {
-//   x = id;
-//   document.getElementById(x).style.backgroundColor = "#FFB041";
-// }
+function hoverinmnuprv(id) {
+  x = id;
+  document.getElementById(x).style.backgroundColor = "#FFB041";
+}
 
-// function hoveroutHomemnuprv(id) {
-//   x = id;
-//   document.getElementById(x).style.backgroundColor = "#02A554";  
-// }
+function hoveroutmnuprv(id) {
+  x = id;
+  document.getElementById(x).style.backgroundColor = "#02A554";  
+}

@@ -109,46 +109,70 @@
     
     function selectMenuItem(id) {
 
-        var z = id;
+        var a = id;
         var i;
         var table = document.getElementById("menuitems-table");
         var tr = table.getElementsByTagName("tr");
 
-        var w = "clickmnitm0";
-        var num = parseInt(w.match(/\d+$/));
-        var pos = w.indexOf(num);
-        var str = w.slice(0,pos);
+
+        var b = "clickmnitm0";
+        //split string "clickmnitm0" into "clickmitm" "0"
+        var num1 = parseInt(b.match(/\d+$/));
+        var pos1 = b.indexOf(num1);
+        var str1 = b.slice(0,pos1);
         
+        var c = "itemfromprevmenu0";
+        //split string "itemfromprevmenu0" into "itemfromprevmenu" "0"
+        var num2 = parseInt(c.match(/\d+$/));
+        var pos2 = c.indexOf(num2);
+        var str2 = c.slice(0,pos2);
+
 
         for(i = 0; i < tr.length; i++){
-            num++;
-            w = str + num;
-            var y = document.getElementById(w);
 
-            if(z == w){
-                y.style.backgroundColor = "#6ba3ff";
-                y.style.border = "3px solid #6ba3ff";
-                y.style.color = "#FFF";
+            num1++;
+            b = str1 + num1;
 
+            num2++;
+            c = str2 + num2;
+
+            var x = document.getElementById(b);
+            var y = document.getElementById(c);
+
+            if(a == b && num1 == num2 ) {
+                x.style.backgroundColor = "#6ba3ff";
+                x.style.border = "3px solid #6ba3ff";
+                x.style.color = "#FFF";
+
+                y.style.backgroundColor = "#FFB041";
+                    
     
+            } else {
+                x.style.backgroundColor = "#FFF";
+                x.style.border = "0px";
+                x.style.color = "#333";
 
-            } else if(z != w ) {
-                y.style.backgroundColor = "#FFF";
-                y.style.border = "0px";
-                y.style.color = "#333"
-
+                y.style.backgroundColor = "#02A554";
             }
 
-            
+            if(a == "clickmnitm1"){
+                document.getElementById("home_mnuitmform").style.display = "block";
+                document.getElementById("mnuitmform").style.display = "none";
+                document.getElementById("addnew_mnuitmform").style.display = "none";
+            } else {
+                document.getElementById("home_mnuitmform").style.display = "none";
+                document.getElementById("mnuitmform").style.display = "block";
+                document.getElementById("addnew_mnuitmform").style.display = "none";                        
+            }
         }                                                         
     }
     
 
-    function staticordropdown() {
-        var x = document.getElementById("sttcordrpdwn").value;
+    function staticordropdownA() {
+        var x = document.getElementById("sttcordrpdwnA").value;
 
-        var a = document.getElementById("chosenstatic");
-        var b = document.getElementById("chosendropdown");
+        var a = document.getElementById("chosenstaticA");
+        var b = document.getElementById("chosendropdownA");
 
         if (x == "Static") {
 
@@ -162,27 +186,75 @@
         }
     }
 
-    function ifcustomlink1() {
-        var chosenpage1 = document.getElementById("pageorcustomlink1").value;
+    function ifcustomlinkA1() {
+        var chosenpageA1 = document.getElementById("pageorcustomlinkA1").value;
 
-        var w = document.getElementById("chosencustomlink1");
+        var w = document.getElementById("chosencustomlinkA1");
 
-        if (chosenpage1 == "Custom Link"){
+        if (chosenpageA1 == "Custom Link"){
             w.style.display = 'block';
-        } else if (chosenpage1 != "Custom Link") {
+        } else if (chosenpageA1 != "Custom Link") {
             w.style.display = 'none';
         }
     }
 
-    function ifcustomlink2() {
-        var chosenpage2 = document.getElementById("pageorcustomlink2").value;
+    function ifcustomlinkA2() {
+        var chosenpageA2 = document.getElementById("pageorcustomlinkA2").value;
 
-        var z = document.getElementById("chosencustomlink2");
+        var z = document.getElementById("chosencustomlinkA2");
 
-        if (chosenpage2 == "Custom Link"){
+        if (chosenpageA2 == "Custom Link"){
             z.style.display = 'block';
-        } else if (chosenpage2 != "Custom Link") {
+        } else if (chosenpageA2 != "Custom Link") {
             z.style.display = 'none';
         }
     }
 
+    function staticordropdownB() {
+        var x = document.getElementById("sttcordrpdwnB").value;
+
+        var a = document.getElementById("chosenstaticB");
+        var b = document.getElementById("chosendropdownB");
+
+        if (x == "Static") {
+
+            a.style.display = 'block';
+            b.style.display = 'none';
+
+        } else if (x == "Drop-down") {
+
+            a.style.display = 'none';
+            b.style.display = 'block';
+        }
+    }
+
+    function ifcustomlinkB1() {
+        var chosenpageB1 = document.getElementById("pageorcustomlinkB1").value;
+
+        var w = document.getElementById("chosencustomlinkB1");
+
+        if (chosenpageB1 == "Custom Link"){
+            w.style.display = 'block';
+        } else if (chosenpageB1 != "Custom Link") {
+            w.style.display = 'none';
+        }
+    }
+
+    function ifcustomlinkB2() {
+        var chosenpageB2 = document.getElementById("pageorcustomlinkB2").value;
+
+        var z = document.getElementById("chosencustomlinkB2");
+
+        if (chosenpageB2 == "Custom Link"){
+            z.style.display = 'block';
+        } else if (chosenpageB2 != "Custom Link") {
+            z.style.display = 'none';
+        }
+    }
+
+
+    function addAmenuItem(){
+        document.getElementById("home_mnuitmform").style.display = "none";
+        document.getElementById("mnuitmform").style.display = "none";
+        document.getElementById("addnew_mnuitmform").style.display = "block";   
+    }

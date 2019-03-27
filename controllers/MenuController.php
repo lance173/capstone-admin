@@ -1,4 +1,4 @@
-<?php require('MysqlConnect.php'); 
+<?php  
 
 function loadMenuItems(){
    $conn = myConnect();

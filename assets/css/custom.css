@@ -948,7 +948,11 @@ html, body{
   background-color: #FFF;
 }
 
-#chosenstatic, #chosencustomlink1, #chosendropdown, #chosencustomlink2{
+#chosenstaticA, #chosencustomlinkA1, #chosendropdownA, #chosencustomlinkA2{
+  display: none;
+}
+
+#chosenstaticB, #chosencustomlinkB1, #chosendropdownB, #chosencustomlinkB2{
   display: none;
 }
 
@@ -1047,10 +1051,10 @@ body:not(.fixed-layout).sidebar-mini .contentwrapper-custom {
 
 
 
-.green-theme{
+.greentheme-span{
   color: #02A554;
 }
 
-.orange-theme{
+.orangetheme-span{
   color: #ff7700;
 }

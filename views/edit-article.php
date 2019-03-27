@@ -65,6 +65,8 @@
                                 </div>
                                 <div id="pblsh-body">
                                     <div class="ibox-body">
+                                        <i class="fas fa-pen"></i> <?php $dateCreat=date_create($row[4]); echo date_format($dateCreat,"F d, Y • h:i A"); ?>
+                                        <br> <br>
                                         <i class="fas fa-info-circle"></i> publishing article info
                                         <input type="text" value="<?php echo $row[0];?>" name="articleID" hidden>
                                     </div>
