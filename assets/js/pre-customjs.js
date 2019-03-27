@@ -126,12 +126,22 @@ function activePageAtSideNav(id) {
 
 //menu editor
 
-function showmnuitemhomeborder(id) {
+function showmnuitemborder(id) {
   x = id;
   document.getElementById(x).style.border = "3px solid #6ba3ff";
 }
 
-function hidemnuitemhomeborder(id) {
+function hidemnuitemborder(id) {
   x = id;
   document.getElementById(x).style.border = "0px";
 }
+
+// function hoverinHomemnuprv(id) {
+//   x = id;
+//   document.getElementById(x).style.backgroundColor = "#FFB041";
+// }
+
+// function hoveroutHomemnuprv(id) {
+//   x = id;
+//   document.getElementById(x).style.backgroundColor = "#02A554";  
+// }

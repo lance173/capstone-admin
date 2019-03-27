@@ -107,11 +107,40 @@
 
     //On Menu Editor
     
-    function selectMenuItem() {
-        x1 = document.getElementById("menitm-home")
-        x1.style.backgroundColor = "#FFF";
-        x1.style.color = "#333";
-        x1.style.border = "0px";         
+    function selectMenuItem(id) {
+
+        var z = id;
+        var i;
+        var table = document.getElementById("menuitems-table");
+        var tr = table.getElementsByTagName("tr");
+
+        var w = "clickmnitm0";
+        var num = parseInt(w.match(/\d+$/));
+        var pos = w.indexOf(num);
+        var str = w.slice(0,pos);
+        
+
+        for(i = 0; i < tr.length; i++){
+            num++;
+            w = str + num;
+            var y = document.getElementById(w);
+
+            if(z == w){
+                y.style.backgroundColor = "#6ba3ff";
+                y.style.border = "3px solid #6ba3ff";
+                y.style.color = "#FFF";
+
+    
+
+            } else if(z != w ) {
+                y.style.backgroundColor = "#FFF";
+                y.style.border = "0px";
+                y.style.color = "#333"
+
+            }
+
+            
+        }                                                         
     }
     
 

@@ -21,19 +21,19 @@
           <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">Old Password</label>
             <div class="col-sm-8">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Old Password" style="width: 80%;">
+              <input type="password" class="form-control" id="inputOldPassword" placeholder="Old Password" style="width: 80%;">
             </div>
           </div>   
           <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">New Password</label>
             <div class="col-sm-8">
-              <input type="password" class="form-control" id="inputPassword" placeholder="New Password" style="width: 80%;">
+              <input type="password" class="form-control" id="inputNewPassword" placeholder="New Password" style="width: 80%;">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">Confirm Password</label>
             <div class="col-sm-8">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" style="width: 80%;">
+              <input type="password" class="form-control" id="inputConfPassword" placeholder="Confirm Password" style="width: 80%;">
             </div>
           </div>
 

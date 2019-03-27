@@ -27,7 +27,7 @@
                 <div class="col-md-11 mnurow"> 
                   
                     <div class="menubar-preview">
-                        <a href="#home" id="menprvwitm-home" style="background-color: #FFB041;">Home</a>                                   
+                                   
                         <?php 
                             if(isset($menuitem)){foreach($menuitem as $prevwmenitm){   
 
@@ -78,21 +78,35 @@
                             <div class="ibox-title"> <i class="fas fa-bars"></i> &nbsp; Menu Items </div>
                         </div>
                         <div class="ibox-body">
-                            <table class="table" style="margin-bottom: 0px;">                            
+                            <table class="table" id="menuitems-table" style="margin-bottom: 0px;">                            
                                 <tbody>
 
-                                    <tr class="men-itm" id="menitm-home" style="background-color: #6ba3ff; border: 3px solid #6ba3ff; color: #FFF;" onmouseover="showmnuitemhomeborder('menitm-home')" onmouseout="hidemnuitemhomeborder('menitm-home')" >
-                                        <td> Home </td>                                        
-                                    </tr>
+                                    
 
-                                    <?php 
-                                        $listmenitm = "clickmnitm1"; 
-                                        if(isset($menuitem)){foreach($menuitem as $menitm){  
+                                    <?php
+                                        $listmenitm = "clickmnitm1";   
+                                        if(isset($menuitem)){foreach($menuitem as $menitm){ 
+                                            $unqid = $menitm['MenuItemID']; 
                                     ?>
-                                        <tr class="men-itm" onclick="selectMenuItem()">
+
+                                        <?php
+                                        if($menitm['ItemName']=='Home'){
+                                        ?>                                        
+
+                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" style="background-color: #6ba3ff; border: 3px solid #6ba3ff; color: #FFF;" onclick="selectMenuItem('<?php echo $listmenitm ?>')" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
+                                                <td> <?php echo $menitm['ItemName'];?> </td>
+                                            </tr>
+
+                                        <?php
+                                        } else{  
+                                        ?>
+                                                  
+                                        <tr class="men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>')" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
                                             <td> <?php echo $menitm['ItemName'];?> </td>
                                         </tr>
+
                                     <?php 
+                                        } 
                                         $listmenitm++;
                                         }} 
                                     ?>
