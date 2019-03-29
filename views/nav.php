@@ -222,7 +222,7 @@
                             <span class="nav-label">Website Appearance</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="site-editor.php" id="MenuSiteEditor">Site Editor</a>
+                                <a href="site-editor.php" id="MenuSiteEditor">Website Editor</a>
                             </li>
                             <li>
                                 <a href="menu-editor.php" id="MenuMnBarEditor">Edit Menu Bar</a>
@@ -231,7 +231,7 @@
                                 <a href="slider-editor.php" id="MenuSliderEditor">Edit Slider</a>
                             </li>
                             <li>
-                                <a href="webpage-table.php" id="MenuWebApprncSitePages">Site Pages</a>
+                                <a href="webpage-table.php" id="MenuWebApprncSitePages">Website Pages</a>
                             </li>
                         </ul>
                     </li>

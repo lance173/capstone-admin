@@ -9,7 +9,7 @@
             
               <div class="jumbotron site-editorjumbo" style="">
                 <div style="background-color: rgba(0,0,0,0.5); padding: 100px;">
-                  <h1 class="display-4">WELCOME TO SITE EDITOR</h1> 
+                  <h1 class="display-4">WELCOME TO WEBSITE EDITOR</h1> 
                 </div>
         					       					
       				</div>

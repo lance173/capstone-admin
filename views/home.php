@@ -31,7 +31,7 @@
                             <span class="info-box-icon noofusers-infobox"><i class="fas fa-user-friends"></i></span>
 
                             <div class="info-box-content">
-                              <span class="info-box-text">Users</span>
+                              <span class="info-box-text">Student Users</span>
                               <span class="info-box-number"> <?php echo $NoOfUsers ?> </span>
                             </div>
                       </div>
