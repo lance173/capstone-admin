@@ -2,12 +2,12 @@
     require('header.php');
     include('nav.php');
 ?>
-
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuAdminUsers'); activePageAtSideNav('MenuAdminUsersTable'); </script>
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h3 class="page-title"> <i class="fas fa-file-alt"></i> Admin Users </h3>
+                <h3 class="page-title"> <i class="fa fa-user-shield"></i> Admin Users </h3>
             </div>
 
             <div class="row">
@@ -35,7 +35,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-7-1">
 
-                                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                         <table class="table table-striped table-bordered table-hover" id="alladmins-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>
@@ -59,15 +59,70 @@
 
                                         Display All System admins.
 
+                                        <table class="table table-striped table-bordered table-hover" id="systemadmins-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Role</th>
+                                                    <th>Age</th>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Yuri Berry</td>
+                                                    <td>Chief Marketing Officer (CMO)</td>
+                                                    <td>New York</td>
+                                                    <td>40</td>
+                                                </tr>                                               
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                     <div class="tab-pane fade"  id="tab-7-3">
 
                                     Display All Editors.
+                                    <table class="table table-striped table-bordered table-hover" id="editors-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Role</th>
+                                                    <th>Age</th>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Yuri Berry</td>
+                                                    <td>Chief Marketing Officer (CMO)</td>
+                                                    <td>New York</td>
+                                                    <td>40</td>
+                                                </tr>                                               
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                     <div class="tab-pane fade"  id="tab-7-4">
 
                                     Display All Authors.
+                                    <table class="table table-striped table-bordered table-hover" id="authors-table" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Role</th>
+                                                    <th>Age</th>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Yuri Berry</td>
+                                                    <td>Chief Marketing Officer (CMO)</td>
+                                                    <td>New York</td>
+                                                    <td>40</td>
+                                                </tr>                                               
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                 </div><br></div>

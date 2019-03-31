@@ -1,4 +1,4 @@
-            
+            <?php include('edit-accountmodal.php'); ?>
             <footer class="page-footer">
                 <div class="font-13 "> <b>USC LIBRARY SYSTEM 2.0</b> - All rights reserved © 2018.  </div>
                 <div class="px-4"> ACERO • QUIOBE • JALUAG • SASEDOR </div>
@@ -44,16 +44,86 @@
         $(function() {
             $('#example-table').DataTable({
                 pageLength: 10,
-                //"ajax": './assets/demo/data/table_data.json',
-                /*"columns": [
-                    { "data": "name" },
-                    { "data": "office" },
-                    { "data": "extn" },
-                    { "data": "start_date" },
-                    { "data": "salary" }
-                ]*/
             });
         })
+
+        //Articles DataTables
+        $(function() {
+            $('#publishedarticles-table').DataTable({
+                pageLength: 10,
+            });
+        })
+        $(function() {
+            $('#pendingarticles-table').DataTable({
+                pageLength: 10,
+            });
+        })
+
+        //Webpages DataTables
+        $(function() {
+            $('#activepages-table').DataTable({
+                pageLength: 10,
+            });
+        })
+        $(function() {
+            $('#pagebin-table').DataTable({
+                pageLength: 10,
+            });
+        })
+
+        //Students Users DataTables
+        $(function() {
+            $('#allstudents-table').DataTable({
+                pageLength: 10,
+            });
+        })
+        $(function() {
+            $('#clearedstudents-table').DataTable({
+                pageLength: 10,
+            });
+        })
+        $(function() {
+            $('#blockedstudents-table').DataTable({
+                pageLength: 10,
+            });
+        })
+
+        //Admin Users DataTables
+        $(function() {
+            $('#alladmins-table').DataTable({
+                pageLength: 10,
+            });
+        })
+        $(function() {
+            $('#systemadmins-table').DataTable({
+                pageLength: 10,
+            });
+        })
+        $(function() {
+            $('#editors-table').DataTable({
+                pageLength: 10,
+            });
+        })
+        $(function() {
+            $('#authors-table').DataTable({
+                pageLength: 10,
+            });
+        })
+
+        //Reported Users DataTables
+        $(function() {
+            $('#reports-table').DataTable({
+                pageLength: 10,
+            });
+        })
+
+        //Activity Log DataTables
+        $(function() {
+            $('#activitylog-table').DataTable({
+                pageLength: 10,
+            });
+        })
+
     </script>  
     <script type="text/javascript">
         $(function() {

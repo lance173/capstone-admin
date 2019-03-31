@@ -11,6 +11,21 @@ function preview_image(event)
  reader.readAsDataURL(event.target.files[0]);
 }
 
+function preview_imageaddwebpage(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output1 = document.getElementById('output_image');
+  var output2 = document.getElementById('pagetitlejumboimage');
+  output1.src = reader.result;
+  output2.style.backgroundImage = 'url('+reader.result+')';
+ }
+ reader.readAsDataURL(event.target.files[0]);
+
+}
+
+
 //preview featured image and publish show and hide
 
 function hdeshwftimg()
@@ -98,4 +113,35 @@ function showpgelnks(id) {
 function hidepgelnks(id) {
 	x = id;
     document.getElementById(x).style.visibility = "hidden";
+}
+
+//activate side nav item
+
+function activePageAtSideNav(id) {
+    x = id;
+    document.getElementById(x).style.color = "#fff";
+    document.getElementById(x).style.backgroundColor = "#6e7884";
+
+}
+
+//menu editor
+
+function showmnuitemborder(id) {
+  x = id;
+  document.getElementById(x).style.border = "3px solid #6ba3ff";
+}
+
+function hidemnuitemborder(id) {
+  x = id;
+  document.getElementById(x).style.border = "0px";
+}
+
+function hoverinmnuprv(id) {
+  x = id;
+  document.getElementById(x).style.backgroundColor = "#FFB041";
+}
+
+function hoveroutmnuprv(id) {
+  x = id;
+  document.getElementById(x).style.backgroundColor = "#02A554";  
 }

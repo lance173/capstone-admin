@@ -1,8 +1,11 @@
 <?php 
     require('header.php');
     include('nav.php');
+    require('../controllers/WebPagesController.php');
+    $ActivePages = loadActivePages();
+    $PageBin = loadPageBin()
 ?>
-
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuWebApprncSitePages'); </script>
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
@@ -11,25 +14,31 @@
             </div>
 
             <div class="row">
+                <div class="inpage-alerts">
+                    <?php include('../controllers/NotificationManager.php');?>
+                </div>
+            </div>
+
+            <div class="row">
                     <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-head">
-                                <div class="ibox-title">Site Pages</div>
+                                <div class="ibox-title">Website Pages</div>
                                 <div> <a href="add-webpage.php"> <button class="btn add-btn"> <i class="fas fa-plus"></i> Add New Page </button> </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <ul class="nav nav-tabs tabs-line">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#tab-7-1" data-toggle="tab"><i class="far fa-window-maximize"></i> Published Pages</a>
+                                        <a class="nav-link active" href="#tab-7-1" data-toggle="tab"><i class="far fa-window-maximize"></i> Active Pages</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#tab-7-2" data-toggle="tab"><i class="fas fa-file-signature"></i> Pending Approval</a>
+                                        <a class="nav-link" href="#tab-7-2" data-toggle="tab"> <i class="fa fa-trash" aria-hidden="true"></i> Page Bin </a>
                                     </li>                                    
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-7-1">
 
-                                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                         <table class="table table-striped table-bordered table-hover" id="activepages-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>                                                    
                                                     <th>Title</th>
@@ -39,89 +48,52 @@
                                             </thead>
                                             <tbody>
 
-                                                <?php $lnkid = "showpgelnk1";?> <!-- TO BE ADDED: $lnkid will increment every <tr> -->
+                                                <!-- TO BE ADDED: $lnkid will increment every <tr> -->
+                                                <?php $lnkid = "showpgelnk1"; 
+                                                if(isset($ActivePages)){foreach($ActivePages as $actP){ 
+                                                ?> 
 
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                  
-                                                    <td> <div class="pagetabletitle"> Montessori Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Reed Richards</td>
-                                                    <td>07/08/2018</td>
-                                                </tr> 
-
-                                                                   <!-- Just here to catch attention--> 
-                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
-                                                                    <!-- Just here to catch attention-->
-
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
-                                                    <td> <div class="pagetabletitle"> North Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Ben Grimm</td>
-                                                    <td>03/01/2018</td>
-                                                </tr>
-
-                                                                   <!-- Just here to catch attention--> 
-                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
-                                                                    <!-- Just here to catch attention-->
-
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                    
-                                                    <td> <div class="pagetabletitle"> Talamban Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Susan Storm</td>
-                                                    <td>01/19/2018 </td>
-                                                </tr>
-
-                                                                   <!-- Just here to catch attention--> 
-                                                <?php $lnkid++; ?> <!-- Exactly what i said from the first comment -->
-                                                                    <!-- Just here to catch attention-->
-
-                                                <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">
-                                                    <td> <div class="pagetabletitle"> South Campus </div> 
-                                                        <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
-                                                            <a href=""> Edit </a> |  <a href=""> View </a> | <a href="" class="page-deletelink"> Delete </a> 
-                                                        </div>
-                                                    </td>
-                                                    <td>Johnny Storm</td>
-                                                    <td>11/12/2017</td>
-                                                </tr>                                              
+                                                    <tr onmouseover="showpgelnks('<?php echo $lnkid ?>')" onmouseout="hidepgelnks('<?php echo $lnkid ?>')">                                                  
+                                                        <td> <div class="pagetabletitle"> <?php echo $actP['PageTitle'];?> </div> 
+                                                            <div class="pagetableminlink" id="<?php echo $lnkid ?>"> 
+                                                                <a href="#" onclick="loadEditWebPage(<?php echo $actP['WebPageID'];?>)"> Edit </a> |  <a href="" class="green-theme"> View </a> | <a href="#" class="page-deletelink" onclick="loadBinWebPage(<?php echo $actP['WebPageID'];?>)"> Bin </a> 
+                                                            </div>
+                                                        </td>
+                                                        <td>Reed Richards</td>
+                                                        <td><?php $dateCreat=date_create($actP['DateCreated']); echo date_format($dateCreat,"F d, Y"); ?></td>
+                                                    </tr> 
+                                                                  
+                                                <?php $lnkid++;
+                                                }} ?> <!-- Exactly what i said from the first comment -->
+                                                                    <!-- Just here to catch attention-->                                                                                            
                                             </tbody>
                                         </table>
 
                                     </div>
                                     <div class="tab-pane" id="tab-7-2">
 
-                                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                                        <table class="table table-striped table-bordered table-hover" id="pagebin-table" cellspacing="0" width="100%">
                                             <thead>
-                                                <tr>
-                                                    <th> </th>
-                                                    <th>Photo</th>
+                                                <tr>                                                    
                                                     <th>Title</th>
                                                     <th>Author</th>
                                                     <th>Date</th>
-                                                    <th>  </th>
+                                                    <th> </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td style="padding: 30px;"> <a class="btn btn-artvw" href="#" role="button"> <i class="fas fa-check"></i> Approve </a>  </td>
-                                                    <td style="text-align: center;"> <img src="../assets/img/posts/sliman-vst.jpg" class="img-artvw"> </td>
-                                                    <td>Siliman University Siliman University Visitors</td>
-                                                    <td>Reed Richards</td>
-                                                    <td>10/18/2018</td>
-                                                    <td> 
-                                                        
-                                                        <a class="btn btn-primary" href="#" role="button"> View </a>
-                                                        <a class="btn btn-rptusr" href="#" role="button"> <i class="fas fa-trash-alt"></i> </a>
-                                                    </td>
-                                                </tr>                                                                                               
+                                                <?php if(isset($PageBin)){foreach($PageBin as $binP){  ?>
+                                                    <tr>                                                                                                  
+                                                        <td> <b> <?php echo $binP['PageTitle'];?> </b>  </td>
+                                                        <td>Reed Richards</td>
+                                                        <td><?php $dateCreat=date_create($binP['DateCreated']); echo date_format($dateCreat,"F d, Y"); ?></td>
+                                                        <td> 
+                                                            <a class="btn btn-artvw" href="#" role="button" onclick="loadRestoreWebPage(<?php echo $binP['WebPageID'];?>)"> <i class="fas fa-reply"></i> Restore </a>
+                                                            <a class="btn btn-primary" href="#" role="button" onclick="loadEditWebPage(<?php echo $binP['WebPageID'];?>)"> <i class="fas fa-pen"></i> Edit </a>
+                                                            <a class="btn btn-rptusr" href="#" role="button" onclick="loadDeleteWebPage(<?php echo $binP['WebPageID'];?>)"> <i class="fas fa-trash-alt"></i> Delete </a>
+                                                        </td>                                                 
+                                                    </tr>
+                                                <?php }} ?>                                                                                               
                                             </tbody>
                                         </table> 
 

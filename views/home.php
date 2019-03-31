@@ -1,8 +1,11 @@
 <?php 
     require('header.php');
     include('nav.php');
-?>
+    require('../controllers/StudentUserController.php'); 
 
+    $NoOfUsers = countStudentUsers();
+?>
+    <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuHomePage'); </script>
 
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
@@ -18,7 +21,7 @@
 
                             <div class="info-box-content">
                               <span class="info-box-text">Today's Visits</span>
-                              <span class="info-box-number"> 1,100 </span>
+                              <span class="info-box-number"> 215 </span>
                             </div>
                           </div>                 
                     </div>
@@ -28,8 +31,8 @@
                             <span class="info-box-icon noofusers-infobox"><i class="fas fa-user-friends"></i></span>
 
                             <div class="info-box-content">
-                              <span class="info-box-text">Users</span>
-                              <span class="info-box-number">210,146</span>
+                              <span class="info-box-text">Student Users</span>
+                              <span class="info-box-number"> <?php echo $NoOfUsers ?> </span>
                             </div>
                       </div>
                     </div>                    
@@ -69,6 +72,7 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title"> <i class="fa fa-file-alt"></i> Current Articles</div>
+                                <div> <a class="btn btn-artvwall" href="webpage-table.php" role="button"> View All </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <div class="table-responsive">
@@ -79,49 +83,35 @@
                                                 <th>TITLE</th>
                                                 <th>AUTHOR</th>
                                                 <th>DATE</th>
-                                                <th width="100px"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td> <img src="../assets/img/posts/lnch212.jpg" class="img-artvw">  </td>
+                                                <td> <img src="../assets/img/post-featureimages/lnch212.jpg" class="img-artvw">  </td>
                                                 <td> <div class="td-content">USC Library La..</div></td>
                                                 <td> <div class="td-content">Reed Richards </div></td>
-                                                <td> <div class="td-content"> 07/08/2018 </div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
+                                                <td> <div class="td-content"> 07/08/2018 </div></td>                                                
                                             </tr>
                                             <tr>
-                                                <td> <img src="../assets/img/posts/bk-fr2121.jpg" class="img-artvw"> </td>
+                                                <td> <img src="../assets/img/post-featureimages/bk-fr2121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> USC Book Fair.. </div></td>
                                                 <td> <div class="td-content">Ben Grimm</div></td>
                                                 <td> <div class="td-content">03/01/2018</div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
                                             </tr>
                                             <tr>
-                                                <td> <img src="../assets/img/posts/facl-212121.jpg" class="img-artvw"> </td>
+                                                <td> <img src="../assets/img/post-featureimages/facl-212121.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> New Facilities.. </div></td>
                                                 <td> <div class="td-content"> Susan Storm </div></td>
                                                 <td> <div class="td-content"> 01/19/2018 </div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
                                             </tr>
                                             <tr>
-                                                <td> <img src="../assets/img/posts/uscnc-bkrdng.jpg" class="img-artvw"> </td>
+                                                <td> <img src="../assets/img/post-featureimages/uscnc-bkrdng.jpg" class="img-artvw"> </td>
                                                 <td> <div class="td-content"> North Campus.. </div></td>
                                                 <td> <div class="td-content"> Johnny Storm </div></td>
                                                 <td> <div class="td-content"> 11/12/2017 </div></td>
-                                                <td>
-                                                    <div class="td-content"> <a class="btn btn-artvw" href="#" role="button"> View </a> </div>
-                                                </td>
                                             </tr>                                       
                                         </tbody>
                                     </table>
-                                        <center> <a class="btn btn-artvwall" href="#" role="button"> View All </a> </center>
                                 </div>
                             </div>
                         </div>
@@ -130,38 +120,32 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title"> <i class="fas fa-flag"></i> Reported Users</div>
+                                <div> <a class="btn btn-rptusrall" href="reported-table.php" role="button"> View All </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <div class="table-responsive">  
                                     <table class="table">                                            
                                         <tbody>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Jon Snow</b> has been reported on <b>2 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Jon Snow</b> has been reported on <b>2 counts</b> </div> </td>
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b>  </div> </td>
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </div> </td>                                            
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                                
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </div>  </td>                                         
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </div> </td>                                              
                                             </tr>
                                             <tr>
-                                                <td> <i class="fas fa-flag"></i> <b>Yellow Green</b> has been reported on <b>1 counts</b> </td>
-                                                <td> <a class="btn btn-rptusr" href="#" role="button"> View </a> </td>                                               
+                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Yellow Green</b> has been reported on <b>1 counts</b> </div> </td>                                                       
                                             </tr>                                        
                                         </tbody>
-                                    </table>
-                                        <center> <a class="btn btn-rptusrall" href="#" role="button"> View All </a> </center>
+                                    </table>                                         
                                 </div>
                             </div>
                         </div>
