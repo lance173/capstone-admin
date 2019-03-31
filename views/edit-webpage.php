@@ -25,7 +25,7 @@
             </div>
 
 
-            <div class="jumbotron jumbotron-fluid" id="pagetitlejumboimage" style="background: url(<?php echo $row[3];?>); background-repeat: no-repeat; background-position: center; background-size: cover; color: #FFF;">
+            <div class="jumbotron jumbotron-fluid" id="pagetitlejumboimage" style="background: url('<?php echo $row[3];?>'); background-repeat: no-repeat; background-size: cover; color: #FFF;">
               <div class="container" style="text-align: center;">
                 <div class="pagetitlejumbo-title">
                     <h1 class="display-4"><?php echo $row[1];?></h1>
