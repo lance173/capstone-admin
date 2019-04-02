@@ -89,7 +89,7 @@ function approvePendingArticle(){
 	$conn = myConnect();
 	$id = $_GET['approveID'];
 	$datepublished = Date("Y/m/d H:i:s");
-	$sql = "UPDATE articles SET Status='PUBLISHED', DatePublished='$datepublished' WHERE ArticleID ='$id'";
+	$sql = "UPDATE articles SET Status ='PUBLISHED', DatePublished ='$datepublished' WHERE ArticleID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
   	$str="Article successfully published!";
@@ -102,7 +102,7 @@ function approvePendingArticle(){
 
 function viewArticleToEdit($id){
 	$conn = myConnect();
-	$sql = "SELECT * FROM articles WHERE ArticleID= '$id' LIMIT 1 ";
+	$sql = "SELECT * FROM articles WHERE ArticleID = '$id' LIMIT 1 ";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result);
 	return $row;

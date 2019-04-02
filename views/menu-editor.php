@@ -8,6 +8,8 @@
     $ActivePages = loadActivePages();
     $menuitem = loadMenuItems();
     $menudropdown = loadMenuDropdown();
+
+    $noOfMenuItems = countItemsInMenu();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor');
     </script>
@@ -132,9 +134,11 @@
                                 </tbody>
                             </table>
                         </div>
+                        <?php if($noOfMenuItems < 6) { ?>
                         <div class="ibox-footer" style="text-align: center">
                            <button class="btn btn-info" onclick="addAmenuItem();" > <i class="fas fa-plus"></i> Add New Item </button> 
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
 
@@ -288,13 +292,9 @@
                                 <select class="form-control">
                                     <option selected hidden value="2">After Home</option>
 
-                                    <?php 
-                                        $valOfPostn = 2;
-                                        if(isset($menuitem)){foreach($menuitem as $prevwmenitm){
-                                    ?>
-                                        <option value="<?php echo $valOfPostn ?>">After <?php echo $prevwmenitm['ItemName'];?> </option>
-                                    <?php $valOfPostn++;
-                                     }} ?>
+                                    <?php if(isset($menuitem)){foreach($menuitem as $prevwmenitm){ ?>
+                                        <option value="<?php echo $prevwmenitm['Position']+1; ?>">After <?php echo $prevwmenitm['ItemName'];?> </option>
+                                    <?php }} ?>
 
                                 </select>
                             </div>
