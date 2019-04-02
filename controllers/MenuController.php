@@ -37,3 +37,11 @@ function countItemsInMenu(){
    return $rowcount;
 
 }
+
+function viewMenuItemToEdit($KeyID){
+	$conn = myConnect();
+	$sql = "SELECT * FROM menu WHERE MenuItemID = '$KeyID' LIMIT 1 ";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_row($result);
+	return $row;
+}

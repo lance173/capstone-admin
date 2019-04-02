@@ -107,7 +107,7 @@
 
     //On Menu Editor
     
-    function selectMenuItem(id) {
+    function selectMenuItem(id, idKey) {
 
         var a = id;
         var i;
@@ -164,7 +164,10 @@
                 document.getElementById("mnuitmform").style.display = "block";
                 document.getElementById("addnew_mnuitmform").style.display = "none";                        
             }
-        }                                                         
+        }
+
+        window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey)
+
     }
     
 

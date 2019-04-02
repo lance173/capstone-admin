@@ -10,6 +10,9 @@
     $menudropdown = loadMenuDropdown();
 
     $noOfMenuItems = countItemsInMenu();
+
+    $KeyID = $_GET['editID'];
+    $itemToEdit = viewMenuItemToEdit($KeyID);
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor');
     </script>
@@ -41,7 +44,7 @@
 
                                     if($prevwmenitm['MenuItemID']==1){
                                     ?>
-                                        <a href="<?php echo $prevwmenitm['PageLink'];?>" id="<?php echo $itm_prvmnu ?>" onmouseover="hoverinmnuprv('<?php echo $itm_prvmnu ?>')" onmouseout="hoveroutmnuprv('<?php echo $itm_prvmnu ?>')" style="background-color: #FFB041;">      
+                                        <a href="<?php echo $prevwmenitm['PageLink'];?>" class="defmenprev-item" id="<?php echo $itm_prvmnu ?>" onmouseover="hoverinmnuprv('<?php echo $itm_prvmnu ?>')" onmouseout="hoveroutmnuprv('<?php echo $itm_prvmnu ?>')" >      
                                                 <?php echo $prevwmenitm['ItemName'];?> 
                                         </a> 
                                     <?php
@@ -113,7 +116,7 @@
                                         if($menitm['MenuItemID']== 1 ){
                                         ?>                                        
 
-                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" style="background-color: #6ba3ff; border: 3px solid #6ba3ff; color: #FFF;" onclick="selectMenuItem('<?php echo $listmenitm ?>')" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
+                                            <tr class="men-itm default-men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>', <?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
                                                 <td> <?php echo $menitm['ItemName'];?> </td>
                                             </tr>
 
@@ -121,7 +124,7 @@
                                         } else{  
                                         ?>
                                                   
-                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>')" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
+                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>', <?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
                                                 <td> <?php echo $menitm['ItemName'];?> </td>
                                             </tr>
 
@@ -189,7 +192,7 @@
                     <!-- Selected Menu Item to edit -->
                     <div class="ibox" id="mnuitmform" style="display: none;">
                         <div class="ibox-head">
-                            <div class="ibox-title"> Edit </div>
+                            <div class="ibox-title"> <?php echo $itemToEdit[1]; ?> </div>
                             <div> <a href="#"> <button class="btn add-btn2"> <i class="far fa-edit"></i> Edit</button> </a> <a href="#"> <button class="btn delete-btn"> Remove from Menu <i class="fas fa-times"></i> </button> </a> </div>
                         </div>
                         <div class="ibox-body">
