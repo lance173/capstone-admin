@@ -107,15 +107,7 @@
 
     //On Menu Editor
     
-    function selectMenuItem(idKey) {
-        
-
-        // window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey);
-        window.location='menu-editor.php?editID='+idKey;
-
-    }
-
-    function selectedItem(id) {
+    function selectMenuItem(id, idKey) {
 
         var a = id;
         var i;
@@ -173,7 +165,15 @@
                 document.getElementById("addnew_mnuitmform").style.display = "none";                        
             }
         }
+
+        // window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey);
+        window.location='menu-editor.php?editID='+idKey;
+
     }
+
+    // function selectedItem(){
+
+    // }
     
 
     function staticordropdownA() {

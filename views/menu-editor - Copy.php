@@ -116,7 +116,7 @@
                                         if($menitm['MenuItemID']== 1 ){
                                         ?>                                        
 
-                                            <tr class="men-itm default-men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem(<?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
+                                            <tr class="men-itm default-men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>', <?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
                                                 <td> <?php echo $menitm['ItemName'];?> </td>
                                             </tr>
 
@@ -124,7 +124,7 @@
                                         } else{  
                                         ?>
                                                   
-                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem(<?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
+                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>', <?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
                                                 <td> <?php echo $menitm['ItemName'];?> </td>
                                             </tr>
 
@@ -386,12 +386,7 @@
                     </div>
 
                 </div>
-            </div> 
-
-            <script type="text/javascript">
-                onload=selectedItem();
-                
-            </script>               
+            </div>                
 
                 <!--content-wrapper closing tag will be found in footer.php -->
 <?php
