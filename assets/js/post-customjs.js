@@ -1,6 +1,6 @@
 
     function roleSelect() {
-    	var x = document.getElementById("roleselect").value;
+        var x = document.getElementById("roleselect").value;
 
         var w = document.getElementById("role-sysad");
         var y = document.getElementById("role-editr");
@@ -18,13 +18,13 @@
             w.style.display = 'none';
             z.style.display = 'none';
 
-    	} else if (x == "Author / Writer") {
+        } else if (x == "Author / Writer") {
 
             z.style.display = 'block';
             w.style.display = 'none';
             y.style.display = 'none';
         }
-	}
+    }
 
 //On Articles
 
@@ -48,10 +48,10 @@
         window.location='edit-article.php?editID='+article_id;        
     }
 
-	//file upload via anchor tag
-	$("#fileupload").click(function(){
-		$("#upload-file").click();
-	});
+    //file upload via anchor tag
+    $("#fileupload").click(function(){
+        $("#upload-file").click();
+    });
 
     //On add webpage
 
@@ -107,15 +107,7 @@
 
     //On Menu Editor
     
-    function selectMenuItem(idKey) {
-        
-
-        // window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey);
-        window.location='menu-editor.php?editID='+idKey;
-
-    }
-
-    function selectedItem(id) {
+    function selectMenuItem(id, idKey) {
 
         var a = id;
         var i;
@@ -173,7 +165,15 @@
                 document.getElementById("addnew_mnuitmform").style.display = "none";                        
             }
         }
+
+        window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey);
+        // window.location='menu-editor.php?editID='+idKey;
+
     }
+
+    // function selectedItem(){
+
+    // }
     
 
     function staticordropdownA() {

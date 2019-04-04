@@ -166,8 +166,8 @@
             }
         }
 
-        // window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey);
-        window.location='menu-editor.php?editID='+idKey;
+        window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey);
+        // window.location='menu-editor.php?editID='+idKey;
 
     }
 

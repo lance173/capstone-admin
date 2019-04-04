@@ -15,6 +15,11 @@
     $itemToEdit = viewMenuItemToEdit($KeyID);
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor');
+     
+     $(document).ready(function()){
+        
+     });
+
     </script>
 
         <div class="content-wrapper">
@@ -389,7 +394,7 @@
             </div> 
 
             <script type="text/javascript">
-                onload=selectedItem();
+               
                 
             </script>               
 
