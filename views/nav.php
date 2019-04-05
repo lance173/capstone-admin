@@ -28,7 +28,7 @@
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
-                    <li class="dropdown dropdown-inbox">
+                    <!-- <li class="dropdown dropdown-inbox">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="far fa-envelope"></i>
                             <span class="badge badge-primary envelope-badge">9</span>
                         </a>
@@ -139,15 +139,13 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="../assets/img/admin-avatar.png" />
                             <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
-                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
+                            <a class="dropdown-item" role="button" data-toggle="modal" data-target="#editAccount"> <i class="fa fa-user"></i>Change Password</a>
                             <li class="dropdown-divider"></li>
                             <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
@@ -249,7 +247,7 @@
                     </li>   
                     <li class="heading">LOGOUT</li>                 
                     <li>
-                        <a href="icons.html"><i class="sidebar-item-icon fa fa-sign-out-alt"></i>
+                        <a href="login.php"><i class="sidebar-item-icon fa fa-sign-out-alt"></i>
                             <span class="nav-label">Log-out</span>
                         </a>
                     </li>

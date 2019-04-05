@@ -21,7 +21,7 @@
 
                             <div class="info-box-content">
                               <span class="info-box-text">Today's Visits</span>
-                              <span class="info-box-number"> 1,100 </span>
+                              <span class="info-box-number"> 215 </span>
                             </div>
                           </div>                 
                     </div>

@@ -16,7 +16,7 @@
 				
 				<form name="loginForm" class="form-signin" method="POST" action="#">
               		              
-		              <input name="username" type="text" class="input-block-level" placeholder="Username" required>		          
+		              <input name="username" type="text" class="input-block-level" placeholder="Username / ID Number" required>		          
 		              <input name="password" type="password" class="input-block-level" placeholder="Password" required>
 		              <button name="submit" class="btn btn-large btn-login" type="submit">Log In</button>
             	</form>
