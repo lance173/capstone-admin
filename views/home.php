@@ -54,7 +54,7 @@
             <!--End of Info Boxes-->
 
             <div class="page-content fade-in-up">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-head">
@@ -66,7 +66,23 @@
                             </div>
                         </div>
                     </div>
+                </div> -->
+                <!--Jumbotron-->
+                <div class="jumbotron jumbo-viewsite">
+                    <div class="viewsite-cover">
+                        <center>
+                            <img src="../assets/img/usclibsystem-transp-whitetxt.png" class="usclogo-jumbo">
+                            
+                            <div class="buttonset-jumbo">
+                                <div class="wrapper">
+                                    <a class="editsite-btn" href="site-editor.php" role="button">EDIT WEBSITE</a>
+                                    <a class="viewsite-btn" href="#" role="button">VIEW WEBSITE  </a> 
+                                </div>
+                            </div>                           
+                        </center>                        
+                    </div>
                 </div>
+            <!--End of Jumbotron-->
                 <div class="row">
                     <div class="col-md-7">
                         <div class="ibox">
@@ -152,22 +168,7 @@
                     </div>
                 </div>
             </div>
-             <!--Jumbotron-->
-                <div class="jumbotron jumbo-viewsite">
-                    <div class="viewsite-cover">
-                        <center>
-                            <img src="../assets/img/usclibsystem-transp-whitetxt.png" class="usclogo-jumbo">
-                            
-                            <div class="buttonset-jumbo">
-                                <div class="wrapper">
-                                    <a class="editsite-btn" href="site-editor.php" role="button">EDIT WEBSITE</a>
-                                    <a class="viewsite-btn" href="#" role="button">VIEW WEBSITE  </a> 
-                                </div>
-                            </div>                           
-                        </center>                        
-                    </div>
-                </div>
-            <!--End of Jumbotron-->
+             
             <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-md-8">

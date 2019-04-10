@@ -1,4 +1,7 @@
 
+    var newMenuDropdownPages = [],
+    existingMenuDropdownPages = []
+
     function roleSelect() {
         var x = document.getElementById("roleselect").value;
 
@@ -166,14 +169,56 @@
             }
         }
 
-        window.history.pushState('page2', 'Title', 'menu-editor.php?editID='+idKey);
-        // window.location='menu-editor.php?editID='+idKey;
+        $.ajax({
+            method: 'POST',
+            url: '../../../capstone-admin/controllers/MenuController.php?function=getMenuByItem',
+            data: {
+                id: idKey
+            },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response.data);
+                $('#_editID').val(response.data.MenuItemID);
+               $('#__page-title').text(response.data.ItemName);
+               $('#__editPosition').val(response.data.Position);
+               $('#sttcordrpdwnA').val(response.data.Type);
+               staticordropdownA();
+               ifcustomlinkA1();
+               ifcustomlinkA2();
+               staticordropdownB();
+               ifcustomlinkB1();
+               ifcustomlinkB2();
+               $('#edit_displaynameA').val(response.data.ItemName);
+               $('#edit_displaynameB').val(response.data.ItemName);
+
+
+               if(response.data.Type === 'Static' && response.data.WebPageID == 0){
+                //static and custom
+                $('#pageorcustomlinkA1').val('__custom_link__').trigger('change');
+                $('#edit_url1').val(response.data.PageLink);
+               } else if(response.data.Type === 'Static' && response.data.WebPageID != 0){
+                    //static and web page
+                    $('#pageorcustomlinkA1').val(response.data.WebPageID)
+                    $('#chosencustomlinkA1').css({
+                        display: 'none'
+                    })
+               } else if(response.data.Type === 'Dropdown') {
+                    existingMenuDropdownPages = response.data.DropdownItems
+                    $('#chosendropdownA').find('.list-group').html(function () {
+                        var pages = '';
+                        for (var x = 0; x<existingMenuDropdownPages.length; x++) {
+                            pages += '<li class="list-group-item d-flex justify-content-between align-items-center border">'
+                            +existingMenuDropdownPages[x].DropItemName+ '<button onclick="removeFromExistingDropdownList('+x+', this)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></li>'
+                        }
+                        return pages;
+                    })
+               }
+               
+            }
+        });
 
     }
 
-    // function selectedItem(){
-
-    // }
     
 
     function staticordropdownA() {
@@ -187,7 +232,7 @@
             a.style.display = 'block';
             b.style.display = 'none';
 
-        } else if (x == "Drop-down") {
+        } else if (x == "Dropdown") {
 
             a.style.display = 'none';
             b.style.display = 'block';
@@ -199,9 +244,9 @@
 
         var w = document.getElementById("chosencustomlinkA1");
 
-        if (chosenpageA1 == "Custom Link"){
+        if (chosenpageA1 == "__custom_link__"){
             w.style.display = 'block';
-        } else if (chosenpageA1 != "Custom Link") {
+        } else if (chosenpageA1 != "__custom_link__") {
             w.style.display = 'none';
         }
     }
@@ -211,9 +256,9 @@
 
         var z = document.getElementById("chosencustomlinkA2");
 
-        if (chosenpageA2 == "Custom Link"){
+        if (chosenpageA2 == "__custom_link__"){
             z.style.display = 'block';
-        } else if (chosenpageA2 != "Custom Link") {
+        } else if (chosenpageA2 != "__custom_link__") {
             z.style.display = 'none';
         }
     }
@@ -229,7 +274,7 @@
             a.style.display = 'block';
             b.style.display = 'none';
 
-        } else if (x == "Drop-down") {
+        } else if (x == "Dropdown") {
 
             a.style.display = 'none';
             b.style.display = 'block';
@@ -241,9 +286,9 @@
 
         var w = document.getElementById("chosencustomlinkB1");
 
-        if (chosenpageB1 == "Custom Link"){
+        if (chosenpageB1 == "__custom_link__"){
             w.style.display = 'block';
-        } else if (chosenpageB1 != "Custom Link") {
+        } else if (chosenpageB1 != "__custom_link__") {
             w.style.display = 'none';
         }
     }
@@ -253,16 +298,189 @@
 
         var z = document.getElementById("chosencustomlinkB2");
 
-        if (chosenpageB2 == "Custom Link"){
+        if (chosenpageB2 == "__custom_link__"){
             z.style.display = 'block';
-        } else if (chosenpageB2 != "Custom Link") {
+        } else if (chosenpageB2 != "__custom_link__") {
             z.style.display = 'none';
         }
     }
 
 
-    function addAmenuItem(){
+
+
+    function clickAddMenuItem(){
         document.getElementById("home_mnuitmform").style.display = "none";
         document.getElementById("mnuitmform").style.display = "none";
         document.getElementById("addnew_mnuitmform").style.display = "block";   
     }
+
+    function createMenu () {
+
+        var position = $('[name=new_link_position]').val();
+        var type = $('[name=new_link_type]').val();
+        var name = '';
+        var url = ''
+        var webpageId = 0;
+
+        if(type === 'Dropdown'){
+             name = $('[name=new_link_type_dropdown_name]').val()
+             type = 'Dropdown'
+        }else if(type === 'Static'){
+             if($('[name=new_link_type_static_page]').val() === '__custom_link__'){
+                name = $('[name=new_link_type_static_page_custom_name]').val()
+                url =   $('[name=new_link_type_static_page_custom_url]').val()
+            }else{
+                webpageId = $('[name=new_link_type_static_page]').val()
+            }
+        }
+       
+
+       var formData = {
+        ItemName: name,
+        Position: position,
+        Type: type,
+        PageLink: url,
+        WebPageID: webpageId,
+        DropdownItems: newMenuDropdownPages
+       }
+
+       $.ajax({
+            method: 'POST',
+            url: '../../../capstone-admin/controllers/MenuController.php?function=saveMenuItem',
+            data:formData,
+            dataType: 'json',
+            success: function (response) {
+                alert('New menu has been saved');
+                window.location.reload()
+            }
+        });
+    }
+
+    function editMenu () {
+
+        var idToedit = $('[name=edit_link_ID]').val();
+        var position = $('[name=edit_link_position]').val();
+        var type = $('[name=edit_link_type]').val();
+        var name = '';
+        var url = ''
+        var webpageId = 0;
+        var successmsg = "Menu item has been edited";
+
+        if(type === 'Dropdown'){
+             name = $('[name=edit_link_type_dropdown_name]').val()
+             type = 'Dropdown'
+        }else if(type === 'Static'){
+             if($('[name=edit_link_type_static_page]').val() === '__custom_link__'){
+                name = $('[name=edit_link_type_static_page_custom_name]').val()
+                url =   $('[name=edit_link_type_static_page_custom_url]').val()
+            }else{
+                webpageId = $('[name=edit_link_type_static_page]').val()
+            }
+        }
+       
+
+       var formData = {
+        MenuItemID: idToedit,
+        ItemName: name,
+        Position: position,
+        Type: type,
+        PageLink: url,
+        WebPageID: webpageId,
+        DropdownItems: existingMenuDropdownPages
+       }
+
+       $.ajax({
+            method: 'POST',
+            url: '../../../capstone-admin/controllers/MenuController.php?function=editMenuItem',
+            data:formData,
+            dataType: 'json',
+            success: function (response) {
+                // alert('Menu item has been changed');
+                // window.location.reload()
+                window.location='../views/menu-editor.php?success-msg='+successmsg
+            }
+        });
+    }
+
+
+    function addNewDropdownPage() {
+        var name = '';
+        var url = ''
+        var webpageId = 0;
+        var staticName = ''
+
+        if($('[name=new_link_type_dropdown_item_page]').val() === '__custom_link__'){
+            name = $('[name=new_link_type_dropdown_item_page_custom_name]').val()
+            url =   $('[name=new_link_type_dropdown_item_page_custom_url]').val()
+        }else{
+            webpageId = $('[name=new_link_type_dropdown_item_page]').val()
+            staticName =  $('[name=new_link_type_dropdown_item_page] option:selected').text()
+        }
+
+        var length = newMenuDropdownPages.push({
+            DropItemName: name,
+            PageLink: url,
+            WebPageID: webpageId
+        })
+        var x = length-1;
+
+        $('#chosendropdownB').find('.list-group').append(function () {
+            return '<li class="list-group-item d-flex justify-content-between align-items-center border">'+(name || staticName)+ '<button onclick="removeFromNewDropdownList('+x+', this)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></li>'
+        })
+    }
+
+    function addEditDropdownPage() {
+        var name = '';
+        var url = ''
+        var webpageId = 0;
+        var staticName = ''
+
+        if($('[name=edit_link_type_dropdown_item_page]').val() === '__custom_link__'){
+            name = $('[name=edit_link_type_dropdown_item_page_custom_name]').val()
+            url =   $('[name=edit_link_type_dropdown_item_page_custom_url]').val()
+        }else{
+            webpageId = $('[name=edit_link_type_dropdown_item_page]').val()
+            staticName =  $('[name=edit_link_type_dropdown_item_page] option:selected').text()
+        }
+
+        var length = existingMenuDropdownPages.push({
+            DropItemName: name,
+            PageLink: url,
+            WebPageID: webpageId
+        })
+        var x = length-1;
+
+        $('#chosendropdownA').find('.list-group').append(function () {
+            return '<li class="list-group-item d-flex justify-content-between align-items-center border">'+(name || staticName)+ '<button onclick="removeFromNewDropdownList('+x+', this)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></li>'
+        })
+    }
+
+    function removeFromExistingDropdownList(index, el) {
+        existingMenuDropdownPages.splice(index, 1)
+        $(el).closest('.list-group-item').remove()
+    }
+   
+
+   function removeFromNewDropdownList(index, el) {
+        newMenuDropdownPages.splice(index, 1)
+        $(el).closest('.list-group-item').remove()
+    }
+   
+   function deleteMenuItem() {
+    if(!confirm('Are you sure')){
+        return
+    }
+     var idToedit = $('[name=edit_link_ID]').val();
+     $.ajax({
+            method: 'POST',
+            url: '../../../capstone-admin/controllers/MenuController.php?function=deleteMenu',
+            data:{
+                MenuItemID: idToedit
+            },
+            dataType: 'json',
+            success: function (response) {
+                alert('Menu item has been deleted');
+                window.location.reload()
+            }
+        });
+   }

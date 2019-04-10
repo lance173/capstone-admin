@@ -7,7 +7,7 @@
         <div class="contentwrapper-custom">
             <!-- START PAGE CONTENT-->
             
-              <div class="jumbotron site-editorjumbo" style="">
+              <div class="jumbotron site-editorjumbo">
                 <div style="background-color: rgba(0,0,0,0.5); padding: 100px;">
                   <h1 class="display-4">WELCOME TO WEBSITE EDITOR</h1> 
                 </div>

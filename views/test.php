@@ -104,24 +104,27 @@ function myConnect(){
 ?>
 
     <form method="POST" action="test.php">
-        <div>
+    <div>
             <?php  ?>
-        <select name="changePosOf" id="selectItemToChange" onchange="hideCurrentPos('<?php echo $sos; ?>')">
+        <select name="changePosOf" id="selectItemToChange" >
             <?php                 
                 if(isset($items)){foreach($items as $n){ 
-                    if ($n['TryID'] != 1) {   
-                    $sos = 0;                     
+                    if ($n['TryID'] != 1) {                    
             ?>
-                    <option value="<?php echo $n['Position']; ?>"> <?php echo $n['Name']; ?> </option>
+                    <option value="<?php echo $n['Position']; ?>" > <?php echo $n['Name']; ?> </option>
             
             <?php 
-            $sos++;
             }}} ?>
         </select>
-        <select name="newposition" id="selectPosition">
+        <div onload="test()"> </div>
+        <?php $optionID = "op1"; ?>
+        <select name="newposition" id="selectPosition" onClick="getPosition()">
+
             <?php if(isset($items)){foreach($items as $v){ ?>
-                <option value="<?php echo $v['Position']+1; ?>"> After <?php echo $v['Name']; ?> </option>
-            <?php }} ?>
+                <option value="<?php echo $v['Position']+1; ?>" id="<?php echo $optionID; ?>"> After <?php echo $v['Name']; echo " "; echo $v['Position']+1; echo " "; echo $optionID; ?> </option>
+            <?php 
+            $optionID++;
+        }} ?>
         </select>
         <button type="submit" name="btnChangePos">Go</button>
     </div>
@@ -133,7 +136,7 @@ function myConnect(){
     
 
 <script type="text/javascript">
-    
+
     function hideCurrentPos(tick){
         var x = document.getElementById("selectItemToChange").value;
         var z = document.getElementById("selectPosition").value;
@@ -143,6 +146,51 @@ function myConnect(){
             document.getElementById("selectPosition").options[w].hidden = true;
         }
     }
+    function test(){
+        return "test";
+    }
+
+    function getPosition(pos){
+        var currentPos = document.getElementById("selectItemToChange").value;
+        var newPos = document.getElementById("selectPosition").value;
+        
+        var x = "op0";
+        var num = parseInt(x.match(/\d+$/));
+        var pos = x.indexOf(num);
+        var str = x.slice(0,pos);
+        var i;
+
+        for(i=0; i < currentPos; i++){
+  
+            x = str + num;
+            num++;
+            var y = document.getElementById(x);
+        }
+
+
+            if (currentPos == i){
+            // newPosOption.remove();
+                y.hidden = true;
+            } else if (currentPos != i) {
+                y.hidden = false;
+            }
+
+        // if (currentPos === newPos){
+        //     newPosOption.remove();
+        // }
+
+        console.log("Current Position is: "+ currentPos)
+        console.log("Value of New Position: "+ newPos)
+        console.log("Hide the value of: "+ x)
+        console.log("Value of i: "+ i)
+    }
+
+// $('#selectItemToChange, #selectPosition').change(function() {
+//     $('#myDiv').toggle(
+//         $('#selectItemToChange').val() === $('#selectPosition').val()
+//     );
+// });
+
 
 </script>
 

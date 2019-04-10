@@ -11,15 +11,8 @@
 
     $noOfMenuItems = countItemsInMenu();
 
-    $KeyID = $_GET['editID'];
-    $itemToEdit = viewMenuItemToEdit($KeyID);
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuMnBarEditor');
-     
-     $(document).ready(function()){
-        
-     });
-
     </script>
 
         <div class="content-wrapper">
@@ -40,7 +33,6 @@
                 <div class="col-md-11 mnurow"> 
                   
                     <div class="menubar-preview">
-                                   
                         <?php 
                             $itm_prvmnu = "itemfromprevmenu1";
                             if(isset($menuitem)){foreach($menuitem as $prevwmenitm){   
@@ -121,7 +113,7 @@
                                         if($menitm['MenuItemID']== 1 ){
                                         ?>                                        
 
-                                            <tr class="men-itm default-men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem(<?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
+                                            <tr class="men-itm default-men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>', <?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
                                                 <td> <?php echo $menitm['ItemName'];?> </td>
                                             </tr>
 
@@ -129,7 +121,7 @@
                                         } else{  
                                         ?>
                                                   
-                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem(<?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
+                                            <tr class="men-itm" id="<?php echo $listmenitm ?>" onclick="selectMenuItem('<?php echo $listmenitm ?>', <?php echo $menitm['MenuItemID'] ?>)" onmouseover="showmnuitemborder('<?php echo $listmenitm ?>')" onmouseout="hidemnuitemborder('<?php echo $listmenitm ?>')">
                                                 <td> <?php echo $menitm['ItemName'];?> </td>
                                             </tr>
 
@@ -144,7 +136,7 @@
                         </div>
                         <?php if($noOfMenuItems < 6) { ?>
                         <div class="ibox-footer" style="text-align: center">
-                           <button class="btn btn-info" onclick="addAmenuItem();" > <i class="fas fa-plus"></i> Add New Item </button> 
+                           <button class="btn btn-info" onclick="clickAddMenuItem();" > <i class="fas fa-plus"></i> Add New Item </button> 
                         </div>
                         <?php } ?>
                     </div>
@@ -197,48 +189,53 @@
                     <!-- Selected Menu Item to edit -->
                     <div class="ibox" id="mnuitmform" style="display: none;">
                         <div class="ibox-head">
-                            <div class="ibox-title"> <?php echo $itemToEdit[1]; ?> </div>
-                            <div> <a href="#"> <button class="btn add-btn2"> <i class="far fa-edit"></i> Edit</button> </a> <a href="#"> <button class="btn delete-btn"> Remove from Menu <i class="fas fa-times"></i> </button> </a> </div>
+                            <div class="ibox-title" id="__page-title">  </div>
+                            <div> 
+                                <button class="btn delete-btn" onclick="deleteMenuItem()"> Remove from Menu <i class="fas fa-times"></i> </button> 
+                            </div>
                         </div>
                         <div class="ibox-body">
                             <div class="form-group">
+
+                                <input type="hidden" name="edit_link_ID" id="_editID" value="">
+
                                 <label>Position</label>
-                                <select class="form-control">
-                                    <option selected>After Home</option>
-                                    <option>After Libraries</option>
-                                    <option>After Other Services</option>
-                                    <option>After Linkages</option>
-                                    <option>After Electronic Resources</option>
+                                <select class="form-control" name="edit_link_position" id="__editPosition">
+                                     <?php if(isset($menuitem)){foreach($menuitem as $prevwmenitm){ ?>
+                                        <option value="<?php echo $prevwmenitm['Position']+1; ?>">After <?php echo $prevwmenitm['ItemName'];?> </option>
+                                    <?php }} ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Type</label>
-                                <select class="form-control" id="sttcordrpdwnA" onchange="staticordropdownA();">
-                                    <option selected disabled hidden>Static or Drop-down</option>
-                                    <option>Static</option>
-                                    <option>Drop-down</option>                                    
+                                <select class="form-control" name="edit_link_type" id="sttcordrpdwnA" onchange="staticordropdownA();">
+                                    <option selected disabled hidden>Static or Dropdown</option>
+                                    <option value="Static">Static</option>
+                                    <option value="Dropdown">Dropdown</option>                                    
                                 </select>
                             </div>
                             <div id="chosenstaticA">
                                 <div class="form-group">
                                     <label>Choose Page</label>
-                                    <select class="form-control" id="pageorcustomlinkA1" onchange="ifcustomlinkA1();">
+                                    <select class="form-control" id="pageorcustomlinkA1" onchange="ifcustomlinkA1();" name="edit_link_type_static_page">
                                         <option selected disabled hidden>Select Page</option>                                        
-                                        <option>Linkages</option>
-                                        <option>Custom Link</option>
+                                        <?php if(isset($ActivePages)){foreach($ActivePages as $page){ ?>
+                                            <option value="<?php echo $page['WebPageID'];?>" > <?php echo $page['PageTitle'];?> </option>
+                                        <?php }} ?>
+                                        <option value="__custom_link__">Custom Link</option>
                                     </select>
                                 </div>
                                 <div id="chosencustomlinkA1">
                                     <div>
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control" type="text" placeholder="Display Name">
+                                            <input class="form-control" type="text" id="edit_displaynameA" name="edit_link_type_static_page_custom_name" placeholder="Display Name">
                                         </div>
                                         <div class="form-group">
                                             <label>URL or Link</label>
                                             <div class="input-group-icon">
                                                 <div class="input-icon"><i class="fa fa-link"></i></div>
-                                                <input class="form-control" type="text" placeholder="url">
+                                                <input class="form-control" id="edit_url1" type="text" name="edit_link_type_static_page_custom_url" placeholder="url">
                                             </div>
                                         </div>
                                     </div>    
@@ -247,45 +244,46 @@
                             <div id="chosendropdownA">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input class="form-control" type="text" placeholder="Display Name">
+                                    <input class="form-control" id="edit_displaynameB" name="edit_link_type_dropdown_name" type=" text" placeholder="Display Name">
                                 </div>
-                                Drop-down list
+                                Dropdown list
                                 <div class="col-md-11 offset-md-1">
-                                    <div class="drpdwn-list">
-                                        <button class="btn drpitm-btn"> Link 1 </button>
-                                        <button class="btn drpitm-btn"> Link 2 </button>
-                                        <button class="btn drpitm-btn"> Link 3 </button>
-                                    </div>
-                                    <button class="btn adddrp-btn"> <i class="fas fa-plus"></i> Add new drop-down item </button>
+                                    <ul class="list-group">
+                                    </ul>
+                                    
                                     <div class="adddrpform">
                                         <div class="form-group">
                                             <label>Choose Page</label>
-                                            <select class="form-control" id="pageorcustomlinkA2" onchange="ifcustomlinkA2();">
+                                            <select class="form-control" id="pageorcustomlinkA2" name="edit_link_type_dropdown_item_page" onchange="ifcustomlinkA2();">
                                                 <option selected disabled hidden>Select Page</option>
-                                                <option>Linkages</option>
-                                                <option>Custom Link</option>
+
+                                                <?php if(isset($ActivePages)){foreach($ActivePages as $page){ ?>
+                                                    <option value="<?php echo $page['WebPageID'];?>" > <?php echo $page['PageTitle'];?> </option>
+                                                <?php }} ?>
+                                        <option value="__custom_link__">Custom Link</option>
+
                                             </select>
                                         </div>
                                         <div id="chosencustomlinkA2">
                                             <div class="form-group">
                                                 <label>Name</label>
-                                                <input class="form-control" type="text" placeholder="Display Name">
+                                                <input class="form-control" type="text" name="edit_link_type_dropdown_item_page_custom_name" placeholder="Display Name">
                                             </div>
                                             <div class="form-group">
                                                 <label>URL or Link</label>
                                                 <div class="input-group-icon">
                                                     <div class="input-icon"><i class="fa fa-link"></i></div>
-                                                    <input class="form-control" type="text" placeholder="url">
+                                                    <input class="form-control" type="text" name="edit_link_type_dropdown_item_page_custom_url" placeholder="url">
                                                 </div>
                                             </div>
                                         </div>                                         
-                                        <button> Add to List </button>
+                                        <button onclick="addEditDropdownPage()"> Add to List </button>
                                     </div>                                     
                                 </div>                                
                             </div>                            
                         </div>
                         <div class="ibox-footer" style="text-align: right;">
-                            <button class="btn btn-success" style="margin-right: 20px;"> Save Changes </button>
+                            <button class="btn btn-success" style="margin-right: 20px;" onclick="editMenu()"> Save Changes </button>
                         </div>
                     </div>
 
@@ -297,7 +295,7 @@
                         <div class="ibox-body">
                             <div class="form-group">
                                 <label>Position</label>
-                                <select class="form-control">
+                                <select class="form-control" name="new_link_position">
                                     <option selected hidden value="2">After Home</option>
 
                                     <?php if(isset($menuitem)){foreach($menuitem as $prevwmenitm){ ?>
@@ -308,34 +306,34 @@
                             </div>
                             <div class="form-group">
                                 <label>Type</label>
-                                <select class="form-control" id="sttcordrpdwnB" onchange="staticordropdownB('sttcordrpdwnB');">
-                                    <option selected disabled hidden>Static or Drop-down</option>
+                                <select class="form-control" name="new_link_type" id="sttcordrpdwnB" onchange="staticordropdownB('sttcordrpdwnB');">
+                                    <option selected disabled hidden>Static or Dropdown</option>
                                     <option value="Static">Static</option>
-                                    <option value="Drop-down">Drop-down</option>                                    
+                                    <option value="Dropdown">Dropdown</option>                                    
                                 </select>
                             </div>
                             <div id="chosenstaticB">
                                 <div class="form-group">
                                     <label>Choose Page</label>
-                                    <select class="form-control" id="pageorcustomlinkB1" onchange="ifcustomlinkB1();">
+                                    <select class="form-control" id="pageorcustomlinkB1" name="new_link_type_static_page" onchange="ifcustomlinkB1();">
                                         <option selected disabled hidden>Select Page</option>                                                                              
                                         <?php if(isset($ActivePages)){foreach($ActivePages as $page){ ?>
                                             <option value="<?php echo $page['WebPageID'];?>" > <?php echo $page['PageTitle'];?> </option>
                                         <?php }} ?>
-                                        <option>Custom Link</option>
+                                        <option value="__custom_link__">Custom Link</option>
                                     </select>
                                 </div>
                                 <div id="chosencustomlinkB1">
                                     <div>
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control" type="text" name="ItemNameStc" placeholder="Display Name">
+                                            <input class="form-control" type="text"  placeholder="Display Name" name="new_link_type_static_page_custom_name">
                                         </div>
                                         <div class="form-group">
                                             <label>URL or Link</label>
                                             <div class="input-group-icon">
                                                 <div class="input-icon"><i class="fa fa-link"></i></div>
-                                                <input class="form-control" type="text" name="PageLink" placeholder="url">
+                                                <input class="form-control" type="text" name="new_link_type_static_page_custom_url" placeholder="url">
                                             </div>
                                         </div>
                                     </div>    
@@ -344,59 +342,51 @@
                             <div id="chosendropdownB">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input class="form-control" type="text" name="ItemNameDD" placeholder="Display Name">
+                                    <input class="form-control" type="text" name="new_link_type_dropdown_name" placeholder="Display Name">
                                 </div>
-                                Drop-down list
+                                Dropdown list
                                 <div class="col-md-11 offset-md-1">
-                                    <div class="drpdwn-list">
-                                        <button class="btn drpitm-btn"> Link 1 </button>
-                                        <button class="btn drpitm-btn"> Link 2 </button>
-                                        <button class="btn drpitm-btn"> Link 3 </button>
-                                    </div>
-                                    <button class="btn adddrp-btn"> <i class="fas fa-plus"></i> Add new drop-down item </button>
+                                    <ul class="list-group">
+                                    </ul>
+                                    
                                     <div class="adddrpform">
                                         <div class="form-group">
                                             <label>Choose Page</label>
-                                            <select class="form-control" id="pageorcustomlinkB2" onchange="ifcustomlinkB2();">
+                                            <select name="new_link_type_dropdown_item_page" class="form-control" id="pageorcustomlinkB2" onchange="ifcustomlinkB2();">
                                                 <option selected disabled hidden>Select Page</option>
                                                 
                                                 <?php if(isset($ActivePages)){foreach($ActivePages as $page){ ?>
-                                                    <option> <?php echo $page['PageTitle'];?> </option>
+                                                    <option value="<?= $page['WebPageID']?>"> <?php echo $page['PageTitle'];?> </option>
                                                  <?php }} ?>    
 
-                                                <option>Custom Link</option>
+                                                <option  value="__custom_link__">Custom Link</option>
                                             </select>
                                         </div>
                                         <div id="chosencustomlinkB2">
                                             <div class="form-group">
                                                 <label>Name</label>
-                                                <input class="form-control" type="text" placeholder="Display Name">
+                                                <input name="new_link_type_dropdown_item_page_custom_name" class="form-control" type="text" placeholder="Display Name">
                                             </div>
                                             <div class="form-group">
                                                 <label>URL or Link</label>
                                                 <div class="input-group-icon">
                                                     <div class="input-icon"><i class="fa fa-link"></i></div>
-                                                    <input class="form-control" type="text" placeholder="url">
+                                                    <input name="new_link_type_dropdown_item_page_custom_url" class="form-control" type="text" placeholder="url">
                                                 </div>
                                             </div>
                                         </div>                                         
-                                        <button> Add to List </button>
+                                        <button onclick="addNewDropdownPage()"> Add to List </button>
                                     </div>                                     
                                 </div>                                
                             </div>                            
                         </div>
                         <div class="ibox-footer" style="text-align: right;">
-                            <button class="btn btn-success" style="margin-right: 20px;"> Submit </button>
+                            <button onclick="createMenu()" class="btn btn-success" style="margin-right: 20px;"> Submit </button>
                         </div>
                     </div>
 
                 </div>
-            </div> 
-
-            <script type="text/javascript">
-               
-                
-            </script>               
+            </div>                
 
                 <!--content-wrapper closing tag will be found in footer.php -->
 <?php
