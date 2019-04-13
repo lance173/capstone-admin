@@ -383,7 +383,7 @@ html, body{
  */
 
  .admin-loginbg {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_RnZRTavUACXSxX5zlHkf7W4EuDl9410u1nV0iWl4uGlPJ__W");
+    background-image: url("../img/adminlogin-bg.jpg");
     height: 100%;
     width: 100%;
     background-position: center;
@@ -578,7 +578,7 @@ html, body{
 
 .inpage-alerts{
   width: 95%; 
-  margin: 25px 20px 0px;
+  margin: 15px 20px 0px;
 }
  
 .default-adminimg{

@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    if(!$_SESSION['profile']){header('Location:../index.php');}
+?>
 <body class="fixed-navbar">
     <div class="page-wrapper">
         <!-- START HEADER-->
@@ -142,12 +146,13 @@
                     </li> -->
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
-                            <img src="../assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <img src="<?php echo $_SESSION['profile']['Photo']?>" />
+                            <span></span><?php echo $_SESSION['profile']['FirstName']?><i class="fa fa-angle-down m-l-5"></i>
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" role="button" data-toggle="modal" data-target="#editAccount"> <i class="fa fa-user"></i>Change Password</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="login.php"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
                 </ul>
@@ -164,11 +169,12 @@
             <div id="sidebar-collapse">
                 <div class="admin-block d-flex">
                     <div class="">
-                        <img src="../assets/img/admin-avatar.png" width="80px" style="border-radius: 100px;" />
+                        <img src="<?php echo $_SESSION['profile']['Photo']?>" width="80px" style="border-radius: 100px;" />
                     </div>                    
                 </div>
                 <div class="admin-info">
-                        <div class="font-strong">Juan Dela Cruz</div><small>System Admin</small>
+                        <div class="font-strong"><?php echo $_SESSION['profile']['FirstName'],'&nbsp',$_SESSION['profile']['LastName'] ?></div>
+                        <small><?php echo $_SESSION['profile']['Position']?></small>
                         <div style="display: block; margin: 10px 0px 25px;">
                            <a class="btn btn-edtacct" role="button" data-toggle="modal" data-target="#editAccount"> Edit Account </a>                            
                         </div>                       

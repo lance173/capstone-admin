@@ -260,7 +260,8 @@
                                                 <?php if(isset($ActivePages)){foreach($ActivePages as $page){ ?>
                                                     <option value="<?php echo $page['WebPageID'];?>" > <?php echo $page['PageTitle'];?> </option>
                                                 <?php }} ?>
-                                        <option value="__custom_link__">Custom Link</option>
+                                                
+                                                <option value="__custom_link__">Custom Link</option>
 
                                             </select>
                                         </div>

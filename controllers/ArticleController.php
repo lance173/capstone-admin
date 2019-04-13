@@ -1,4 +1,4 @@
-<?php require('MysqlConnect.php'); ?> 
+<?php require_once('MysqlConnect.php'); ?> 
 
 <?php
 if(isset($_POST['btnAddArticle'])){
@@ -63,7 +63,7 @@ function addArticle(){
 
 function loadPublishedArticles(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED' ORDER BY DateWritten DESC";
+   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED' ORDER BY DatePublished DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -76,6 +76,18 @@ function loadPublishedArticles(){
 function loadPendingArticles(){
    $conn = myConnect();
    $sql = "SELECT * FROM articles WHERE Status = 'PENDING' ORDER BY DateWritten DESC";
+   $result = mysqli_query($conn, $sql);
+
+   while($row=mysqli_fetch_array($result)){
+      //do something as long as there's a remaining row.
+      $rows[] = $row;
+   }
+   return $rows;  
+}
+
+function loadArticlesToHome(){
+   $conn = myConnect();
+   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED' ORDER BY DatePublished DESC LIMIT 4";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){

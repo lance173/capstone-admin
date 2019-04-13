@@ -2,8 +2,11 @@
     require('header.php');
     include('nav.php');
     require('../controllers/StudentUserController.php'); 
+    require('../controllers/ArticleController.php'); 
 
     $NoOfUsers = countStudentUsers();
+    $articles = loadArticlesToHome();
+
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuHomePage'); </script>
 
@@ -20,7 +23,7 @@
                             <span class="info-box-icon todaysviews-infobox"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
 
                             <div class="info-box-content">
-                              <span class="info-box-text">Today's Visits</span>
+                              <span class="info-box-text">Site Visits</span>
                               <span class="info-box-number"> 215 </span>
                             </div>
                           </div>                 
@@ -54,19 +57,7 @@
             <!--End of Info Boxes-->
 
             <div class="page-content fade-in-up">
-                <!-- <div class="row">
-                    <div class="col-md-12">
-                        <div class="ibox">
-                            <div class="ibox-head">
-                                <div class="ibox-title">Weekly Visitor Record</div>
-                            </div>
-                            <div class="ibox-body">
-                                <div class="chart" id="flot_visitors" style="height:280px;"></div>
-                                <div class="chart" id="flot_visitors_overview" style="height:100px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+               
                 <!--Jumbotron-->
                 <div class="jumbotron jumbo-viewsite">
                     <div class="viewsite-cover">
@@ -102,30 +93,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td> <img src="../assets/img/post-featureimages/lnch212.jpg" class="img-artvw">  </td>
-                                                <td> <div class="td-content">USC Library La..</div></td>
-                                                <td> <div class="td-content">Reed Richards </div></td>
-                                                <td> <div class="td-content"> 07/08/2018 </div></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td> <img src="../assets/img/post-featureimages/bk-fr2121.jpg" class="img-artvw"> </td>
-                                                <td> <div class="td-content"> USC Book Fair.. </div></td>
-                                                <td> <div class="td-content">Ben Grimm</div></td>
-                                                <td> <div class="td-content">03/01/2018</div></td>
-                                            </tr>
-                                            <tr>
-                                                <td> <img src="../assets/img/post-featureimages/facl-212121.jpg" class="img-artvw"> </td>
-                                                <td> <div class="td-content"> New Facilities.. </div></td>
-                                                <td> <div class="td-content"> Susan Storm </div></td>
-                                                <td> <div class="td-content"> 01/19/2018 </div></td>
-                                            </tr>
-                                            <tr>
-                                                <td> <img src="../assets/img/post-featureimages/uscnc-bkrdng.jpg" class="img-artvw"> </td>
-                                                <td> <div class="td-content"> North Campus.. </div></td>
-                                                <td> <div class="td-content"> Johnny Storm </div></td>
-                                                <td> <div class="td-content"> 11/12/2017 </div></td>
-                                            </tr>                                       
+                                            <?php if(isset($articles)){foreach($articles as $Artc){ ?>
+                                                <tr>
+                                                    <td> <img src="<?php echo $Artc['FeaturePhoto'];?>" class="img-artvw">  </td>
+                                                    <td> <div class="td-content"><?php echo $Artc['Title'];?></div></td>
+                                                    <td> <div class="td-content">Reed Richards </div></td>
+                                                    <td> <div class="td-content"> <?php $dateWrit=date_create($Artc['DatePublished']); echo date_format($dateWrit,"F d, Y"); ?> </div></td>                                                
+                                                </tr>
+                                            <?php }} ?>                                  
                                         </tbody>
                                     </table>
                                 </div>

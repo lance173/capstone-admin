@@ -40,7 +40,7 @@
                                                     <img src="../assets/img/users/u5.jpg" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
-                                                    <div class="activity-actiondone"> <b> Michael Jordan </b> added a new Page &nbsp; <a href="#"><b>Montessori Campus</b></a>
+                                                    <div class="activity-actiondone"> <b> Michael Jordan </b> added a new Page &nbsp; <b>Montessori Campus</b>
                                                         <div class="activity-timeanddate">
                                                             <i class="far fa-window-restore"></i> May 22, 2018 • 12:34 PM
                                                         </div>
@@ -64,7 +64,7 @@
                                                     <img src="../assets/img/users/u1.jpg" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
-                                                    <div class="activity-actiondone"> <b> Phil Coulson </b> approved Article &nbsp; <a href="#"><b>USC Book Fair 2018</b></a>
+                                                    <div class="activity-actiondone"> <b> Phil Coulson </b> approved Article &nbsp; <b>USC Book Fair 2018</b>
                                                         <div class="activity-timeanddate">
                                                             <i class="fas fa-check"></i> May 22, 2018 • 12:34 PM
                                                         </div>
@@ -76,7 +76,7 @@
                                                     <img src="../assets/img/users/u2.jpg" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
-                                                    <div class="activity-actiondone"> <b> Carol Danvers </b> edited an Article &nbsp; <a href="#"><b>USC Book Fair 2018</b></a>  
+                                                    <div class="activity-actiondone"> <b> Carol Danvers </b> edited an Article &nbsp; <b>USC Book Fair 2018</b>
                                                         <div class="activity-timeanddate">
                                                             <i class="fas fa-pen"></i> May 22, 2018 • 12:34 PM
                                                         </div>
@@ -112,7 +112,7 @@
                                                     <img src="../assets/img/users/u4.jpg" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
-                                                    <div class="activity-actiondone"> <b> Steve Rogers </b> wrote an Article &nbsp; <a href="#"><b>USC Book Fair 2018</b></a> 
+                                                    <div class="activity-actiondone"> <b> Steve Rogers </b> wrote an Article &nbsp; <b>USC Book Fair 2018</b>
                                                         <div class="activity-timeanddate">
                                                             <i class="fas fa-file-alt"></i> May 22, 2018 • 12:34 PM
                                                         </div>
@@ -172,7 +172,7 @@
                                                     <img src="../assets/img/users/u3.jpg" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
-                                                    <div class="activity-actiondone"> <b> Nick Fury </b> edited a Page &nbsp; <a href="#"><b>North Campus</b></a> 
+                                                    <div class="activity-actiondone"> <b> Nick Fury </b> edited a Page &nbsp; <b>North Campus</b>
                                                         <div class="activity-timeanddate">
                                                             <i class="fas fa-pen"></i> May 22, 2018 • 12:34 PM
                                                         </div>

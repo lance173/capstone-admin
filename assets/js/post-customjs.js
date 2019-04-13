@@ -3,13 +3,13 @@
     existingMenuDropdownPages = []
 
     function roleSelect() {
-        var x = document.getElementById("roleselect").value;
+        var x = document.getElementById("siteRole").value;
 
         var w = document.getElementById("role-sysad");
         var y = document.getElementById("role-editr");
         var z = document.getElementById("role-autr");
 
-        if (x == "System Admin") {
+        if (x == "System Administrator") {
             
             w.style.display = 'block';
             y.style.display = 'none';
@@ -21,7 +21,7 @@
             w.style.display = 'none';
             z.style.display = 'none';
 
-        } else if (x == "Author / Writer") {
+        } else if (x == "Author") {
 
             z.style.display = 'block';
             w.style.display = 'none';
@@ -89,6 +89,33 @@
 
     function loadEditWebPage(page_id){
         window.location='edit-webpage.php?editID='+page_id;        
+    }
+
+
+    //Students 
+
+    function loadDeleteStudent(StudentID){
+        window.location='../controllers/StudentUserController.php?deleteID='+StudentID;
+    }
+
+    function loadUnblockStudents(StudentID){
+        window.location='../controllers/StudentUserController.php?unblockID='+StudentID;
+    }
+
+    //Admin 
+
+    function loadDeleteAdmin(adminID){
+        if (confirm('Delete User?')){
+            window.location='../controllers/AdminUserController.php?deleteID='+adminID;
+        }else{
+            return false;
+        }
+    }
+
+    //Reports
+
+    function loadViewReport(reportID){
+        window.location='../views/reported-user.php?updateID='+reportID;
     }
 
 
@@ -321,6 +348,7 @@
         var name = '';
         var url = ''
         var webpageId = 0;
+        var successmsg = "Menu item has been added";
 
         if(type === 'Dropdown'){
              name = $('[name=new_link_type_dropdown_name]').val()
@@ -331,6 +359,7 @@
                 url =   $('[name=new_link_type_static_page_custom_url]').val()
             }else{
                 webpageId = $('[name=new_link_type_static_page]').val()
+                url = 'http://localhost/capstone-user/views/webpage.php?viewID='+webpageId;
             }
         }
        
@@ -350,8 +379,9 @@
             data:formData,
             dataType: 'json',
             success: function (response) {
-                alert('New menu has been saved');
-                window.location.reload()
+                // alert('New menu has been saved');
+                // window.location.reload()
+                window.location='../views/menu-editor.php?success-msg='+successmsg
             }
         });
     }
@@ -375,6 +405,7 @@
                 url =   $('[name=edit_link_type_static_page_custom_url]').val()
             }else{
                 webpageId = $('[name=edit_link_type_static_page]').val()
+                url = 'http://localhost/capstone-user/views/webpage.php?viewID='+webpageId
             }
         }
        
@@ -414,7 +445,8 @@
             url =   $('[name=new_link_type_dropdown_item_page_custom_url]').val()
         }else{
             webpageId = $('[name=new_link_type_dropdown_item_page]').val()
-            staticName =  $('[name=new_link_type_dropdown_item_page] option:selected').text()
+            name =  $('[name=new_link_type_dropdown_item_page] option:selected').text()
+            url = 'http://localhost/capstone-user/views/webpage.php?viewID='+webpageId
         }
 
         var length = newMenuDropdownPages.push({
@@ -425,7 +457,7 @@
         var x = length-1;
 
         $('#chosendropdownB').find('.list-group').append(function () {
-            return '<li class="list-group-item d-flex justify-content-between align-items-center border">'+(name || staticName)+ '<button onclick="removeFromNewDropdownList('+x+', this)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></li>'
+            return '<li class="list-group-item d-flex justify-content-between align-items-center border">'+(name)+ '<button onclick="removeFromNewDropdownList('+x+', this)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></li>'
         })
     }
 
@@ -440,7 +472,8 @@
             url =   $('[name=edit_link_type_dropdown_item_page_custom_url]').val()
         }else{
             webpageId = $('[name=edit_link_type_dropdown_item_page]').val()
-            staticName =  $('[name=edit_link_type_dropdown_item_page] option:selected').text()
+            name =  $('[name=edit_link_type_dropdown_item_page] option:selected').text()
+            url = 'http://localhost/capstone-user/views/webpage.php?viewID='+webpageId
         }
 
         var length = existingMenuDropdownPages.push({
@@ -451,7 +484,7 @@
         var x = length-1;
 
         $('#chosendropdownA').find('.list-group').append(function () {
-            return '<li class="list-group-item d-flex justify-content-between align-items-center border">'+(name || staticName)+ '<button onclick="removeFromNewDropdownList('+x+', this)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></li>'
+            return '<li class="list-group-item d-flex justify-content-between align-items-center border">'+(name)+ '<button onclick="removeFromNewDropdownList('+x+', this)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></li>'
         })
     }
 
@@ -466,21 +499,26 @@
         $(el).closest('.list-group-item').remove()
     }
    
+
    function deleteMenuItem() {
+
+    var successmsg = "Menu item has been deleted";
+
     if(!confirm('Are you sure')){
         return
     }
-     var idToedit = $('[name=edit_link_ID]').val();
+     var idToDelete = $('[name=edit_link_ID]').val();
      $.ajax({
             method: 'POST',
             url: '../../../capstone-admin/controllers/MenuController.php?function=deleteMenu',
             data:{
-                MenuItemID: idToedit
+                MenuItemID: idToDelete
             },
             dataType: 'json',
             success: function (response) {
-                alert('Menu item has been deleted');
-                window.location.reload()
+                // alert('Menu item has been deleted');
+                // window.location.reload()
+                window.location='../views/menu-editor.php?success-msg='+successmsg
             }
         });
    }
