@@ -18,6 +18,7 @@ if(isset($_POST['btnEditPage'])){
 
 function addWebPage(){
     $conn = myConnect();
+    session_start();
 
 	if(isset($_POST['btnAddPage'])){
 
@@ -25,7 +26,7 @@ function addWebPage(){
 		$content = $_POST['content'];
 		$status = "ACTIVE";
 		$date = Date("Y/m/d H:i:s");
-		$publisher = "1";
+		$publisher = $_SESSION['profile']['AdminID'];
 
     	$featureimage = '';
 
@@ -65,7 +66,8 @@ function addWebPage(){
 
 function loadActivePages(){
    $conn = myConnect();
-   $sql = "SELECT * FROM webpages WHERE Status = 'ACTIVE' ORDER BY DateCreated DESC";
+   $sql = "SELECT webpages.WebPageID, webpages.PageTitle, webpages.FeaturePhoto, webpages.Content, webpages.DateCreated, webpages.Status, webpages.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   webpages INNER JOIN admins on webpages.AdminID = admins.AdminID WHERE Status = 'ACTIVE' ORDER BY DateCreated DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -77,7 +79,8 @@ function loadActivePages(){
 
 function loadPageBin(){
    $conn = myConnect();
-   $sql = "SELECT * FROM webpages WHERE Status = 'BIN' ORDER BY DateCreated DESC";
+   $sql = "SELECT webpages.WebPageID, webpages.PageTitle, webpages.FeaturePhoto, webpages.Content, webpages.DateCreated, webpages.Status, webpages.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   webpages INNER JOIN admins on webpages.AdminID = admins.AdminID WHERE Status = 'BIN' ORDER BY DateCreated DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -133,9 +136,10 @@ function binWebPage(){
 
 function viewPageToEdit($id){
 	$conn = myConnect();
-	$sql = "SELECT * FROM webpages WHERE WebPageID= '$id' LIMIT 1 ";
+	$sql = "SELECT webpages.WebPageID, webpages.PageTitle, webpages.FeaturePhoto, webpages.Content, webpages.DateCreated, webpages.Status, webpages.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   webpages INNER JOIN admins on webpages.AdminID = admins.AdminID WHERE WebPageID= '$id' LIMIT 1 ";
 	$result = mysqli_query($conn, $sql);
-	$row = mysqli_fetch_row($result);
+	$row = mysqli_fetch_assoc($result);
 	return $row;
 }
 

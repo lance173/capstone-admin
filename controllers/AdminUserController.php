@@ -13,7 +13,7 @@ if(isset($_POST['addAdminUser'])){
       addAdminUser();
     }
 if(isset($_POST['editAdminUser'])){
-      editAdminUser();
+      editAdminUserPassword();
     }
 if(isset($_GET['reportID'])){
       viewReport();
@@ -153,7 +153,7 @@ function deleteAdmin(){
 
 }
 
-function editAdminUser(){
+function editAdminUserPassword(){
 	$connect = myConnect();
 	session_start();
 

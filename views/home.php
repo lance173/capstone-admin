@@ -97,7 +97,7 @@
                                                 <tr>
                                                     <td> <img src="<?php echo $Artc['FeaturePhoto'];?>" class="img-artvw">  </td>
                                                     <td> <div class="td-content"><?php echo $Artc['Title'];?></div></td>
-                                                    <td> <div class="td-content">Reed Richards </div></td>
+                                                    <td> <div class="td-content"> <?php echo $Artc['FirstName'];?> <?php echo $Artc['LastName'];?> </div></td>
                                                     <td> <div class="td-content"> <?php $dateWrit=date_create($Artc['DatePublished']); echo date_format($dateWrit,"F d, Y"); ?> </div></td>                                                
                                                 </tr>
                                             <?php }} ?>                                  

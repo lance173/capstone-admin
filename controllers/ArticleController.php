@@ -16,6 +16,8 @@ if(isset($_POST['btnEditArticle'])){
 
 function addArticle(){
     $conn = myConnect();
+    session_start();
+
 
 	if(isset($_POST['btnAddArticle'])){
 
@@ -23,7 +25,7 @@ function addArticle(){
 		$content = $_POST['content'];
 		$status = "PENDING";
 		$datewritten = Date("Y/m/d H:i:s");
-		$publisher = "1";
+		$publisher = $_SESSION['profile']['AdminID'];
 
     	$featureimage = '';
 
@@ -63,7 +65,8 @@ function addArticle(){
 
 function loadPublishedArticles(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED' ORDER BY DatePublished DESC";
+   $sql = "SELECT articles.ArticleID, articles.Title, articles.FeaturePhoto, articles.Content, articles.DatePublished, articles.Status, articles.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   articles INNER JOIN admins on articles.AdminID = admins.AdminID WHERE Status = 'PUBLISHED' ORDER BY DatePublished DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -75,7 +78,8 @@ function loadPublishedArticles(){
 
 function loadPendingArticles(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PENDING' ORDER BY DateWritten DESC";
+   $sql = "SELECT articles.ArticleID, articles.Title, articles.FeaturePhoto, articles.Content, articles.DateWritten, articles.Status, articles.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   articles INNER JOIN admins on articles.AdminID = admins.AdminID WHERE Status = 'PENDING' ORDER BY DateWritten DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -87,7 +91,8 @@ function loadPendingArticles(){
 
 function loadArticlesToHome(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED' ORDER BY DatePublished DESC LIMIT 4";
+   $sql = "SELECT articles.ArticleID, articles.Title, articles.FeaturePhoto, articles.Content, articles.DatePublished, articles.Status, articles.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   articles INNER JOIN admins on articles.AdminID = admins.AdminID WHERE Status = 'PUBLISHED' ORDER BY DatePublished DESC LIMIT 4";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
@@ -114,9 +119,10 @@ function approvePendingArticle(){
 
 function viewArticleToEdit($id){
 	$conn = myConnect();
-	$sql = "SELECT * FROM articles WHERE ArticleID = '$id' LIMIT 1 ";
+	$sql = "SELECT articles.ArticleID, articles.Title, articles.FeaturePhoto, articles.Content, articles.DateWritten, articles.Status, articles.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   articles INNER JOIN admins on articles.AdminID = admins.AdminID WHERE ArticleID = '$id' LIMIT 1 ";
 	$result = mysqli_query($conn, $sql);
-	$row = mysqli_fetch_row($result);
+	$row = mysqli_fetch_assoc($result);
 	return $row;
 }
 

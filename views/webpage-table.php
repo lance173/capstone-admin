@@ -59,7 +59,7 @@
                                                                 <a href="#" onclick="loadEditWebPage(<?php echo $actP['WebPageID'];?>)"> Edit </a> |  <a href="" class="green-theme"> View </a> | <a href="#" class="page-deletelink" onclick="loadBinWebPage(<?php echo $actP['WebPageID'];?>)"> Bin </a> 
                                                             </div>
                                                         </td>
-                                                        <td>Reed Richards</td>
+                                                        <td> <?php echo $actP['FirstName'];?> <?php echo $actP['LastName'];?> </td>
                                                         <td><?php $dateCreat=date_create($actP['DateCreated']); echo date_format($dateCreat,"F d, Y"); ?></td>
                                                     </tr> 
                                                                   
@@ -85,7 +85,7 @@
                                                 <?php if(isset($PageBin)){foreach($PageBin as $binP){  ?>
                                                     <tr>                                                                                                  
                                                         <td> <b> <?php echo $binP['PageTitle'];?> </b>  </td>
-                                                        <td>Reed Richards</td>
+                                                        <td> <?php echo $binP['FirstName'];?> <?php echo $binP['LastName'];?> </td>
                                                         <td><?php $dateCreat=date_create($binP['DateCreated']); echo date_format($dateCreat,"F d, Y"); ?></td>
                                                         <td> 
                                                             <a class="btn btn-artvw" href="#" role="button" onclick="loadRestoreWebPage(<?php echo $binP['WebPageID'];?>)"> <i class="fas fa-reply"></i> Restore </a>

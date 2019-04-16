@@ -29,12 +29,12 @@
                 <div class="row">
                         <div class="col-md-9">
                             
-                                <input type="text" name="title" class="input-title" placeholder="Article Title" value="<?php echo $row[1];?>">
+                                <input type="text" name="title" class="input-title" placeholder="Article Title" value="<?php echo $row['Title'];?>">
                             
 
                             <div class="ibox">
                                 <textarea class="input-block-level" id="summernote" name="content">
-                                    <?php echo $row[3];?>
+                                    <?php echo $row['Content'];?>
                                 </textarea>
                             </div>
 
@@ -48,7 +48,7 @@
                                 </div>
                                 <div id="featimg-body">
                                     <div class="ibox-body">
-                                        <img src="<?php echo $row[2];?>" class="prvwfeatimg" id="output_image">
+                                        <img src="<?php echo $row['FeaturePhoto'];?>" class="prvwfeatimg" id="output_image">
                                     </div>
                                     <div class="ibox-footer">
                                         <div class="ibox-footercontent">                                    
@@ -65,10 +65,13 @@
                                 </div>
                                 <div id="pblsh-body">
                                     <div class="ibox-body">
-                                        <i class="fas fa-pen"></i> <?php $dateCreat=date_create($row[4]); echo date_format($dateCreat,"F d, Y • h:i A"); ?>
+                                        <i class="fas fa-pen"></i> 
+                                        <?php echo $row['FirstName'];?> <?php echo $row['LastName'];?>
+                                        <br> <br>
+                                        <i class="far fa-clock"></i> <?php $dateCreat=date_create($row['DateWritten']); echo date_format($dateCreat,"F d, Y • h:i A"); ?>
                                         <br> <br>
                                         <i class="fas fa-info-circle"></i> publishing article info
-                                        <input type="text" value="<?php echo $row[0];?>" name="articleID" hidden>
+                                        <input type="text" value="<?php echo $row['ArticleID'];?>" name="articleID" hidden>
                                     </div>
                                     <div class="ibox-footer">
                                         <div class="ibox-footercontent publishpage-btn"> <button type="submit" name="btnEditArticle" class="btn btn-primary"> Save Changes </button> </div>
