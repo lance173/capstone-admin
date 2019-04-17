@@ -1,6 +1,6 @@
             <?php include('edit-accountmodal.php'); ?>
             <footer class="page-footer">
-                <div class="font-13 "> <b>USC LIBRARY SYSTEM 2.0</b> - All rights reserved © 2018.  </div>
+                <div class="font-13 "> <b>USC LIBRARY SYSTEM WEBSITE 2.0</b> - All rights reserved © 2019.  </div>
                 <div class="px-4"> ACERO • QUIOBE • JALUAG • SASEDOR </div>
                 <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
             </footer>

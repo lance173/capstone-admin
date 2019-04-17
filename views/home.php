@@ -228,7 +228,45 @@
                                                     <td> 
                                                         <div class="td-content"> 
 
-                                                            <i class="fas fa-clone"></i> 
+                                                            <?php if($acts['ActivityCode'] == 'Add Student'){ ?>
+                                                                <i class="fas fa-user-plus"></i> 
+                                                            <?php } else if($acts['ActivityCode'] == 'Delete Student'){ ?>
+                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Unblock Student'){ ?>
+                                                                <i class="fas fa-user-check"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Add Admin'){ ?>
+                                                                <i class="fa fa-user-shield"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Change Admin Role'){ ?>
+                                                                <i class="fas fa-users-cog"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Delete Admin'){ ?>
+                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Block Student'){ ?>
+                                                                <i class="fas fa-user-slash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Delete Report'){ ?>
+                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Add Article'){ ?>
+                                                                <i class="fas fa-file-alt"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Edit Article'){ ?>
+                                                                <i class="fas fa-pen"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Delete Article'){ ?>
+                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Approve Article'){ ?>
+                                                                <i class="fas fa-check"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Add WebPage'){ ?>
+                                                                <i class="far fa-window-restore"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Edit WebPage'){ ?>
+                                                                <i class="fas fa-pen"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Delete WebPage'){ ?>
+                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Bin WebPage'){ ?>
+                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Restore WebPage'){ ?>
+                                                                <i class="fas fa-reply"></i>                                    
+                                                            <?php } else if($acts['ActivityCode'] == 'Edit MenuBar'){ ?>
+                                                                <i class="fas fa-window-maximize"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Edit Slider'){ ?>
+                                                                <i class="fas fa-angle-left"></i> <i class="fas fa-angle-right"></i>
+                                                            <?php }?> 
 
                                                             <b> <?php echo $acts['FirstName'] ?> <?php echo $acts['LastName'] ?> </b> <?php echo $acts['Activity'] ?>: <?php echo $acts['BoldText'] ?>  
                                                         </div> 
