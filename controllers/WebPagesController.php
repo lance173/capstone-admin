@@ -18,7 +18,6 @@ if(isset($_POST['btnEditPage'])){
 
 function addWebPage(){
     $conn = myConnect();
-    session_start();
 
 	if(isset($_POST['btnAddPage'])){
 
@@ -54,6 +53,15 @@ function addWebPage(){
 
 		$sql = "INSERT INTO webpages(PageTitle, FeaturePhoto, Content, DateCreated, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$date', '$status', '$publisher')";
 
+		//For Activity Log
+		session_start();
+		$AdminID = $_SESSION['profile']['AdminID'];
+	    $Activity = "added a New Page";
+	    $BoldText = $title;
+	    $ActivityCode = "Add WebPage";
+	    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+		$result2 = mysqli_query($conn, $sql2);
+
 		$result = mysqli_query($conn,$sql);    
 		if($result){
 		      $str="Page successfully added!";
@@ -74,7 +82,7 @@ function loadActivePages(){
       //do something as long as there's a remaining row.
       $rows[] = $row;
    }
-   return $rows;  
+   return (isset($rows)) ? $rows : NULL;  
 }
 
 function loadPageBin(){
@@ -87,7 +95,7 @@ function loadPageBin(){
       //do something as long as there's a remaining row.
       $rows[] = $row;
    }
-   return $rows;  
+   return (isset($rows)) ? $rows : NULL;   
 }
 
 
@@ -95,6 +103,20 @@ function loadPageBin(){
 function deleteWebPage(){
 	$conn = myConnect();
 	$id = $_GET['deleteID'];
+
+	$findWebPage = mysqli_query($conn, "SELECT * FROM webpages WHERE WebPageID = '$id'");
+	$WebPage = mysqli_fetch_assoc($findWebPage);
+	$PageTitle = $WebPage['PageTitle'];
+
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "deleted page";
+    $BoldText = "$PageTitle" ;
+    $ActivityCode = "Delete WebPage";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
 	$sql = "DELETE FROM webpages WHERE WebPageID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
@@ -109,6 +131,20 @@ function deleteWebPage(){
 function restoreWebPage(){
 	$conn = myConnect();
 	$id = $_GET['restoreID'];
+
+	$findWebPage = mysqli_query($conn, "SELECT * FROM webpages WHERE WebPageID = '$id'");
+	$WebPage = mysqli_fetch_assoc($findWebPage);
+	$PageTitle = $WebPage['PageTitle'];
+
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "restored page";
+    $BoldText = "$PageTitle" ;
+    $ActivityCode = "Restore WebPage";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
 	$sql = "UPDATE webpages SET Status='ACTIVE' WHERE WebPageID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
@@ -123,6 +159,20 @@ function restoreWebPage(){
 function binWebPage(){
 	$conn = myConnect();
 	$id = $_GET['binID'];
+
+	$findWebPage = mysqli_query($conn, "SELECT * FROM webpages WHERE WebPageID = '$id'");
+	$WebPage = mysqli_fetch_assoc($findWebPage);
+	$PageTitle = $WebPage['PageTitle'];
+
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "bin page";
+    $BoldText = "$PageTitle" ;
+    $ActivityCode = "Bin WebPage";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
 	$sql = "UPDATE webpages SET Status='BIN' WHERE WebPageID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
@@ -176,6 +226,15 @@ function updatePage(){
         
         }
       }
+
+    //For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "edited page";
+    $BoldText = "$title" ;
+    $ActivityCode = "Edit WebPage";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "UPDATE webpages SET 
 	PageTitle='$title', Content='$content', FeaturePhoto='$featureimage' WHERE WebPageID = '$id'";

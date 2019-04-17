@@ -51,6 +51,10 @@
         window.location='edit-article.php?editID='+article_id;        
     }
 
+    function viewLiveArticle(article_id){
+        window.location='http://localhost/capstone-user/views/ArticlePage.php?id='+article_id;
+    }
+
     //file upload via anchor tag
     $("#fileupload").click(function(){
         $("#upload-file").click();
@@ -64,7 +68,7 @@
     });
 
     function loadDeleteWebPage(page_id){
-        if (confirm('Do you want to delete this Page?')){
+        if (confirm('Do you want to delete this Page permanently?')){
             window.location='../controllers/WebPagesController.php?deleteID='+page_id;
         }else{
             return false;
@@ -91,11 +95,19 @@
         window.location='edit-webpage.php?editID='+page_id;        
     }
 
+    function viewLiveWebPage(page_id){
+        window.location='http://localhost/capstone-user/views/webpage.php?viewID='+page_id;
+    }
+
 
     //Students 
 
     function loadDeleteStudent(StudentID){
-        window.location='../controllers/StudentUserController.php?deleteID='+StudentID;
+        if (confirm('Delete User?')){
+            window.location='../controllers/StudentUserController.php?deleteID='+StudentID;
+        }else{
+            return false;
+        }
     }
 
     function loadUnblockStudents(StudentID){
@@ -522,3 +534,19 @@
             }
         });
    }
+
+    function changeAdminRole(AdminID){
+            $.ajax({
+            method: 'POST',
+            url: '../../../capstone-admin/controllers/AdminUserController.php?function=loadEditAdminRole',
+            data: {
+                id: AdminID
+            },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response.data);
+                $('#changerole-adminname').text(response.data.FirstName);
+            }
+        }
+        );
+    }

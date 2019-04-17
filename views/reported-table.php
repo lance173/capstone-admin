@@ -33,18 +33,7 @@
                                         <td>Reported on <b>5 counts</b> </td>
                                         <td><a class="btn btn-vwrptusr" href="reported-user.php" role="button"> View </a></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Lemon Blue</td>
-                                        <td>Reported on <b>7 counts</b> </td>
-                                        <td><a class="btn btn-vwrptusr" href="reported-user.php" role="button"> View </a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Orange Yellow</td>
-                                        <td>Reported on <b>1 count</b> </td>
-                                        <td><a class="btn btn-vwrptusr" href="reported-user.php" role="button"> View </a></td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>

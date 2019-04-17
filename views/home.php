@@ -1,11 +1,12 @@
 <?php 
     require('header.php');
     include('nav.php');
-    require('../controllers/StudentUserController.php'); 
-    require('../controllers/ArticleController.php'); 
+    require('../controllers/HomeDataControllers.php'); 
 
     $NoOfUsers = countStudentUsers();
     $articles = loadArticlesToHome();
+    $visitors = countVisits();
+    $activity = loadActivitiesToHome();
 
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuHomePage'); </script>
@@ -24,7 +25,7 @@
 
                             <div class="info-box-content">
                               <span class="info-box-text">Site Visits</span>
-                              <span class="info-box-number"> 215 </span>
+                              <span class="info-box-number"> <?php echo $visitors ;?> </span>
                             </div>
                           </div>                 
                     </div>
@@ -67,7 +68,7 @@
                             <div class="buttonset-jumbo">
                                 <div class="wrapper">
                                     <a class="editsite-btn" href="site-editor.php" role="button">EDIT WEBSITE</a>
-                                    <a class="viewsite-btn" href="#" role="button">VIEW WEBSITE  </a> 
+                                    <a class="viewsite-btn" href="http://localhost/capstone-user" role="button">VIEW WEBSITE  </a> 
                                 </div>
                             </div>                           
                         </center>                        
@@ -222,21 +223,18 @@
                                 <div class="table-responsive">  
                                     <table class="table">                                            
                                         <tbody>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-clone"></i> <b>Michael Jordan</b> added a new Page </div> </td>
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-user-plus"></i> <b>Nick Fury</b> added 10 New Student Users </div> </td>
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-check"></i> <b>Phil Couson</b> approved an Article </div> </td>                                 
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-pen"></i> <b>Carol Danvers</b> edited an Article </div> </td>  
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-file-alt"></i> <b>Steve Rogers</b>  wrote an Article </div> </td>
-                                            </tr>                                       
+                                            <?php if(isset($activity)){foreach($activity as $acts){ ?>
+                                                <tr>
+                                                    <td> 
+                                                        <div class="td-content"> 
+
+                                                            <i class="fas fa-clone"></i> 
+
+                                                            <b> <?php echo $acts['FirstName'] ?> <?php echo $acts['LastName'] ?> </b> <?php echo $acts['Activity'] ?>: <?php echo $acts['BoldText'] ?>  
+                                                        </div> 
+                                                    </td>
+                                                </tr>
+                                            <?php }} ?>
                                         </tbody>
                                     </table>                                        
                                 </div>

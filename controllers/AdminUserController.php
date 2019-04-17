@@ -58,6 +58,15 @@ function addAdminUser(){
 
 	$sql = ("INSERT INTO admins (USCIDNo, FirstName, LastName, Position, Email, SiteRole, Password, Photo) VALUES ('{$uscIDNo}','{$firstName}','{$lastName}','{$position}','{$email}','{$siteRole}','{$password}','{$admin_photo}')");
 
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "added a Admin User";
+    $BoldText = "$uscIDNo - $firstName $lastName" ;
+    $ActivityCode = "Add Admin";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
 	$result = mysqli_query($conn,$sql);
 	if($result){
 		$str="Admin account successfully created";
@@ -66,18 +75,7 @@ function addAdminUser(){
 	}else{
 		echo "Error!!!! ".mysqli_error($conn);
 	}
-	// $adminFName = $_SESSION['profile']['firstName'];
-	// $adminLName = $_SESSION['profile']['lastName'];
-
-	// $sql2 = ("INSERT INTO activity (fname, lname, activity, dateDone) VALUES ('{$adminFName}','{$adminLName}','Add Admin',NOW())");
-
-	// $result2 = mysqli_query($conn,$sql2);
-
-	// if($result2){
-	// $str="Succesfully added to activity log";
-	// header("Location:../views/add-useradmin.php?success-msg=".$str);
-	// }
-
+	
 
 }
 
@@ -93,7 +91,7 @@ function displayAllAdmins(){
 		$rows[] = $row;
 	}
 
-	return $rows;
+	return (isset($rows)) ? $rows : NULL; 
 }
 
 function displaySysAdmins(){
@@ -107,7 +105,7 @@ function displaySysAdmins(){
 		$rows[] = $row;
 	}
 
-	return $rows;
+	return (isset($rows)) ? $rows : NULL; 
 }
 
 function displayEditors(){
@@ -121,7 +119,7 @@ function displayEditors(){
 		$rows[] = $row;
 	}
 
-	return $rows;
+	return (isset($rows)) ? $rows : NULL; 
 }
 
 function displayAuthors(){
@@ -135,13 +133,31 @@ function displayAuthors(){
 		$rows[] = $row;
 	}
 
-	return $rows;
+	return (isset($rows)) ? $rows : NULL; 
 }
 
 
 function deleteAdmin(){
   $conn = myConnect();
   $id = $_GET['deleteID'];
+
+	$findAdmin = mysqli_query($conn, "SELECT * FROM admins WHERE AdminID = '$id'");
+	$admin = mysqli_fetch_assoc($findAdmin);
+	$id_number = $admin['USCIDNo'];
+	$firstname = $admin['FirstName'];
+	$lastname = $admin['LastName'];
+
+	//For Activity Log
+	session_start();
+	$AdminID = $_SESSION['profile']['AdminID'];
+	$Activity = "deleted admin";
+	$BoldText = "$id_number - $firstname $lastname" ;
+	$ActivityCode = "Delete Admin";
+	$sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
+
+
   $sql = "DELETE FROM admins WHERE AdminID = '$id'";
   $result = mysqli_query($conn,$sql);
   if($result){
@@ -154,7 +170,7 @@ function deleteAdmin(){
 }
 
 function editAdminUserPassword(){
-	$connect = myConnect();
+	$conn = myConnect();
 	session_start();
 
 	$profile = $_SESSION['profile']['AdminID'];
@@ -163,109 +179,38 @@ function editAdminUserPassword(){
 	$confPassword = $_POST['inputConfPassword'];
 
 	$sql = ("SELECT * FROM admins WHERE AdminID = $profile");
-	$result = mysqli_query($connect,$sql);
+	$result = mysqli_query($conn,$sql);
 
 	if($result){
 		$sql2 = ("UPDATE admins SET Password = md5($newPassword) WHERE AdminID = $profile");
-		$result2 = mysqli_query($connect,$sql2);
+		$result2 = mysqli_query($conn,$sql2);
 		header("Location:../views/home.php");
 	}
-
 }
 
+function loadEditAdminRole(){
+	$id = $_POST['id'];
 
+	$conn = myConnect();
+	$sql = "SELECT * FROM admins WHERE AdminID = '$id' LIMIT 1";
 
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_assoc($result);
 
-
-
-
-
-
-function displayReport(){
-
-
-	$connection = connectsql();
-	$sql = "SELECT * FROM reports";
-	$result = mysqli_query($connection, $sql);
-
-	while($row=mysqli_fetch_array($result)){
-		//do something as long as there's a remaining row.
-		$rows[] = $row;
-	}
-
-	return $rows;
+	echo json_encode([
+	'response' => true,
+	'data' => $row
+	]);
 }
 
+$function_name = isset($_GET['function']) ? $_GET['function'] : null;
 
-function visitCounter(){
+switch ($function_name) {
+   case 'loadEditAdminRole':
+      loadEditAdminRole();
+      break;
 
-	$connect = connectsql();
-	$sql = ("UPDATE visitcounter SET counter=counter+1 WHERE name='Visit Counter'");
-	$result = mysqli_query($connect, $sql);
-
-	$sql2 = ("SELECT * FROM visitcounter WHERE name='Visit Counter'");
-	$result2 = mysqli_query($connect, $sql2);
-	
-	while($row = mysqli_fetch_array($result2)) {
-			$testing = $row['counter'];
-	}
-
-	return $testing;
+   
+   default:
+      break;
 }
-
-
-function displayAddNewPage(){
-
-
-	$connection = connectsql();
-	$sql = "SELECT * FROM activity WHERE activity = 'Add Page' ORDER BY id DESC LIMIT 1";
-	$result = mysqli_query($connection, $sql);
-
-	$row = mysqli_fetch_row($result);
-	return $row;
-}
-
-function displayAddAdmin(){
-
-
-	$connection = connectsql();
-	$sql = "SELECT * FROM activity WHERE activity = 'Add Admin' ORDER BY id DESC LIMIT 1";
-	$result = mysqli_query($connection, $sql);
-
-	$row = mysqli_fetch_row($result);
-	return $row;
-}
-
-function displayNewArticle(){
-
-
-	$connection = connectsql();
-	$sql = "SELECT * FROM activity WHERE activity = 'New Article' ORDER BY id DESC LIMIT 1";
-	$result = mysqli_query($connection, $sql);
-
-	$row = mysqli_fetch_row($result);
-	return $row;
-}
-
-function displayEditArticle(){
-
-
-	$connection = connectsql();
-	$sql = "SELECT * FROM activity WHERE activity = 'Edit Article' ORDER BY id DESC LIMIT 1";
-	$result = mysqli_query($connection, $sql);
-
-	$row = mysqli_fetch_row($result);
-	return $row;
-}
-
-function displayApproveArticle(){
-
-
-	$connection = connectsql();
-	$sql = "SELECT * FROM activity WHERE activity = 'Approve Article' ORDER BY id DESC LIMIT 1";
-	$result = mysqli_query($connection, $sql);
-
-	$row = mysqli_fetch_row($result);
-	return $row;
-}
-

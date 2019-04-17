@@ -13,8 +13,8 @@
 ?>
 
 <?php
-function addStudentUser(){
-		$conn = myConnect();
+function addStudentUser(){	
+	$conn = myConnect();
 
 	if(isset($_POST['btnAddStudentUser'])){
 
@@ -52,6 +52,15 @@ function addStudentUser(){
 		
 
 		$sql =  "INSERT INTO students(USCIDNo, FirstName, LastName, Password, Course, YearLevel, Status, Photo) VALUES ('$id_number', '$firstname', '$lastname', '$password', '$course', '$yearlvl', '$status', '$student_photo')";
+
+		//For Activity Log
+		session_start();
+	    $AdminID = $_SESSION['profile']['AdminID'];
+	    $Activity = "added a New Student User";
+	    $BoldText = "$id_number - $firstname $lastname" ;
+	    $ActivityCode = "Add Student";
+	    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+		$result2 = mysqli_query($conn, $sql2);
 		
 		$result = mysqli_query($conn,$sql);       
 		if($result){
@@ -66,6 +75,23 @@ function addStudentUser(){
 function deleteStudent(){
 	$conn = myConnect();
 	$id = $_GET['deleteID'];
+
+	$findStudent = mysqli_query($conn, "SELECT * FROM students WHERE StudentID = '$id'");
+	$student = mysqli_fetch_assoc($findStudent);
+	$id_number = $student['USCIDNo'];
+	$firstname = $student['FirstName'];
+	$lastname = $student['LastName'];
+
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "deleted Student User";
+    $BoldText = "$id_number - $firstname $lastname" ;
+    $ActivityCode = "Delete Student";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
+
 	$sql = "DELETE FROM students WHERE StudentID = '$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
@@ -86,7 +112,7 @@ function loadAllStudents(){
 			//do something as long as there's a remaining row.
 			$rows[] = $row;
 	 }
-	 return $rows;  
+	 return (isset($rows)) ? $rows : NULL;   
 }
 
 
@@ -99,7 +125,7 @@ function loadClearedStudents(){
 			//do something as long as there's a remaining row.
 			$rows[] = $row;
 	 }
-	 return $rows;  
+	 return (isset($rows)) ? $rows : NULL;   
 }
 
 function loadBlockedStudents(){
@@ -111,12 +137,29 @@ function loadBlockedStudents(){
 			//do something as long as there's a remaining row.
 			$rows[] = $row;
 	 }
-	 return $rows;  
+	 return (isset($rows)) ? $rows : NULL;   
 }
 
 function unblockStudent(){
 	$conn = myConnect();
 	$id = $_GET['unblockID'];
+
+	$findStudent = mysqli_query($conn, "SELECT * FROM students WHERE StudentID = '$id'");
+	$student = mysqli_fetch_assoc($findStudent);
+	$id_number = $student['USCIDNo'];
+	$firstname = $student['FirstName'];
+	$lastname = $student['LastName'];
+
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "unblocked Student User";
+    $BoldText = "$id_number - $firstname $lastname" ;
+    $ActivityCode = "Unblock Student";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
+
 	$sql = "UPDATE students SET Status = 'CLEARED' WHERE StudentID  = '$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
@@ -128,12 +171,4 @@ function unblockStudent(){
 
 }
 
-function countStudentUsers(){
-	$conn = myConnect();
-	$result = mysqli_query($conn, "SELECT COUNT(*) AS `count` FROM `Students`");
-	$row = mysqli_fetch_array($result);
-	$count = $row['count'];
-
-	return $count;
-}
 ?>

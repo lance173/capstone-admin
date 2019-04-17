@@ -101,7 +101,7 @@
                                                     <th>ID No.</th>
                                                     <th>Name</th>
                                                     <th>Course & Year</th>
-                                                    <th>Status</th>
+                                                    <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>

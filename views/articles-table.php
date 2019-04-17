@@ -53,7 +53,7 @@
                                                         <td> <?php echo $pubA['Title'];?> </td>
                                                         <td> <?php echo $pubA['FirstName'];?> <?php echo $pubA['LastName'];?> </td>
                                                         <td> <?php $dateWrit=date_create($pubA['DatePublished']); echo date_format($dateWrit,"F d, Y"); ?> </td>
-                                                        <td> <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $pubA['ArticleID'];?>)"> Edit </button> <a class="btn btn-success" href="#" role="button"> View </a> <button class="btn btn-danger" onclick="loadDeleteArticle(<?php echo $pubA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> </button> </td>
+                                                        <td> <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $pubA['ArticleID'];?>)"> Edit </button> <button class="btn btn-success" onclick="viewLiveArticle(<?php echo $pubA['ArticleID'];?>);"> View </button> <button class="btn btn-danger" onclick="loadDeleteArticle(<?php echo $pubA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> </button> </td>
                                                     </tr> 
                                                 <?php }} ?>                                                               
                                             </tbody>

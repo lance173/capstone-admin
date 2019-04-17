@@ -68,7 +68,7 @@
                                                 <td><?php echo $all['SiteRole'];?></td>
                                                 <td><?php echo $all['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -193,7 +193,7 @@
                             <center> 
                                 <img src="../assets/img/admin-avatar.png" width="100px" style="border-radius: 100px;" />
 
-                                <div style="display:block; margin-top: 10px; font-size: 18px; margin-bottom: 20px;">
+                                <div style="display:block; margin-top: 10px; font-size: 18px; margin-bottom: 20px;" id="changerole-adminname">
                                   <b> NAME </b>
                                 </div>
                             </center>

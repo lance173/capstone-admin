@@ -65,6 +65,7 @@ function getMenuItems() {
 }
 
 function saveMenuItem() {
+    
    $post = $_POST;
    $dropdownItems = isset($_POST['DropdownItems']) && count($_POST['DropdownItems']) ?$_POST['DropdownItems'] : null;
    unset($post['DropdownItems']);
@@ -93,6 +94,15 @@ function saveMenuItem() {
       
     }
 
+    //For Activity Log
+    session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "edited";
+    $BoldText = "the Menu";
+    $ActivityCode = "Edit MenuBar";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $result2 = mysqli_query($conn, $sql2);
+
     echo json_encode([
       'result' => true
    ]);
@@ -108,7 +118,8 @@ function saveMenuItem() {
 
 function editMenuItem() {
    // return;
-    $post = $_POST;
+
+   $post = $_POST;
    $id = $_POST['MenuItemID'];
    $dropdownItems = isset($_POST['DropdownItems']) && count($_POST['DropdownItems']) ?$_POST['DropdownItems'] : null;
    unset($post['DropdownItems'], $post['MenuItemID']);
@@ -142,6 +153,15 @@ function editMenuItem() {
       
     }
 
+    //For Activity Log
+    session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "edited";
+    $BoldText = "the Menu";
+    $ActivityCode = "Edit MenuBar";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $result2 = mysqli_query($conn, $sql2);
+
     echo json_encode([
       'result' => true
    ]);
@@ -153,6 +173,15 @@ function deleteMenu ()
    $id = $_POST['MenuItemID'];
    $conn = myConnect();
     mysqli_query($conn, "DELETE FROM menu WHERE MenuItemID = {$id}");  
+
+    //For Activity Log
+    session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "edited";
+    $BoldText = "the Menu";
+    $ActivityCode = "Edit MenuBar";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $result2 = mysqli_query($conn, $sql2);
 
      echo json_encode([
       'result' => true

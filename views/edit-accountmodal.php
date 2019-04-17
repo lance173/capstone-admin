@@ -14,7 +14,7 @@
         </div>
         <div class="modal-body">
           <center>
-            <img src="../assets/img/admin-avatar.png" width="100px" style="border-radius: 100px;" />
+            <img src="<?php echo $_SESSION['profile']['Photo']?>" width="100px" style="border-radius: 100px;" />
             <div style="display:block; margin-top: 10px; font-size: 18px;">
               <b><?php echo $_SESSION['profile']['FirstName'],'&nbsp',$_SESSION['profile']['LastName']?></b>
             </div>
