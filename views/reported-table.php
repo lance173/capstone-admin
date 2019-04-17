@@ -1,6 +1,9 @@
 <?php 
     require('header.php');
     include('nav.php');
+
+    require('../controllers/ReportController.php');
+    $reports = loadAllReports();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuReportPage'); </script>
 
@@ -27,13 +30,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Apple Red</td>
-                                        <td>Reported on <b>5 counts</b> </td>
-                                        <td><a class="btn btn-vwrptusr" href="reported-user.php" role="button"> View </a></td>
-                                    </tr>
-                                    
+                                    <?php 
+                                        $number = 1;
+                                        if(isset($reports)){foreach($reports as $r){ ?>
+                                            <tr>
+                                                <td> <?php echo $number?> </td>
+                                                <td> <?php echo $r['OffenderFirstName']; echo ' '; echo $r['OffenderLastName']; ?> </td>
+                                                <td>Reported on <b>5 counts</b> </td>
+                                                <td><a class="btn btn-vwrptusr" href="reported-user.php" role="button"> View </a></td>
+                                            </tr>
+                                    <?php $number++; }} ?>
                                 </tbody>
                             </table>
                         </div>

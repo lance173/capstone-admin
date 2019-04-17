@@ -1,6 +1,9 @@
 <?php 
     require('header.php');
     include('nav.php');
+
+    require('../controllers/ReportController.php');
+    $report = showReportUser();
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuReportPage'); </script>
 
