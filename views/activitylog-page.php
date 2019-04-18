@@ -34,7 +34,7 @@
 
                                         <?php if(isset($activity)){foreach($activity as $acts){ ?> 
                                                 
-                                            <tr class="activityrow" onmouseover="showvwdetails('<?php echo $viewdetailsid ?>')" onmouseout="hidevwdetails('<?php echo $viewdetailsid ?>')" data-toggle="modal" data-target=".viewdetail2-modal-lg">
+                                            <tr class="activityrow">
                                                 <td width="100px;">
                                                     <img src="<?php echo $acts['Photo'] ?>" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
