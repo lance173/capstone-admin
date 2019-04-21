@@ -2,6 +2,15 @@
     require('header.php');
     include('nav.php');
     require('../controllers/StudentUserController.php'); 
+
+    if($_SESSION['profile']['SiteRole'] == 'Author' || $_SESSION['profile']['SiteRole'] == 'Editor'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
+
 ?>
 
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuStudentUsers'); activePageAtSideNav('MenuAddStudentUser'); </script>

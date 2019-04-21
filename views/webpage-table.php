@@ -3,7 +3,15 @@
     include('nav.php');
     require('../controllers/WebPagesController.php');
     $ActivePages = loadActivePages();
-    $PageBin = loadPageBin()
+    $PageBin = loadPageBin();
+
+    if($_SESSION['profile']['SiteRole'] == 'Author'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuWebApprncSitePages'); </script>
 

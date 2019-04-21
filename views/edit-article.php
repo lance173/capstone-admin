@@ -5,6 +5,14 @@
 
     $id = $_GET['editID'];
     $row = viewArticleToEdit($id);
+
+    if($_SESSION['profile']['SiteRole'] == 'Author'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
 ?>
 
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuArticles'); activePageAtSideNav('MenuAddArticle'); </script>

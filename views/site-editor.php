@@ -1,6 +1,15 @@
 <?php 
     require('header.php');
     include('nav.php');
+
+    if($_SESSION['profile']['SiteRole'] == 'Author'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
+
 ?>
   <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuSiteEditor'); </script>
 	

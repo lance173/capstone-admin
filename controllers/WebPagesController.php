@@ -17,6 +17,7 @@ if(isset($_POST['btnEditPage'])){
 }
 
 function addWebPage(){
+	session_start();
     $conn = myConnect();
 
 	if(isset($_POST['btnAddPage'])){
@@ -54,7 +55,7 @@ function addWebPage(){
 		$sql = "INSERT INTO webpages(PageTitle, FeaturePhoto, Content, DateCreated, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$date', '$status', '$publisher')";
 
 		//For Activity Log
-		session_start();
+		
 		$AdminID = $_SESSION['profile']['AdminID'];
 	    $Activity = "added a New Page";
 	    $BoldText = $title;
@@ -167,7 +168,7 @@ function binWebPage(){
 	//For Activity Log
 	session_start();
     $AdminID = $_SESSION['profile']['AdminID'];
-    $Activity = "bin page";
+    $Activity = "binned page";
     $BoldText = "$PageTitle" ;
     $ActivityCode = "Bin WebPage";
     $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;

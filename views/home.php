@@ -82,7 +82,7 @@
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title"> <i class="fa fa-file-alt"></i> Current Articles</div>
-                                <div> <a class="btn btn-artvwall" href="webpage-table.php" role="button"> View All </a> </div>
+                                <div> <a class="btn btn-artvwall" href="articles-table.php" role="button"> View All </a> </div>
                             </div>
                             <div class="ibox-body">
                                 <div class="table-responsive">

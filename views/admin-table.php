@@ -7,6 +7,15 @@
     $sysAdmin = displaySysAdmins();
     $editor = displayEditors();
     $author = displayAuthors();
+
+    if($_SESSION['profile']['SiteRole'] == 'Author' || $_SESSION['profile']['SiteRole'] == 'Editor'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
+
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuAdminUsers'); activePageAtSideNav('MenuAdminUsersTable'); </script>
 
@@ -68,7 +77,7 @@
                                                 <td><?php echo $all['SiteRole'];?></td>
                                                 <td><?php echo $all['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -100,7 +109,7 @@
                                                 <td><?php echo $sysAd['SiteRole'];?></td>
                                                 <td><?php echo $sysAd['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -132,7 +141,7 @@
                                                 <td><?php echo $edit['SiteRole'];?></td>
                                                 <td><?php echo $edit['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -164,7 +173,7 @@
                                                 <td><?php echo $auth['SiteRole'];?></td>
                                                 <td><?php echo $auth['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -179,78 +188,10 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="changeRoleModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">                            
-                            <h4 class="modal-title">Change Role</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-
-                            <center> 
-                                <img id="changerole-adminphoto" width="100px" style="border-radius: 100px;" />
-
-                                <div style="display:block; margin-top: 10px; font-size: 18px; " id="changerole-adminname">
-                                  <div id="changerole-adminfirstname" style="display: inline-block;"> </div> <div id="changerole-adminlastname" style="display: inline-block;"> </div>
-                                </div>
-                                <small id="changerole-adminposition"> </small>
-                            </center>
-
-                            
-
-                            <div class="form-group site-roleselect" style="margin-top: 20px;">
-                                <label class="control-label" for="site-role">Site Role</label>
-                                <select id="siteRole" name="siteRole" class="form-control"  onchange="roleSelect();" style="width: 80%">
-                                    <option selected disabled hidden>Select Role for admin in this website</option>
-                                    <option value="System Administrator">System Admin</option>
-                                    <option value="Editor">Editor</option>
-                                    <option value="Author">Author / Writer</option>
-                                </select>
-
-                                <div class="role-descrip" id="role-sysad">
-                                    <i class="fas fa-info-circle"></i> System Admin can:
-                                        <ul>
-                                            <li> Add and Manage Admins  </li>
-                                            <li> Add and Manage Students</li>
-                                            <li> Approve Articles and Webpages</li>
-                                            <li> Write and Manage Articles </li>
-                                            <li> Approve Articles </li>
-                                            <li> Add and Mange Webpages</li>
-                                            <li> Edit website appearance</li>
-                                        </ul>
-                                </div>
-
-                                <div class="role-descrip" id="role-editr">
-                                    <i class="fas fa-info-circle"></i> Editor can:
-                                        <ul>
-                                            <li> Write and Manage Articles </li>
-                                            <li> Approve Articles </li>
-                                            <li> Add and Mange Webpages</li>
-                                            <li> Edit website appearance</li>
-                                        </ul>
-                                </div>
-
-                                <div class="role-descrip" id="role-autr">
-                                    <i class="fas fa-info-circle"></i> Author/Writer can:
-                                        <ul>
-                                             <li> Only Write Articles </li>                                                 
-                                        </ul>
-                                </div>                                    
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+           <?php include('change-adminrole.php') ?>
                     
 
-                <!--content-wrapper closing tag will be found in footer.php -->
+        <!--content-wrapper closing tag will be found in footer.php -->
 <?php
     require('footer.php');
 ?>  

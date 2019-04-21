@@ -4,6 +4,14 @@
 
     require('../controllers/ReportController.php');
     $reports = loadAllReports();
+
+    if($_SESSION['profile']['SiteRole'] == 'Author' || $_SESSION['profile']['SiteRole'] == 'Editor'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuReportPage'); </script>
 

@@ -15,7 +15,11 @@ if(isset($_GET['reportID'])){
 	}
 if(isset($_GET['deleteID'])){
 	deleteAdmin();
+	}
+if(isset($_POST['btnChangeAdmin'])){
+  changeAdminRole();
 }
+
 
 function addAdminUser(){
 	session_start();
@@ -212,6 +216,43 @@ function loadEditAdminRole(){
 	'data' => $row
 	]);
 }
+
+function changeAdminRole(){
+	session_start();
+	$conn = myConnect();
+
+	$id = $_POST['changeroleadminID'];
+	$newRole = $_POST['siteRole'];
+
+	$findAdmin = mysqli_query($conn, "SELECT * FROM admins WHERE AdminID = '$id'");
+	$admin = mysqli_fetch_assoc($findAdmin);
+	$firstname = $admin['FirstName'];
+	$lastname = $admin['LastName'];
+
+	//For Activity Log
+	session_start();
+	$AdminID = $_SESSION['profile']['AdminID'];
+	$Activity = "changed admin";
+	$BoldText = "$firstname $lastname role to $newRole" ;
+	$ActivityCode = "Change Admin Role";
+	$sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
+
+	$sql = "UPDATE admins SET 
+	SiteRole='$newRole' WHERE AdminID = '$id'";
+	$result = mysqli_query($conn, $sql);
+	
+	if($result){
+		$str="Admin role successfuly changed";
+		header('Location:../views/admin-table.php?success-msg='.$str);
+		}
+		else{
+			echo "ERROR UPDATING ADMIN ROLE.".mysqli_error($conn);
+		}  
+
+}
+
 
 $function_name = isset($_GET['function']) ? $_GET['function'] : null;
 

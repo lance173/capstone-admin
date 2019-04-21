@@ -31,11 +31,18 @@
 
 //On Articles
 
-    function loadApproveArticle(article_id){
-        if (confirm('Approve Article?')){
-            window.location='../controllers/ArticleController.php?approveID='+article_id;
-        }else{
+    function loadApproveArticle(article_id, siterole){
+
+        if(siterole == 'Author'){
+            alert( "You don't have the clearance to continue this action");
             return false;
+        } else {
+
+            if (confirm('Approve Article?')){
+                window.location='../controllers/ArticleController.php?approveID='+article_id;
+            }else{
+                return false;
+            }
         }
     }
 
@@ -47,8 +54,13 @@
         }
     }
 
-    function loadEditArticle(article_id){
-        window.location='edit-article.php?editID='+article_id;        
+    function loadEditArticle(article_id, isAuthorOfArticle){
+        if(isAuthorOfArticle=='false'){
+            alert("You cannot edit this article. You can only edit articles you wrote.");
+            return false;
+        } else {
+            window.location='edit-article.php?editID='+article_id;    
+        }    
     }
 
     function viewLiveArticle(article_id){
@@ -572,7 +584,7 @@
         return true;
     }
 
-    function changeAdminRole(AdminID){
+    function readyChangeAdminRole(AdminID){
             $.ajax({
             method: 'POST',
             url: '../../../capstone-admin/controllers/AdminUserController.php?function=loadEditAdminRole',
@@ -586,8 +598,24 @@
                 $('#changerole-adminfirstname').text(response.data.FirstName);
                 $('#changerole-adminlastname').text(response.data.LastName);
                 $('#changerole-adminposition').text(response.data.Position);
+                $('#changerole-adminID').val(response.data.AdminID);
+                $('#currentRole').val(response.data.SiteRole);
                 $('#siteRole').val(response.data.SiteRole).trigger('change');
             }
         }
         );
+    }
+
+    function checkChangeRole(form){
+
+        if(form.currentUser.value == form.changeroleadminID.value){
+            alert("You cannot change your own role!");
+            return false;
+        }
+        if(form.currentRole.value == form.siteRole.value){
+            alert( "Admin is already a " +form.siteRole.value);
+            return false;
+        } else {           
+            return true;
+        }
     }

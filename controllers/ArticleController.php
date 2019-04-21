@@ -15,6 +15,7 @@ if(isset($_POST['btnEditArticle'])){
 }
 
 function addArticle(){
+	session_start();
     $conn = myConnect();
    
 	if(isset($_POST['btnAddArticle'])){
@@ -50,7 +51,7 @@ function addArticle(){
 	      }
 
 	    //For Activity Log
-	    session_start();
+	    
 		$AdminID = $_SESSION['profile']['AdminID'];
 	    $Activity = "added a new article";
 	    $BoldText = $title;
