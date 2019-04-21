@@ -1,4 +1,4 @@
-<?php require('MysqlConnect.php'); ?> 
+<?php require_once('MysqlConnect.php'); ?> 
 
 <?php
 if(isset($_POST['btnAddArticle'])){
@@ -15,15 +15,16 @@ if(isset($_POST['btnEditArticle'])){
 }
 
 function addArticle(){
+	session_start();
     $conn = myConnect();
-
+   
 	if(isset($_POST['btnAddArticle'])){
 
 		$title = $_POST['title'];
 		$content = $_POST['content'];
 		$status = "PENDING";
 		$datewritten = Date("Y/m/d H:i:s");
-		$publisher = "1";
+		$publisher = $_SESSION['profile']['AdminID'];
 
     	$featureimage = '';
 
@@ -49,6 +50,15 @@ function addArticle(){
 	        }
 	      }
 
+	    //For Activity Log
+	    
+		$AdminID = $_SESSION['profile']['AdminID'];
+	    $Activity = "added a new article";
+	    $BoldText = $title;
+	    $ActivityCode = "Add Article";
+	    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+		$result2 = mysqli_query($conn, $sql2);
+
 		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, DateWritten, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$datewritten', '$status', '$publisher')";
 
 		$result = mysqli_query($conn,$sql);    
@@ -63,33 +73,50 @@ function addArticle(){
 
 function loadPublishedArticles(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PUBLISHED' ORDER BY DateWritten DESC";
+   $sql = "SELECT articles.ArticleID, articles.Title, articles.FeaturePhoto, articles.Content, articles.DatePublished, articles.Status, articles.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   articles INNER JOIN admins on articles.AdminID = admins.AdminID WHERE Status = 'PUBLISHED' ORDER BY DatePublished DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
       //do something as long as there's a remaining row.
       $rows[] = $row;
    }
-   return $rows;  
+   return (isset($rows)) ? $rows : NULL;   
 }
 
 function loadPendingArticles(){
    $conn = myConnect();
-   $sql = "SELECT * FROM articles WHERE Status = 'PENDING' ORDER BY DateWritten DESC";
+   $sql = "SELECT articles.ArticleID, articles.Title, articles.FeaturePhoto, articles.Content, articles.DateWritten, articles.Status, articles.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   articles INNER JOIN admins on articles.AdminID = admins.AdminID WHERE Status = 'PENDING' ORDER BY DateWritten DESC";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){
       //do something as long as there's a remaining row.
       $rows[] = $row;
    }
-   return $rows;  
+   return (isset($rows)) ? $rows : NULL;   
 }
 
 function approvePendingArticle(){
 	$conn = myConnect();
 	$id = $_GET['approveID'];
 	$datepublished = Date("Y/m/d H:i:s");
-	$sql = "UPDATE articles SET Status='PUBLISHED', DatePublished='$datepublished' WHERE ArticleID ='$id'";
+
+	$findArticle = mysqli_query($conn, "SELECT * FROM articles WHERE ArticleID = '$id'");
+	$Article = mysqli_fetch_assoc($findArticle);
+	$ArticleTitle = $Article['Title'];
+
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "approved article";
+    $BoldText = "$ArticleTitle" ;
+    $ActivityCode = "Approve Article";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
+
+	$sql = "UPDATE articles SET Status ='PUBLISHED', DatePublished ='$datepublished' WHERE ArticleID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){
   	$str="Article successfully published!";
@@ -102,9 +129,10 @@ function approvePendingArticle(){
 
 function viewArticleToEdit($id){
 	$conn = myConnect();
-	$sql = "SELECT * FROM articles WHERE ArticleID= '$id' LIMIT 1 ";
+	$sql = "SELECT articles.ArticleID, articles.Title, articles.FeaturePhoto, articles.Content, articles.DateWritten, articles.Status, articles.AdminID, admins.AdminID, admins.FirstName, admins.LastName FROM 
+   articles INNER JOIN admins on articles.AdminID = admins.AdminID WHERE ArticleID = '$id' LIMIT 1 ";
 	$result = mysqli_query($conn, $sql);
-	$row = mysqli_fetch_row($result);
+	$row = mysqli_fetch_assoc($result);
 	return $row;
 }
 
@@ -142,6 +170,15 @@ function updateArticle(){
         }
       }
 
+    //For Activity Log
+    session_start();
+	$AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "edited article";
+    $BoldText = $title;
+    $ActivityCode = "Edit Article";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
 	$sql = "UPDATE articles SET 
 	Title='$title', Content='$content', FeaturePhoto='$featureimage' WHERE ArticleID = '$id'";
 	$result = mysqli_query($conn, $sql);
@@ -158,6 +195,20 @@ function updateArticle(){
 function deleteArticle(){
 	$conn = myConnect();
 	$id = $_GET['deleteID'];
+
+	$findArticle = mysqli_query($conn, "SELECT * FROM articles WHERE ArticleID = '$id'");
+	$Article = mysqli_fetch_assoc($findArticle);
+	$ArticleTitle = $Article['Title'];
+
+	//For Activity Log
+	session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "deleted article";
+    $BoldText = "$ArticleTitle" ;
+    $ActivityCode = "Delete Article";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
 	$sql = "DELETE FROM articles WHERE ArticleID ='$id'";
 	$result = mysqli_query($conn,$sql);
 	if($result){

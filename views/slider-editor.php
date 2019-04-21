@@ -5,6 +5,14 @@
     require('../controllers/SliderController.php'); 
 
     $slide = loadSliderItems();
+
+    if($_SESSION['profile']['SiteRole'] == 'Author'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
 ?>
   <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuSliderEditor'); </script>
 

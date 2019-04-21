@@ -1,13 +1,22 @@
 <?php 
     require('header.php');
     include('nav.php');
+
+    if($_SESSION['profile']['SiteRole'] == 'Author'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
+
 ?>
   <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuWebApprnc'); activePageAtSideNav('MenuSiteEditor'); </script>
 	
         <div class="contentwrapper-custom">
             <!-- START PAGE CONTENT-->
             
-              <div class="jumbotron site-editorjumbo" style="">
+              <div class="jumbotron site-editorjumbo">
                 <div style="background-color: rgba(0,0,0,0.5); padding: 100px;">
                   <h1 class="display-4">WELCOME TO WEBSITE EDITOR</h1> 
                 </div>

@@ -5,6 +5,14 @@
     $Allstudents = loadAllStudents();
     $Clearedstudents = loadClearedStudents();
     $Blockedstudents = loadBlockedStudents();
+
+    if($_SESSION['profile']['SiteRole'] == 'Author' || $_SESSION['profile']['SiteRole'] == 'Editor'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuStudentUsers'); activePageAtSideNav('MenuStudentUsersTable'); </script>
 
@@ -14,6 +22,11 @@
                 <h3 class="page-title"> <i class="sidebar-item-icon fa fa-users"></i> Student Users </h3>
             </div>
 
+            <div class="row">
+                <div class="inpage-alerts">
+                    <?php include('../controllers/NotificationManager.php');?>
+                </div>
+            </div>
             <div class="row">
                     <div class="col-md-12">
                         <div class="ibox">
@@ -40,19 +53,22 @@
                                         <table class="table table-striped table-bordered table-hover" id="allstudents-table" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th>ID No.</th>
+                                                    <th>USC ID No.</th>
                                                     <th>Name</th>
                                                     <th>Course & Year</th>
                                                     <th>Status</th>
+                                                    <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php if(isset($Allstudents)){foreach($Allstudents as $as){  ?>
                                                     <tr>
+                                                        <td style="display: none"><?php $id=$as['StudentID']; echo $id?></td>
                                                         <td><?php echo $as['USCIDNo'];?></td>
                                                         <td><?php echo $as['FirstName'];?> <?php echo $as['LastName'];?></td>
                                                         <td><?php echo $as['Course'];?> - <?php echo $as['YearLevel'];?> </td>
                                                         <td><?php echo $as['Status'];?></td>
+                                                        <td> <center> <button class="btn btn-rptusr" onclick="loadDeleteStudent(<?php echo $id; ?>)"> <i class="fas fa-trash-alt"></i> Delete </button> </center> </td>
                                                     </tr> 
                                                 <?php }} ?>                                                
                                             </tbody>
@@ -93,14 +109,17 @@
                                                     <th>ID No.</th>
                                                     <th>Name</th>
                                                     <th>Course & Year</th>
+                                                    <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php if(isset($Blockedstudents)){foreach($Blockedstudents as $bs){  ?>
                                                     <tr>
+                                                        <td style="display: none"><?php $id=$bs['StudentID']; echo $id?></td>
                                                         <td><?php echo $bs['USCIDNo'];?></td>
                                                         <td><?php echo $bs['FirstName'];?> <?php echo $bs['LastName'];?></td>
                                                         <td><?php echo $bs['Course'];?> - <?php echo $bs['YearLevel'];?> </td>
+                                                        <td> <center> <button class="btn btn-rptusrall" onclick="loadUnblockStudents(<?php echo $id; ?>)"> Unblock </button> </center> </td>
                                                     </tr> 
                                                 <?php }} ?>                                                
                                             </tbody>

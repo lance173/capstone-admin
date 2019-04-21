@@ -51,9 +51,21 @@
                                                     <tr>
                                                         <td style="text-align: center;"> <img src="<?php echo $pubA['FeaturePhoto'];?>" class="img-artvw"> </td>
                                                         <td> <?php echo $pubA['Title'];?> </td>
-                                                        <td>Reed Richards</td>
+                                                        <td> <?php echo $pubA['FirstName'];?> <?php echo $pubA['LastName'];?> </td>
                                                         <td> <?php $dateWrit=date_create($pubA['DatePublished']); echo date_format($dateWrit,"F d, Y"); ?> </td>
-                                                        <td> <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $pubA['ArticleID'];?>)"> Edit </button> <a class="btn btn-success" href="#" role="button"> View </a> <button class="btn btn-danger" onclick="loadDeleteArticle(<?php echo $pubA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> </button> </td>
+                                                        <td> 
+                                                            <?php if($pubA['AdminID'] == $_SESSION['profile']['AdminID']){
+                                                                $isAuthorOfArticle = 'true';
+                                                            } else {
+                                                                $isAuthorOfArticle = 'false';
+                                                            } ?>
+                                                            <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $pubA['ArticleID'];?>, '<?php echo $isAuthorOfArticle?>')"> Edit 
+                                                            </button> 
+                                                            <button class="btn btn-success" onclick="viewLiveArticle(<?php echo $pubA['ArticleID'];?>);"> View 
+                                                            </button> 
+                                                            <button class="btn btn-danger" onclick="loadDeleteArticle(<?php echo $pubA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> 
+                                                            </button> 
+                                                        </td>
                                                     </tr> 
                                                 <?php }} ?>                                                               
                                             </tbody>
@@ -76,14 +88,23 @@
                                             <tbody>
                                                 <?php if(isset($PendingArticles)){foreach($PendingArticles as $penA){ ?>
                                                     <tr>
-                                                        <td style="padding: 30px;"> <button class="btn btn-artvw" onclick="loadApproveArticle(<?php echo $penA['ArticleID'];?>)"> <i class="fas fa-check"></i> Approve </button>  </td>
+                                                        <td style="padding: 30px;">
+                                                            
+                                                            <button class="btn btn-artvw" onclick="loadApproveArticle(<?php echo $penA['ArticleID'];?>, '<?php echo $_SESSION['profile']['SiteRole']; ?>')"> <i class="fas fa-check"></i> Approve </button>  
+                                                        </td>
                                                         <td class="center-tabledata"> <img src="<?php echo $penA['FeaturePhoto'];?>" class="img-artvw"> </td>
                                                         <td> <?php echo $penA['Title'];?> </td>
-                                                        <td>Reed Richards</td>
+                                                        <td><?php echo $penA['FirstName'];?> <?php echo $penA['LastName'];?></td>
                                                         <td> <?php $dateWrit=date_create($penA['DateWritten']); echo date_format($dateWrit,"F d, Y"); ?> </td>
                                                         <td> 
                                                             
-                                                            <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $penA['ArticleID'];?>)"> View / Edit </button>
+                                                            <?php if($penA['AdminID'] == $_SESSION['profile']['AdminID']){
+                                                                $isAuthorOfArticle = 'true';
+                                                            } else {
+                                                                $isAuthorOfArticle = 'false';
+                                                            } ?>
+                                                            
+                                                            <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $penA['ArticleID'];?>, '<?php echo $isAuthorOfArticle?>')"> View / Edit </button>
                                                             <button class="btn btn-rptusr" onclick="loadDeleteArticle(<?php echo $penA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> </button>
                                                         </td>
                                                     </tr>

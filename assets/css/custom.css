@@ -149,7 +149,7 @@ html, body{
   background-repeat: no-repeat;
   background-size: cover;
   margin:0;
-  margin-top: 5px;
+  margin-bottom: 30px;
   overflow: hidden;
   height: 100%;
   
@@ -383,7 +383,7 @@ html, body{
  */
 
  .admin-loginbg {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_RnZRTavUACXSxX5zlHkf7W4EuDl9410u1nV0iWl4uGlPJ__W");
+    background-image: url("../img/adminlogin-bg.jpg");
     height: 100%;
     width: 100%;
     background-position: center;
@@ -578,7 +578,7 @@ html, body{
 
 .inpage-alerts{
   width: 95%; 
-  margin: 25px 20px 0px;
+  margin: 15px 20px 0px;
 }
  
 .default-adminimg{
@@ -597,10 +597,6 @@ html, body{
   width: 80%; 
   margin: 15px auto; 
   text-align: center;
-}
-
-.site-roleselect select:active, .site-roleselect select:focus{
-  margin-bottom: 70px;
 }
 
 .role-descrip{
@@ -959,6 +955,19 @@ html, body{
 .men-itm:hover {
   border: 3px solid #6ba3ff;
 }
+
+
+
+.defmenprev-item {
+  background-color: #FFB041;
+}
+
+.default-men-itm {
+  background-color: #6ba3ff; 
+  border: 3px solid #6ba3ff; 
+  color: #FFF;
+}
+
 
 /** Add Webpage Table**/
 

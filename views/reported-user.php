@@ -1,6 +1,17 @@
 <?php 
     require('header.php');
     include('nav.php');
+
+    require('../controllers/ReportController.php');
+    $report = showReportUser();
+
+    if($_SESSION['profile']['SiteRole'] == 'Author' || $_SESSION['profile']['SiteRole'] == 'Editor'){
+    ?>
+        <script>
+            window.location='restrictedpage.php';
+        </script> 
+    <?php
+    }
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuReportPage'); </script>
 

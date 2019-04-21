@@ -1,6 +1,11 @@
 <?php 	
 	require('header.php');
 ?>
+<?php 
+	session_start();
+	session_unset();
+  	session_destroy(); 
+?>
 
 <div id="login" class="admin-loginbg">
 	<div class="container">
@@ -13,10 +18,9 @@
 					<h1> Admin Log In </h1>
 					 USC Library Personnel can only login to this section. 
 				</div>
-				
-				<form name="loginForm" class="form-signin" method="POST" action="#">
+				<form name="loginForm" class="form-signin" method="POST" action="../controllers/loginController.php">
               		              
-		              <input name="username" type="text" class="input-block-level" placeholder="Username / ID Number" required>		          
+		              <input name="emailORid" type="text" class="input-block-level" placeholder="Email / ID Number" required>		          
 		              <input name="password" type="password" class="input-block-level" placeholder="Password" required>
 		              <button name="submit" class="btn btn-large btn-login" type="submit">Log In</button>
             	</form>
@@ -34,15 +38,8 @@
 
 
 <!-- END PAGA BACKDROPS-->
-    <!-- CORE PLUGINS-->
-    <script src="../assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
-    <script src="../assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
-    <script src="../assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <!-- PAGE LEVEL PLUGINS-->
-    <!-- CORE SCRIPTS-->
-    <script src="../assets/js/app.min.js" type="text/javascript"></script>
+<!-- CORE PLUGINS-->
+
 </body>
 
 </html>

@@ -14,6 +14,7 @@ function loadSliderItems(){
 }
 
 function editSlider(){
+
 	$conn = myConnect();
 	$firstslidertitle = $_POST['firsttitle'];
 	$secondslidertitle = $_POST['secondtitle'];
@@ -98,7 +99,17 @@ function editSlider(){
 	$sql = "UPDATE slider SET 
 	FirstSlideTitle='$firstslidertitle', SecondSlideTitle='$secondslidertitle', ThirdSlideTitle='$thirdslidertitle', FirstSlideDescription='$firstsliderdescription', SecondSlideDescription='$secondsliderdescription', ThirdSlideDescription='$thirdsliderdescription', FirstSlideImage='$firstsliderimage', SecondSlideImage='$secondsliderimage', ThirdSlideImage='$thirdsliderimage'  WHERE SliderID = 1";
 	$result = mysqli_query($conn, $sql);
-	
+
+    //For Activity Log
+    session_start();
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $Activity = "edited";
+    $BoldText = "the Slider";
+    $ActivityCode = "Edit Slider";
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
+
 	if($result){
 		$str="Slider successfully updated!";
 		header("Location:../views/slider-editor.php?success-msg=".$str);
