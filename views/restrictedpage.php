@@ -8,7 +8,7 @@
 			<div class="col-md-12 ">
 				
 				<div class="loginheading" style="margin-top: 100px;">
-					<h1> Restricted Page - 404 </h1>
+					<h1> Restricted Page - 401 </h1>
 					 You don't have the clearance to access this page. 
 
 					 <div style="display: block; margin-top: 50px;">
