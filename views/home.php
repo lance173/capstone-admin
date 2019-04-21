@@ -8,6 +8,7 @@
     $visitors = countVisits();
     $activity = loadActivitiesToHome();
     $ratings = loadRatingsOnHome();
+    $averagestars = averageStars();
 
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuHomePage'); </script>
@@ -51,7 +52,7 @@
 
                             <div class="info-box-content">
                               <span class="info-box-text">Average Virtual Tour Rating</span>
-                              <span class="info-box-number">3.5</span>
+                              <span class="info-box-number"> <?php echo number_format($averagestars, 1); ?> </span>
                             </div>
                       </div>
                     </div>

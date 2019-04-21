@@ -100,7 +100,7 @@
                                                 <td><?php echo $sysAd['SiteRole'];?></td>
                                                 <td><?php echo $sysAd['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -132,7 +132,7 @@
                                                 <td><?php echo $edit['SiteRole'];?></td>
                                                 <td><?php echo $edit['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -164,7 +164,7 @@
                                                 <td><?php echo $auth['SiteRole'];?></td>
                                                 <td><?php echo $auth['Email'];?></td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal"> Change Role </button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="changeAdminRole(<?php echo $id; ?>)"> Change Role </button>
                                                     <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
                                                 </td>
                                             </tr>
@@ -191,22 +191,23 @@
                         <div class="modal-body">
 
                             <center> 
-                                <img src="../assets/img/admin-avatar.png" width="100px" style="border-radius: 100px;" />
+                                <img id="changerole-adminphoto" width="100px" style="border-radius: 100px;" />
 
-                                <div style="display:block; margin-top: 10px; font-size: 18px; margin-bottom: 20px;" id="changerole-adminname">
-                                  <b> NAME </b>
+                                <div style="display:block; margin-top: 10px; font-size: 18px; " id="changerole-adminname">
+                                  <div id="changerole-adminfirstname" style="display: inline-block;"> </div> <div id="changerole-adminlastname" style="display: inline-block;"> </div>
                                 </div>
+                                <small id="changerole-adminposition"> </small>
                             </center>
 
                             
 
-                            <div class="form-group site-roleselect">
+                            <div class="form-group site-roleselect" style="margin-top: 20px;">
                                 <label class="control-label" for="site-role">Site Role</label>
                                 <select id="siteRole" name="siteRole" class="form-control"  onchange="roleSelect();" style="width: 80%">
                                     <option selected disabled hidden>Select Role for admin in this website</option>
-                                    <option>System Admin</option>
-                                    <option>Editor</option>
-                                    <option>Author / Writer</option>
+                                    <option value="System Administrator">System Admin</option>
+                                    <option value="Editor">Editor</option>
+                                    <option value="Author">Author / Writer</option>
                                 </select>
 
                                 <div class="role-descrip" id="role-sysad">

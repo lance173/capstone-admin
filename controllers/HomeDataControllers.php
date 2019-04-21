@@ -58,4 +58,12 @@ function loadRatingsOnHome(){
     return (isset($rows)) ? $rows : NULL; 
 } 
 
+function averageStars(){
+  $conn = myConnect();
+  $result= mysqli_query($conn, "SELECT AVG(Stars) AS average FROM ratings");
+  $row = mysqli_fetch_assoc($result); 
+  $average = $row['average'];
+  return $average;
+}
+
 ?> 

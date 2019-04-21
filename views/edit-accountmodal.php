@@ -1,8 +1,5 @@
-<?php $employeeID = $_SESSION['profile']['AdminID']; ?>
 <div class="modal fade" id="editAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <form class="form-horizontal" method="POST" action="../controllers/AdminUserController.php" onsubmit="return checkPassword(this);">
-
-  <input type="hidden" name="empployeeID" value="<?php echo $employeeID; ?>" />
 
     <div class="modal-dialog" role="document">
       <div class="modal-content">
