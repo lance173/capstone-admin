@@ -28,11 +28,19 @@ if($_POST){
 
 		//set login error
 
-		$_SESSION['loginError'] = 'Invalid username or password';
+			//$_SESSION['loginError'] = 'Invalid username or password';
 
 		// redirect user back to login page
 
-		header('Location:../views/login.php');
+		?>
+
+			<script>
+				alert('Invalid Login!');
+				window.location = "../views/login.php";
+			</script>
+
+		<?php
+		
 		
 	}
 
