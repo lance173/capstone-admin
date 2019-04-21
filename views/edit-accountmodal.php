@@ -1,6 +1,6 @@
 <?php $employeeID = $_SESSION['profile']['AdminID']; ?>
 <div class="modal fade" id="editAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <form class="form-horizontal" method="POST" action="../controllers/AdminUserController.php" >
+  <form class="form-horizontal" method="POST" action="../controllers/AdminUserController.php" onsubmit="return checkPassword(this);">
 
   <input type="hidden" name="empployeeID" value="<?php echo $employeeID; ?>" />
 
@@ -25,6 +25,7 @@
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-4 col-form-label">Old Password</label>
               <div class="col-sm-8">
+                <input type="text" name="oldPassConfirm" value="<?php echo $_SESSION['profile']['Password'];?>" hidden>
                 <input type="password" class="form-control" name="inputOldPassword" id="inputOldPassword" placeholder="Old Password" style="width: 80%;">
               </div>
             </div>   

@@ -7,6 +7,7 @@
     $articles = loadArticlesToHome();
     $visitors = countVisits();
     $activity = loadActivitiesToHome();
+    $ratings = loadRatingsOnHome();
 
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuHomePage'); </script>
@@ -156,57 +157,55 @@
                                 <div class="table-responsive">
                                     <table class="table">
                                         <tbody>
-                                            <tr>
-                                                <td> <img src="../assets/img/user-1.jpg" class="img-ratvw">  </td>
-                                                <td width="350px"> 
-                                                    <div class="ratvw-usrnam">Juan Dela Cruz</div>
-                                                    <div class="font-13">Lorem Ipsum is simply dummy text of the printing and typesetting.</div>
-                                                </td>   
-                                                <td>
-                                                    <div class="td-content"> 
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star star-checked"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> <img src="../assets/img/user-2.jpg" class="img-ratvw">  </td>
-                                                <td width="350px"> 
-                                                    <div class="ratvw-usrnam">Maria Clara</div>
-                                                    <div class="font-13">Lorem Ipsum is simply dummy text of the printing and typesetting.</div>
-                                                </td>   
-                                                <td>
-                                                    <div class="td-content"> 
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> <img src="../assets/img/user-3.jpg" class="img-ratvw">  </td>
-                                                <td width="350px"> 
-                                                    <div class="ratvw-usrnam">Cardo Dalisay</div>
-                                                    <div class="font-13">Lorem Ipsum is simply dummy text of the printing and typesetting.</div>
-                                                </td>   
-                                                <td>
-                                                    <div class="td-content"> 
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star star-checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>                                       
+                                            <?php if(isset($ratings)){
+                                            foreach($ratings as $r){   
+                                            ?>
+                                                <tr>
+                                                    <td> <img src="<?php echo $r['Photo'];?>" class="img-ratvw">  </td>
+                                                    <td width="350px"> 
+                                                        <div class="ratvw-usrnam"><?php echo $r['FirstName']; echo ' '; echo $r['LastName'];?></div>
+                                                        <div class="font-13"> <?php echo $r['Feedback'];?> </div>
+                                                    </td>   
+                                                    <td>
+                                                        <div class="td-content"> 
+                                                            <?php if($r['Stars'] == 1){?>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star"></span>
+                                                                <span class="fa fa-star"></span>
+                                                                <span class="fa fa-star"></span>
+                                                                <span class="fa fa-star"></span>
+                                                            <?php }else if($r['Stars'] == 2){?>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star"></span>
+                                                                <span class="fa fa-star"></span>
+                                                                <span class="fa fa-star"></span>                                                 
+                                                            <?php }else if($r['Stars'] == 3){?>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star"></span>
+                                                                <span class="fa fa-star"></span>
+                                                            <?php }else if($r['Stars'] == 4){?>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star"></span>
+                                                            <?php }else if($r['Stars'] == 5){?>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                                <span class="fa fa-star star-checked"></span>
+                                                            <?php }?>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php }} ?>                                      
                                         </tbody>
                                     </table>
-                                        <center> <a class="btn btn-ratvwall" href="#" role="button"> View All </a> </center>
+                                        <center> <a class="btn btn-ratvwall" href="http://localhost/capstone-user/views/startvirtualtour.php#rating-section" role="button"> View All </a> </center>
                                 </div>
                             </div>
                         </div>

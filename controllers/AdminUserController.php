@@ -1,11 +1,6 @@
 <?php
-// if(session_status() == PHP_SESSION_NONE){
-//     //session has not started
-//     session_start();
-// }
-?>
-
-<?php require('MysqlConnect.php'); ?>
+require('DBConnect.php');
+require_once('MysqlConnect.php'); ?>
 
 
 <?php
@@ -173,6 +168,8 @@ function editAdminUserPassword(){
 	$conn = myConnect();
 	session_start();
 
+	$username = $_SESSION['profile']['USCIDNo'];
+
 	$profile = $_SESSION['profile']['AdminID'];
 	$oldPassword = $_POST['inputOldPassword'];
 	$newPassword = $_POST['inputNewPassword'];
@@ -184,7 +181,20 @@ function editAdminUserPassword(){
 	if($result){
 		$sql2 = ("UPDATE admins SET Password = md5($newPassword) WHERE AdminID = $profile");
 		$result2 = mysqli_query($conn,$sql2);
-		header("Location:../views/home.php");
+		session_destroy();
+		
+		session_start();
+
+		$connection = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+		$result = $connection->query("SELECT * FROM admins WHERE USCIDNo = '{$username}' ");
+
+		if($result->num_rows){
+			//if user has logged in
+			$admin = $result->fetch_assoc();			
+			$_SESSION['profile'] = $admin;
+
+			header('Location: ../views/home.php');
+		}
 	}
 }
 
