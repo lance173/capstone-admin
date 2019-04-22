@@ -6,7 +6,7 @@
     $id = $_GET['editID'];
     $row = viewArticleToEdit($id);
 
-    if($_SESSION['profile']['SiteRole'] == 'Author'){
+    if($_SESSION['profile']['SiteRole'] == 'Author' && $_SESSION['profile']['AdminID'] != $row['AdminID']){
     ?>
         <script>
             window.location='restrictedpage.php';

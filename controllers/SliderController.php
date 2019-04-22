@@ -102,11 +102,12 @@ function editSlider(){
 
     //For Activity Log
     session_start();
-    $AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "edited";
     $BoldText = "the Slider";
     $ActivityCode = "Edit Slider";
-    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) ";
 	$result2 = mysqli_query($conn, $sql2);
 
 

@@ -46,10 +46,16 @@
         }
     }
 
-    function loadDeleteArticle(article_id, isAuthorOfArticle){
-        if(isAuthorOfArticle == 'false'){
+    function loadDeleteArticle(article_id, isAuthorOfArticle, siterole){
+        if(isAuthorOfArticle == 'false' && siterole == 'Author'){
             alert( "You cannot delete this article. You can only delete articles you wrote.");
             return false;
+        } else if(isAuthorOfArticle == 'true' && siterole == 'Author'){
+            if (confirm('Do you want to delete this Article?')){
+                window.location='../controllers/ArticleController.php?deleteID='+article_id;
+            }else{
+                return false;
+            }
         } else {
             if (confirm('Do you want to delete this Article?')){
                 window.location='../controllers/ArticleController.php?deleteID='+article_id;
@@ -59,12 +65,14 @@
         }
     }
 
-    function loadEditArticle(article_id, isAuthorOfArticle){
-        if(isAuthorOfArticle=='false'){
+    function loadEditArticle(article_id, isAuthorOfArticle, siterole){
+        if(isAuthorOfArticle == 'false' && siterole == 'Author'){
             alert("You cannot edit this article. You can only edit articles you wrote.");
             return false;
-        } else {
+        } else if(isAuthorOfArticle == 'true' && siterole == 'Author'){
             window.location='edit-article.php?editID='+article_id;    
+        } else {
+            window.location='edit-article.php?editID='+article_id; 
         }    
     }
 
@@ -133,10 +141,15 @@
 
     //Admin 
 
-    function loadDeleteAdmin(adminID){
-        if (confirm('Delete User?')){
-            window.location='../controllers/AdminUserController.php?deleteID='+adminID;
-        }else{
+    function loadDeleteAdmin(adminID, currentUser){
+        if(adminID != currentUser){
+            if (confirm('Delete User?')){
+                window.location='../controllers/AdminUserController.php?deleteID='+adminID;
+            }else{
+                return false;
+            }
+        } else {
+            alert("You cannot delete yourself");
             return false;
         }
     }

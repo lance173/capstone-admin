@@ -50,13 +50,13 @@ function addArticle(){
 	        }
 	      }
 
-	    //For Activity Log
-	    
-		$AdminID = $_SESSION['profile']['AdminID'];
+	    //For Activity Log	    
 	    $Activity = "added a new article";
 	    $BoldText = $title;
 	    $ActivityCode = "Add Article";
-	    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	    $AdminPhoto = $_SESSION['profile']['Photo'];
+    	$AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    	$sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 		$result2 = mysqli_query($conn, $sql2);
 
 		$sql = "INSERT INTO articles(Title, FeaturePhoto, Content, DateWritten, Status, AdminID) VALUES ('$title', '$featureimage', '".mysqli_real_escape_string($conn,$content)."', '$datewritten', '$status', '$publisher')";
@@ -108,11 +108,12 @@ function approvePendingArticle(){
 
 	//For Activity Log
 	session_start();
-    $AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "approved article";
     $BoldText = "$ArticleTitle" ;
     $ActivityCode = "Approve Article";
-    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 
@@ -172,11 +173,12 @@ function updateArticle(){
 
     //For Activity Log
     session_start();
-	$AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "edited article";
     $BoldText = $title;
     $ActivityCode = "Edit Article";
-    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "UPDATE articles SET 
@@ -202,11 +204,12 @@ function deleteArticle(){
 
 	//For Activity Log
 	session_start();
-    $AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "deleted article";
     $BoldText = "$ArticleTitle" ;
     $ActivityCode = "Delete Article";
-    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "DELETE FROM articles WHERE ArticleID ='$id'";

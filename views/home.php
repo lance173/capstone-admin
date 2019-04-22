@@ -256,7 +256,7 @@
                                                                 <i class="fas fa-angle-left"></i> <i class="fas fa-angle-right"></i>
                                                             <?php }?> 
 
-                                                            <b> <?php echo $acts['FirstName'] ?> <?php echo $acts['LastName'] ?> </b> <?php echo $acts['Activity'] ?>: <?php echo $acts['BoldText'] ?>  
+                                                            <b> <?php echo $acts['AdminName'] ?> </b> <?php echo $acts['Activity'] ?>: <?php echo $acts['BoldText'] ?>  
                                                         </div> 
                                                     </td>
                                                 </tr>

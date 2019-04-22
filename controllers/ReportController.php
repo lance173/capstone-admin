@@ -63,11 +63,12 @@ function blockUser(){
 
 	//For Activity Log
 	session_start();
-    $AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "blocked Student User";
     $BoldText = "$id_number - $firstname $lastname" ;
     $ActivityCode = "Block Student";
-    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 
@@ -96,11 +97,12 @@ function deleteReport(){
 
 	//For Activity Log
 	session_start();
-    $AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "deleted the report of";
     $BoldText = "$id_number - $firstname $lastname" ;
     $ActivityCode = "Delete Report";
-    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "DELETE FROM reports WHERE ReportedUser  = '$id'";
