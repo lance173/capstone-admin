@@ -9,6 +9,7 @@
     $activity = loadActivitiesToHome();
     $ratings = loadRatingsOnHome();
     $averagestars = averageStars();
+    $reports = loadAllReportsToHome();
 
 ?>
     <script type="text/javascript" language="Javascript"> activePageAtSideNav('MenuHomePage'); </script>
@@ -120,24 +121,11 @@
                                 <div class="table-responsive">  
                                     <table class="table">                                            
                                         <tbody>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Jon Snow</b> has been reported on <b>2 counts</b> </div> </td>
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Anna Marie</b> has been reported on <b>4 counts</b>  </div> </td>
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Clark Kent</b> has been reported on <b>3 counts</b> </div> </td>                                            
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>James Bond</b> has been reported on <b>7 counts</b> </div>  </td>                                         
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Tony Stark</b> has been reported on <b>1 counts</b> </div> </td>                                              
-                                            </tr>
-                                            <tr>
-                                                <td> <div class="td-content"> <i class="fas fa-flag"></i> <b>Yellow Green</b> has been reported on <b>1 counts</b> </div> </td>                                                       
-                                            </tr>                                        
+                                            <?php if(isset($reports)){foreach($reports as $r){ ?>
+                                                <tr>
+                                                    <td> <div class="td-content"> <i class="fas fa-flag"></i> <b> <?php echo $r['OffenderFirstName']; echo ' '; echo $r['OffenderLastName']; ?> </b> has been reported on <b><?php echo $r['NoOfReports']; echo ' '; echo ($r['NoOfReports']==1) ? 'count' : 'counts'; ?></b> </div> </td>
+                                                </tr>
+                                            <?php }} ?>                                       
                                         </tbody>
                                     </table>                                         
                                 </div>
