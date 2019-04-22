@@ -138,8 +138,22 @@
 
     //Reports
 
-    function loadViewReport(reportID){
-        window.location='../views/reported-user.php?updateID='+reportID;
+    function loadViewReport(report_id){
+        window.location='reported-user.php?viewID='+report_id;
+    }
+
+    function readyBlockUser(reported_userid, status)
+    {
+        if(status == 'BLOCKED'){
+            alert("Student already blocked");
+            return false;
+        } else {
+            window.location='../controllers/ReportController.php?blockID='+reported_userid;
+        }
+    }
+
+    function readyDeleteReport(reported_userid){
+        window.location='../controllers/ReportController.php?deleteID='+reported_userid;
     }
 
 
@@ -584,6 +598,8 @@
         return true;
     }
 
+
+    //Change Admin Role
     function readyChangeAdminRole(AdminID){
             $.ajax({
             method: 'POST',
@@ -619,3 +635,4 @@
             return true;
         }
     }
+

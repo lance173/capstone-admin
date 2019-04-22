@@ -22,6 +22,12 @@
             </div>
 
             <div class="row">
+                <div class="inpage-alerts">
+                    <?php include('../controllers/NotificationManager.php');?>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-10">                    
                     <div class="ibox">
                         <div class="ibox-head">
@@ -44,8 +50,8 @@
                                             <tr>
                                                 <td> <?php echo $number?> </td>
                                                 <td> <?php echo $r['OffenderFirstName']; echo ' '; echo $r['OffenderLastName']; ?> </td>
-                                                <td>Reported on <b>5 counts</b> </td>
-                                                <td><a class="btn btn-vwrptusr" href="reported-user.php" role="button"> View </a></td>
+                                                <td>Reported on <b> <?php echo $r['NoOfReports']; echo ' '; echo ($r['NoOfReports']==1) ? 'count' : 'counts'; ?></b> </td>
+                                                <td><a class="btn btn-vwrptusr" href="#" role="button" onclick="loadViewReport(<?php echo $r['OffenderID']?>)"> View </a></td>
                                             </tr>
                                     <?php $number++; }} ?>
                                 </tbody>
