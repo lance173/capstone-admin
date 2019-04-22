@@ -31,7 +31,7 @@
             </div>
 
 
-            <div class="jumbotron jumbotron-fluid" id="pagetitlejumboimage" style="background: url(../assets/img/image.png); background-repeat: no-repeat; background-position: center; background-size: cover; color: #FFF;">
+            <div class="jumbotron jumbotron-fluid" id="pagetitlejumboimage" style="background: url(../assets/img/page-featureimages/library.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; color: #FFF;">
               <div class="container" style="text-align: center;">
                 <div class="pagetitlejumbo-title">
                     <h1 class="display-4">Page Title</h1>
@@ -61,12 +61,12 @@
                                 </div>
                                 <div id="featimg-body">
                                     <div class="ibox-body">
-                                        <img src="../assets/img/image.png" class="prvwfeatimg" id="output_image">
+                                        <img src="../assets/img/page-featureimages/library.jpg" class="prvwfeatimg" id="output_image">
                                     </div>
                                     <div class="ibox-footer">
                                         <div class="ibox-footercontent">                                    
                                             <a href="#" id="fileupload"><span class="setfeat-img">Set featured image</span></a> </div>
-                                            <input id="upload-file" type="file" accept="image/*" onchange="preview_imageaddwebpage(event)" name="featureimage" required/>
+                                            <input id="upload-file" type="file" accept="image/*" onchange="preview_imageaddwebpage(event)" name="featureimage"/>
                                     </div>
                                 </div>                            
                             </div>

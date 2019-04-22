@@ -46,11 +46,16 @@
         }
     }
 
-    function loadDeleteArticle(article_id){
-        if (confirm('Do you want to delete this Article?')){
-            window.location='../controllers/ArticleController.php?deleteID='+article_id;
-        }else{
+    function loadDeleteArticle(article_id, isAuthorOfArticle){
+        if(isAuthorOfArticle == 'false'){
+            alert( "You cannot delete this article. You can only delete articles you wrote.");
             return false;
+        } else {
+            if (confirm('Do you want to delete this Article?')){
+                window.location='../controllers/ArticleController.php?deleteID='+article_id;
+            }else{
+                return false;
+            }
         }
     }
 

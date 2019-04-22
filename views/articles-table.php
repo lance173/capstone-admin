@@ -63,7 +63,7 @@
                                                             </button> 
                                                             <button class="btn btn-success" onclick="viewLiveArticle(<?php echo $pubA['ArticleID'];?>);"> View 
                                                             </button> 
-                                                            <button class="btn btn-danger" onclick="loadDeleteArticle(<?php echo $pubA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> 
+                                                            <button class="btn btn-danger" onclick="loadDeleteArticle(<?php echo $pubA['ArticleID'];?>, '<?php echo $isAuthorOfArticle?>')"> <i class="fas fa-trash-alt"></i> 
                                                             </button> 
                                                         </td>
                                                     </tr> 
@@ -105,7 +105,7 @@
                                                             } ?>
                                                             
                                                             <button class="btn btn-primary" onclick="loadEditArticle(<?php echo $penA['ArticleID'];?>, '<?php echo $isAuthorOfArticle?>')"> View / Edit </button>
-                                                            <button class="btn btn-rptusr" onclick="loadDeleteArticle(<?php echo $penA['ArticleID'];?>)"> <i class="fas fa-trash-alt"></i> </button>
+                                                            <button class="btn btn-rptusr" onclick="loadDeleteArticle(<?php echo $penA['ArticleID'];?>, '<?php echo $isAuthorOfArticle?>')"> <i class="fas fa-trash-alt"></i> </button>
                                                         </td>
                                                     </tr>
                                                 <?php }} ?>                                                                                               

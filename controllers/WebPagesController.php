@@ -28,7 +28,7 @@ function addWebPage(){
 		$date = Date("Y/m/d H:i:s");
 		$publisher = $_SESSION['profile']['AdminID'];
 
-    	$featureimage = '';
+    	$featureimage = '../assets/img/page-featureimages/library.jpg';
 
 	      if(isset($_FILES['featureimage'])){
 	        $errors= array();
