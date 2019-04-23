@@ -59,11 +59,12 @@ function addAdminUser(){
 
 	//For Activity Log
 	session_start();
-    $AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "added a Admin User";
     $BoldText = "$uscIDNo - $firstName $lastName" ;
     $ActivityCode = "Add Admin";
-    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$result = mysqli_query($conn,$sql);
@@ -148,11 +149,12 @@ function deleteAdmin(){
 
 	//For Activity Log
 	session_start();
-	$AdminID = $_SESSION['profile']['AdminID'];
 	$Activity = "deleted admin";
 	$BoldText = "$id_number - $firstname $lastname" ;
 	$ActivityCode = "Delete Admin";
-	$sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 
@@ -231,11 +233,12 @@ function changeAdminRole(){
 
 	//For Activity Log
 	session_start();
-	$AdminID = $_SESSION['profile']['AdminID'];
 	$Activity = "changed admin";
 	$BoldText = "$firstname $lastname role to $newRole" ;
 	$ActivityCode = "Change Admin Role";
-	$sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$AdminPhoto = $_SESSION['profile']['Photo'];
+    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
+    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) ";
 	$result2 = mysqli_query($conn, $sql2);
 
 

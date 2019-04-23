@@ -36,10 +36,10 @@
                                                 
                                             <tr class="activityrow">
                                                 <td width="100px;">
-                                                    <img src="<?php echo $acts['Photo'] ?>" height="75px" width="75px" style="border-radius: 100px; "> 
+                                                    <img src="<?php echo $acts['AdminPhoto'] ?>" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
-                                                    <div class="activity-actiondone"> <b> <?php echo $acts['FirstName'] ?> <?php echo $acts['LastName'] ?> </b> <?php echo $acts['Activity'] ?> <b><?php echo $acts['BoldText'] ?></b>
+                                                    <div class="activity-actiondone"> <b> <?php echo $acts['AdminName'] ?> </b> <?php echo $acts['Activity'] ?> <b><?php echo $acts['BoldText'] ?></b>
                                                         <div class="activity-timeanddate">
 
                                                             <?php if($acts['ActivityCode'] == 'Add Student'){ ?>

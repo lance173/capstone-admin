@@ -15,7 +15,7 @@
             <div style="display:block; margin-top: 10px; font-size: 18px;">
               <b><?php echo $_SESSION['profile']['FirstName'],'&nbsp',$_SESSION['profile']['LastName']?></b>
             </div>
-              <small><?php echo $_SESSION['profile']['Position']?></small>
+              <small><?php echo $_SESSION['profile']['Position']?> <br> <?php echo 'Role: '; echo $_SESSION['profile']['SiteRole']; ?> </small>
             
           </center>
           <div class="" style="margin-top: 20px; margin-left: 50px;">

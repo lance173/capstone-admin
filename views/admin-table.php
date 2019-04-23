@@ -78,7 +78,7 @@
                                                 <td><?php echo $all['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
+                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
@@ -110,7 +110,7 @@
                                                 <td><?php echo $sysAd['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
+                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
@@ -142,7 +142,7 @@
                                                 <td><?php echo $edit['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
+                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
@@ -174,7 +174,7 @@
                                                 <td><?php echo $auth['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id; ?>)"> Delete </button>
+                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
