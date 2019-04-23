@@ -28,7 +28,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-10">                    
+                <div class="col-md-12">                    
                     <div class="ibox">
                         <div class="ibox-head">
                             <div class="ibox-title" >Summary of Reported Users </div>
