@@ -99,9 +99,8 @@ function saveMenuItem() {
     $Activity = "edited";
     $BoldText = "the Menu";
     $ActivityCode = "Edit MenuBar";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
     $result2 = mysqli_query($conn, $sql2);
 
     echo json_encode([
@@ -159,9 +158,8 @@ function editMenuItem() {
     $Activity = "edited";
     $BoldText = "the Menu";
     $ActivityCode = "Edit MenuBar";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
     $result2 = mysqli_query($conn, $sql2);
 
     echo json_encode([
@@ -181,9 +179,8 @@ function deleteMenu ()
     $Activity = "edited";
     $BoldText = "the Menu";
     $ActivityCode = "Edit MenuBar";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
     $result2 = mysqli_query($conn, $sql2);
 
      echo json_encode([

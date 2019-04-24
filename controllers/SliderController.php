@@ -105,10 +105,9 @@ function editSlider(){
     $Activity = "edited";
     $BoldText = "the Slider";
     $ActivityCode = "Edit Slider";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) ";
-	$result2 = mysqli_query($conn, $sql2);
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $result2 = mysqli_query($conn, $sql2);
 
 
 	if($result){

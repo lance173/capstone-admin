@@ -226,8 +226,10 @@
                                                                 <i class="fa fa-user-shield"></i>
                                                             <?php } else if($acts['ActivityCode'] == 'Change Admin Role'){ ?>
                                                                 <i class="fas fa-users-cog"></i>
-                                                            <?php } else if($acts['ActivityCode'] == 'Delete Admin'){ ?>
-                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Deactivate Admin'){ ?>
+                                                                <i class="fa fa-user-times"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Reactivate Admin'){ ?>
+                                                                <i class="fa fa-user-check"></i>
                                                             <?php } else if($acts['ActivityCode'] == 'Block Student'){ ?>
                                                                 <i class="fas fa-user-slash"></i>
                                                             <?php } else if($acts['ActivityCode'] == 'Delete Report'){ ?>
@@ -256,7 +258,7 @@
                                                                 <i class="fas fa-angle-left"></i> <i class="fas fa-angle-right"></i>
                                                             <?php }?> 
 
-                                                            <b> <?php echo $acts['AdminName'] ?> </b> <?php echo $acts['Activity'] ?>: <?php echo $acts['BoldText'] ?>  
+                                                            <b> <?php echo $acts['FirstName'] ?> <?php echo $acts['LastName'] ?> </b> <?php echo $acts['Activity'] ?>: <?php echo $acts['BoldText'] ?>  
                                                         </div> 
                                                     </td>
                                                 </tr>

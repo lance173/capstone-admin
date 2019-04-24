@@ -3,10 +3,11 @@
     include('nav.php');
     require('../controllers/AdminUserController.php');
 
-    $admin = displayAllAdmins();
+    $admin = displayAllActiveAdmins();
     $sysAdmin = displaySysAdmins();
     $editor = displayEditors();
     $author = displayAuthors();
+    $deactivated = displayDeactivatedAdmins();
 
     if($_SESSION['profile']['SiteRole'] == 'Author' || $_SESSION['profile']['SiteRole'] == 'Editor'){
     ?>
@@ -52,6 +53,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#tab-7-4" data-toggle="tab"><i class="fa fa-user-edit"></i> Authors</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#tab-7-5" data-toggle="tab"><i class="fa fa-user-times"></i> Deactivated Users</a>
+                                </li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="tab-7-1">
@@ -78,7 +82,7 @@
                                                 <td><?php echo $all['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
+                                                    <button class="btn btn-vwrptusr" onclick="loadDeactAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Deactivate Account </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
@@ -110,7 +114,7 @@
                                                 <td><?php echo $sysAd['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
+                                                    <button class="btn btn-vwrptusr" onclick="loadDeactAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Deactivate Account </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
@@ -142,7 +146,7 @@
                                                 <td><?php echo $edit['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
+                                                    <button class="btn btn-vwrptusr" onclick="loadDeactAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Deactivate Account </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
@@ -151,8 +155,7 @@
 
                                 </div>
                                 <div class="tab-pane fade"  id="tab-7-4">
-
-                                <table class="table table-striped table-bordered table-hover" id="authors-table" cellspacing="0" width="100%">
+                                	<table class="table table-striped table-bordered table-hover" id="authors-table" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>ID No.</th>
@@ -174,13 +177,42 @@
                                                 <td><?php echo $auth['Email'];?></td>
                                                 <td>
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeRoleModal" onclick="readyChangeAdminRole(<?php echo $id; ?>)"> Change Role </button>
-                                                    <button class="btn btn-rptusr" onclick="loadDeleteAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Delete </button>
+                                                    <button class="btn btn-vwrptusr" onclick="loadDeactAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Deactivate Account </button>
                                                 </td>
                                             </tr>
                                         <?php }} ?>                                              
                                         </tbody>
                                     </table>
-
+                                </div>
+                                <div class="tab-pane fade"  id="tab-7-5">
+                                	<table class="table table-striped table-bordered table-hover" id="authors-table" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                            	<th>Action</th> 
+                                                <th>ID No.</th>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Role</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if(isset($deactivated)){foreach($deactivated as $deac){?>
+                                            <tr>
+                                            	
+                                                <td style="display: none"><?php $id=$deac['AdminID']; echo $id?></td>
+                                                <td>                                                    
+                                                    <button class="btn add-btn" onclick="loadReactivateAdmin(<?php echo $id;?>, '<?php echo $_SESSION['profile']['AdminID'];?>')"> Reactivate </button>
+                                                </td>
+                                                <td><?php echo $deac['USCIDNo'];?></td>
+                                                <td><?php echo $deac['FirstName'],'&nbsp', $deac['LastName'];?></td>
+                                                <td><?php echo $deac['Position'];?></td>
+                                                <td><?php echo $deac['SiteRole'];?></td>
+                                                <td><?php echo $deac['Email'];?></td>                                                
+                                            </tr>
+                                        <?php }} ?>                                              
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div> <br> 
                         </div>

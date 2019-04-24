@@ -12,7 +12,7 @@ if($_POST){
 
 	$connection = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-	$result = $connection->query("SELECT * FROM admins WHERE (Email = '{$emailORid}' OR USCIDNo = '{$emailORid}' ) AND Password = '{$password}'");
+	$result = $connection->query("SELECT * FROM admins WHERE ((Email = '{$emailORid}' OR USCIDNo = '{$emailORid}' ) AND Password = '{$password}') AND ActiveStatus != 'DEACTIVATED' ");
 
 	if($result->num_rows){
 

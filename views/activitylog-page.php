@@ -36,10 +36,10 @@
                                                 
                                             <tr class="activityrow">
                                                 <td width="100px;">
-                                                    <img src="<?php echo $acts['AdminPhoto'] ?>" height="75px" width="75px" style="border-radius: 100px; "> 
+                                                    <img src="<?php echo $acts['Photo'] ?>" height="75px" width="75px" style="border-radius: 100px; "> 
                                                 </td>
                                                 <td>                                                        
-                                                    <div class="activity-actiondone"> <b> <?php echo $acts['AdminName'] ?> </b> <?php echo $acts['Activity'] ?> <b><?php echo $acts['BoldText'] ?></b>
+                                                    <div class="activity-actiondone"> <b> <?php echo $acts['FirstName'] ?> <?php echo $acts['LastName']?> </b> <?php echo $acts['Activity'] ?> <b><?php echo $acts['BoldText'] ?></b>
                                                         <div class="activity-timeanddate">
 
                                                             <?php if($acts['ActivityCode'] == 'Add Student'){ ?>
@@ -52,8 +52,10 @@
                                                                 <i class="fa fa-user-shield"></i>
                                                             <?php } else if($acts['ActivityCode'] == 'Change Admin Role'){ ?>
                                                                 <i class="fas fa-users-cog"></i>
-                                                            <?php } else if($acts['ActivityCode'] == 'Delete Admin'){ ?>
-                                                                <i class="fa fa-trash"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Deactivate Admin'){ ?>
+                                                                <i class="fa fa-user-times"></i>
+                                                            <?php } else if($acts['ActivityCode'] == 'Reactivate Admin'){ ?>
+                                                                <i class="fa fa-user-check"></i>
                                                             <?php } else if($acts['ActivityCode'] == 'Block Student'){ ?>
                                                                 <i class="fas fa-user-slash"></i>
                                                             <?php } else if($acts['ActivityCode'] == 'Delete Report'){ ?>

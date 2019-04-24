@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 04:51 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Apr 24, 2019 at 03:11 AM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,11 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `activities` (
   `ActivityID` int(11) NOT NULL,
-  `AdminPhoto` varchar(255) NOT NULL,
-  `AdminName` varchar(255) NOT NULL,
+  `AdminID` varchar(11) NOT NULL,
   `Activity` text NOT NULL,
   `BoldText` varchar(255) NOT NULL,
-  `ActivityCode` enum('Add Student','Delete Student','Unblock Student','Add Admin','Change Admin Role','Delete Admin','Edit Slider','Add Article','Edit Article','Delete Article','Approve Article','Block Student','Delete Report','Edit MenuBar','Add WebPage','Bin WebPage','Restore Webpage','Delete Webpage','Edit Webpage') NOT NULL,
+  `ActivityCode` enum('Add Student','Delete Student','Unblock Student','Add Admin','Change Admin Role','Edit Slider','Add Article','Edit Article','Delete Article','Approve Article','Block Student','Delete Report','Edit MenuBar','Add WebPage','Bin WebPage','Restore Webpage','Delete Webpage','Edit Webpage','Reactivate Admin','Deactivate Admin') NOT NULL,
   `DateDone` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,32 +41,10 @@ CREATE TABLE `activities` (
 -- Dumping data for table `activities`
 --
 
-INSERT INTO `activities` (`ActivityID`, `AdminPhoto`, `AdminName`, `Activity`, `BoldText`, `ActivityCode`, `DateDone`) VALUES
-(60, '../assets/img/adminusers-images/joshua.jpg', 'Joshua  Jaluag', 'edited', 'the Menu', 'Edit MenuBar', '2019-04-23 01:57:33'),
-(61, '../assets/img/adminusers-images/joshua.jpg', 'Joshua  Jaluag', 'changed admin', 'Alyssa  Quiobe role to Editor', 'Change Admin Role', '2019-04-23 02:00:54'),
-(62, '../assets/img/adminusers-images/joshua.jpg', 'Joshua  Jaluag', 'deleted admin', '15103504 - Lance Sasedor', 'Delete Admin', '2019-04-23 02:36:45'),
-(63, '../assets/img/adminusers-images/dane.jpg', 'Daniel Dane Acero', 'changed admin', 'Alyssa  Quiobe role to System Administrator', 'Change Admin Role', '2019-04-23 02:59:42'),
-(64, '../assets/img/adminusers-images/alyssa.jpg', 'Alyssa  Quiobe', 'added a Admin User', '15103504 - Lance Sasedor', 'Add Admin', '2019-04-23 03:02:05'),
-(65, '../assets/img/adminusers-images/joshua.jpg', 'Joshua  Jaluag', 'changed admin', 'Lance Sasedor role to System Administrator', 'Change Admin Role', '2019-04-23 03:02:57'),
-(66, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'added a New Page', 'Montessori Campus', 'Add WebPage', '2019-04-23 03:16:29'),
-(67, '../assets/img/adminusers-images/alyssa.jpg', 'Alyssa  Quiobe', 'added a New Page', 'Rules of Use', 'Add WebPage', '2019-04-23 03:22:42'),
-(68, '../assets/img/adminusers-images/joshua.jpg', 'Joshua  Jaluag', 'added a New Page', 'Talamban Campus', 'Add WebPage', '2019-04-23 03:27:21'),
-(69, '../assets/img/adminusers-images/dane.jpg', 'Daniel Dane Acero', 'edited page', 'Rules of Use', 'Edit Webpage', '2019-04-23 03:28:28'),
-(70, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'added a New Page', 'Downtown Campus', 'Add WebPage', '2019-04-23 03:30:15'),
-(71, '../assets/img/adminusers-images/alyssa.jpg', 'Alyssa  Quiobe', 'edited page', 'Downtown Campus', 'Edit Webpage', '2019-04-23 03:35:59'),
-(73, '../assets/img/adminusers-images/joshua.jpg', 'Joshua  Jaluag', 'edited', 'the Menu', 'Edit MenuBar', '2019-04-23 03:37:27'),
-(75, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'edited', 'the Menu', 'Edit MenuBar', '2019-04-23 03:38:14'),
-(76, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'edited', 'the Menu', 'Edit MenuBar', '2019-04-23 03:41:48'),
-(77, '../assets/img/adminusers-images/dane.jpg', 'Daniel Dane Acero', 'edited', 'the Menu', 'Edit MenuBar', '2019-04-23 03:43:08'),
-(78, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'edited', 'the Slider', 'Edit Slider', '2019-04-23 09:07:04'),
-(79, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'added a new article', 'Library Launches New System', 'Add Article', '2019-04-23 09:09:27'),
-(80, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'approved article', 'Library Launches New System', 'Approve Article', '2019-04-23 09:10:12'),
-(81, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'added a new article', '2nd Article Testing', 'Add Article', '2019-04-23 09:11:28'),
-(82, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'added a new article', '3rd Article Testing', 'Add Article', '2019-04-23 09:11:46'),
-(83, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'approved article', '3rd Article Testing', 'Approve Article', '2019-04-23 09:11:56'),
-(84, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'approved article', '2nd Article Testing', 'Approve Article', '2019-04-23 09:11:59'),
-(85, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'blocked Student User', '15103504 - Lance Sasedor', 'Block Student', '2019-04-23 09:17:06'),
-(86, '../assets/img/adminusers-images/lance.jpg', 'Lance Sasedor', 'added a Admin User', '14104952 - John  Tan', 'Add Admin', '2019-04-23 10:20:47');
+INSERT INTO `activities` (`ActivityID`, `AdminID`, `Activity`, `BoldText`, `ActivityCode`, `DateDone`) VALUES
+(87, '24', 'edited', 'the Slider', 'Edit Slider', '2019-04-24 07:25:43'),
+(96, '24', 'deactivated admin', '14104952 - John  Tan', 'Deactivate Admin', '2019-04-24 09:05:35'),
+(97, '19', 'reactivated admin', '14104952 - John  Tan', 'Reactivate Admin', '2019-04-24 09:05:47');
 
 -- --------------------------------------------------------
 
@@ -84,19 +61,20 @@ CREATE TABLE `admins` (
   `Position` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `SiteRole` enum('System Administrator','Editor','Author') NOT NULL,
-  `Photo` varchar(255) NOT NULL
+  `Photo` varchar(255) NOT NULL,
+  `ActiveStatus` enum('ACTIVE','DEACTIVATED') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`AdminID`, `USCIDNo`, `FirstName`, `LastName`, `Password`, `Position`, `Email`, `SiteRole`, `Photo`) VALUES
-(19, 15104952, 'Joshua ', 'Jaluag', '6dc4e6f9483801c51e5bf76b529ce504', 'Administrator', 'jaluagjoshua@gmail.com', 'System Administrator', '../assets/img/adminusers-images/joshua.jpg'),
-(20, 15101222, 'Daniel Dane', 'Acero', '9b9bafd54b07524a37e5e2391d027bc5', 'Administrator', 'danieldaneacero@gmail.com', 'System Administrator', '../assets/img/adminusers-images/dane.jpg'),
-(22, 15103162, 'Alyssa ', 'Quiobe', 'bef34de3640b22b591edb2e8932a1d78', 'Administrator', 'alyssaquiobe@gmail.com', 'System Administrator', '../assets/img/adminusers-images/alyssa.jpg'),
-(24, 15103504, 'Lance', 'Sasedor', 'c809a790ecc77345e213c41dfe64ee63', 'Administrator', 'lancesasedor@gmail.com', 'System Administrator', '../assets/img/adminusers-images/lance.jpg'),
-(25, 14104952, 'John ', 'Tan', '7deee6943f643da111e759453587fe2b', 'Janitor', 'johntan@gmail.com', 'Author', '../assets/img/adminusers-images/u5.jpg');
+INSERT INTO `admins` (`AdminID`, `USCIDNo`, `FirstName`, `LastName`, `Password`, `Position`, `Email`, `SiteRole`, `Photo`, `ActiveStatus`) VALUES
+(19, 15104952, 'Joshua ', 'Jaluag', '6dc4e6f9483801c51e5bf76b529ce504', 'Administrator', 'jaluagjoshua@gmail.com', 'System Administrator', '../assets/img/adminusers-images/joshua.jpg', 'ACTIVE'),
+(20, 15101222, 'Daniel Dane', 'Acero', '9b9bafd54b07524a37e5e2391d027bc5', 'Administrator', 'danieldaneacero@gmail.com', 'Author', '../assets/img/adminusers-images/dane.jpg', 'ACTIVE'),
+(22, 15103162, 'Alyssa ', 'Quiobe', 'bef34de3640b22b591edb2e8932a1d78', 'Administrator', 'alyssaquiobe@gmail.com', 'Editor', '../assets/img/adminusers-images/alyssa.jpg', 'ACTIVE'),
+(24, 15103504, 'Lance', 'Sasedor', 'c809a790ecc77345e213c41dfe64ee63', 'Administrator', 'lancesasedor@gmail.com', 'System Administrator', '../assets/img/adminusers-images/lance.jpg', 'ACTIVE'),
+(25, 14104952, 'John ', 'Tan', '7deee6943f643da111e759453587fe2b', 'Janitor', 'johntan@gmail.com', 'Author', '../assets/img/adminusers-images/u5.jpg', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -261,7 +239,7 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`SliderID`, `FirstSlideImage`, `FirstSlideTitle`, `FirstSlideDescription`, `SecondSlideImage`, `SecondSlideTitle`, `SecondSlideDescription`, `ThirdSlideImage`, `ThirdSlideTitle`, `ThirdSlideDescription`) VALUES
-(1, '../assets/img/slider/usc-jb-lrc.jpg', 'First Slide', ' This is the description of the first slide.   ', '../assets/img/slider/jumbotron-testeee.jpg', 'Computer', '  Welcome to the USC library system!', '../assets/img/slider/usc-jb-lrc.jpg', 'Third Slide', 'This is the description of the third slide.   ');
+(1, '../assets/img/slider/usc-jb-lrc.jpg', 'Yea.', ' This is the description of the first slide.    ', '../assets/img/slider/jumbotron-testeee.jpg', 'Computer', '  Welcome to the USC library system! ', '../assets/img/slider/usc-jb-lrc.jpg', 'Third Slide', 'This is the description of the third slide.    ');
 
 -- --------------------------------------------------------
 
@@ -421,68 +399,57 @@ ALTER TABLE `webpages`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `ActivityID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
-
+  MODIFY `ActivityID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 --
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
   MODIFY `AdminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
 --
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
   MODIFY `ArticleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `CommentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
   MODIFY `MenuItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `menu_dropdown`
 --
 ALTER TABLE `menu_dropdown`
   MODIFY `DropItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
 --
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
   MODIFY `RatingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
   MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
   MODIFY `SliderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
   MODIFY `StudentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `webpages`
 --
 ALTER TABLE `webpages`
   MODIFY `WebPageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- Constraints for dumped tables
 --

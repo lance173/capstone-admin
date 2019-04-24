@@ -141,15 +141,28 @@
 
     //Admin 
 
-    function loadDeleteAdmin(adminID, currentUser){
+    function loadDeactAdmin(adminID, currentUser){
         if(adminID != currentUser){
-            if (confirm('Delete User?')){
-                window.location='../controllers/AdminUserController.php?deleteID='+adminID;
+            if (confirm('Deactivate User?')){
+                window.location='../controllers/AdminUserController.php?deactID='+adminID;
             }else{
                 return false;
             }
         } else {
-            alert("You cannot delete yourself");
+            alert("You cannot deactivate yourself");
+            return false;
+        }
+    }
+
+    function loadReactivateAdmin(adminID, currentUser){
+        if(adminID != currentUser){
+            if (confirm('Reactivate User?')){
+                window.location='../controllers/AdminUserController.php?reactiveID='+adminID;
+            }else{
+                return false;
+            }
+        } else {
+            alert("You cannot reactivate yourself");
             return false;
         }
     }

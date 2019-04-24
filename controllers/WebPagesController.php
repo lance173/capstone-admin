@@ -58,9 +58,8 @@ function addWebPage(){
 	    $Activity = "added a New Page";
 	    $BoldText = $title;
 	    $ActivityCode = "Add WebPage";
-	    $AdminPhoto = $_SESSION['profile']['Photo'];
-	    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-	    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	    $AdminID = $_SESSION['profile']['AdminID'];
+	    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 		$result2 = mysqli_query($conn, $sql2);
 
 		$result = mysqli_query($conn,$sql);    
@@ -114,9 +113,8 @@ function deleteWebPage(){
     $Activity = "deleted page";
     $BoldText = "$PageTitle" ;
     $ActivityCode = "Delete WebPage";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "DELETE FROM webpages WHERE WebPageID ='$id'";
@@ -143,9 +141,8 @@ function restoreWebPage(){
     $Activity = "restored page";
     $BoldText = "$PageTitle" ;
     $ActivityCode = "Restore WebPage";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "UPDATE webpages SET Status='ACTIVE' WHERE WebPageID ='$id'";
@@ -172,9 +169,8 @@ function binWebPage(){
     $Activity = "binned page";
     $BoldText = "$PageTitle" ;
     $ActivityCode = "Bin WebPage";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "UPDATE webpages SET Status='BIN' WHERE WebPageID ='$id'";
@@ -236,9 +232,8 @@ function updatePage(){
     $Activity = "edited page";
     $BoldText = "$title" ;
     $ActivityCode = "Edit WebPage";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$sql = "UPDATE webpages SET 

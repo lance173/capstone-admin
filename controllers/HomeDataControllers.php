@@ -36,7 +36,7 @@ function loadArticlesToHome(){
 
 function loadActivitiesToHome(){
    $conn = myConnect();
-   $sql = "SELECT * FROM activities ORDER BY DateDone DESC LIMIT 4";
+   $sql = "SELECT activities.ActivityID, activities.AdminID, activities.Activity, activities.BoldText, activities.ActivityCode, activities.DateDone, admins.AdminID, admins.FirstName, admins.LastName FROM activities INNER JOIN admins on activities.AdminID = admins.AdminID ORDER BY DateDone DESC LIMIT 4";
    $result = mysqli_query($conn, $sql);
 
    while($row=mysqli_fetch_array($result)){

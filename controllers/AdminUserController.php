@@ -13,8 +13,11 @@ if(isset($_POST['editAdminUser'])){
 if(isset($_GET['reportID'])){
       viewReport();
 	}
-if(isset($_GET['deleteID'])){
-	deleteAdmin();
+if(isset($_GET['deactID'])){
+	deactivateAdmin();
+	}
+if(isset($_GET['reactiveID'])){
+	reactivateAdmin();
 	}
 if(isset($_POST['btnChangeAdmin'])){
   changeAdminRole();
@@ -62,9 +65,8 @@ function addAdminUser(){
     $Activity = "added a Admin User";
     $BoldText = "$uscIDNo - $firstName $lastName" ;
     $ActivityCode = "Add Admin";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 	$result = mysqli_query($conn,$sql);
@@ -80,10 +82,22 @@ function addAdminUser(){
 }
 
 
-function displayAllAdmins(){
-
+function displayAllActiveAdmins(){
 	$conn = myConnect();
-	$sql = "SELECT * FROM admins";
+	$sql = "SELECT * FROM admins WHERE ActiveStatus = 'ACTIVE'";
+	$result = mysqli_query($conn, $sql);
+
+	while($row=mysqli_fetch_array($result)){
+		//do something as long as there's a remaining row.
+		$rows[] = $row;
+	}
+
+	return (isset($rows)) ? $rows : NULL; 
+}
+
+function displayDeactivatedAdmins(){
+	$conn = myConnect();
+	$sql = "SELECT * FROM admins WHERE ActiveStatus = 'DEACTIVATED'";
 	$result = mysqli_query($conn, $sql);
 
 	while($row=mysqli_fetch_array($result)){
@@ -97,7 +111,7 @@ function displayAllAdmins(){
 function displaySysAdmins(){
 
 	$conn = myConnect();
-	$sql = "SELECT * FROM admins WHERE SiteRole = 'System Administrator'";
+	$sql = "SELECT * FROM admins WHERE SiteRole = 'System Administrator' AND ActiveStatus = 'ACTIVE'";
 	$result = mysqli_query($conn, $sql);
 
 	while($row=mysqli_fetch_array($result)){
@@ -111,7 +125,7 @@ function displaySysAdmins(){
 function displayEditors(){
 
 	$conn = myConnect();
-	$sql = "SELECT * FROM admins WHERE SiteRole = 'Editor'";
+	$sql = "SELECT * FROM admins WHERE SiteRole = 'Editor'AND ActiveStatus = 'ACTIVE'";
 	$result = mysqli_query($conn, $sql);
 
 	while($row=mysqli_fetch_array($result)){
@@ -125,7 +139,7 @@ function displayEditors(){
 function displayAuthors(){
 
 	$conn = myConnect();
-	$sql = "SELECT * FROM admins WHERE SiteRole = 'Author'";
+	$sql = "SELECT * FROM admins WHERE SiteRole = 'Author' AND ActiveStatus = 'ACTIVE'";
 	$result = mysqli_query($conn, $sql);
 
 	while($row=mysqli_fetch_array($result)){
@@ -137,9 +151,9 @@ function displayAuthors(){
 }
 
 
-function deleteAdmin(){
+function deactivateAdmin(){
   $conn = myConnect();
-  $id = $_GET['deleteID'];
+  $id = $_GET['deactID'];
 
 	$findAdmin = mysqli_query($conn, "SELECT * FROM admins WHERE AdminID = '$id'");
 	$admin = mysqli_fetch_assoc($findAdmin);
@@ -149,20 +163,51 @@ function deleteAdmin(){
 
 	//For Activity Log
 	session_start();
-	$Activity = "deleted admin";
+	$Activity = "deactivated admin";
 	$BoldText = "$id_number - $firstname $lastname" ;
-	$ActivityCode = "Delete Admin";
-	$AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$ActivityCode = "Deactivate Admin";
+	$AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 
 
-  $sql = "DELETE FROM admins WHERE AdminID = '$id'";
+  $sql = "UPDATE admins SET ActiveStatus = 'DEACTIVATED' WHERE AdminID = '$id'";
   $result = mysqli_query($conn,$sql);
   if($result){
-      $str = "Admin Successfully Deleted.";
+      $str = "Admin Successfully Deactivated.";
+      header("Location: ../views/admin-table.php?success-msg=".$str);
+  }else{
+      echo "ERROR!".mysqli_error($conn);
+  }
+
+}
+
+function reactivateAdmin(){
+  $conn = myConnect();
+  $id = $_GET['reactiveID'];
+
+	$findAdmin = mysqli_query($conn, "SELECT * FROM admins WHERE AdminID = '$id'");
+	$admin = mysqli_fetch_assoc($findAdmin);
+	$id_number = $admin['USCIDNo'];
+	$firstname = $admin['FirstName'];
+	$lastname = $admin['LastName'];
+
+	//For Activity Log
+	session_start();
+	$Activity = "reactivated admin";
+	$BoldText = "$id_number - $firstname $lastname" ;
+	$ActivityCode = "Reactivate Admin";
+	$AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	$result2 = mysqli_query($conn, $sql2);
+
+
+
+  $sql = "UPDATE admins SET ActiveStatus = 'ACTIVE' WHERE AdminID = '$id'";
+  $result = mysqli_query($conn,$sql);
+  if($result){
+      $str = "Admin Successfully Reactivated.";
       header("Location: ../views/admin-table.php?success-msg=".$str);
   }else{
       echo "ERROR!".mysqli_error($conn);
@@ -236,9 +281,8 @@ function changeAdminRole(){
 	$Activity = "changed admin";
 	$BoldText = "$firstname $lastname role to $newRole" ;
 	$ActivityCode = "Change Admin Role";
-	$AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) ";
+	$AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 

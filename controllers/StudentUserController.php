@@ -58,9 +58,8 @@ function addStudentUser(){
 	    $Activity = "added a New Student User";
 	    $BoldText = "$id_number - $firstname $lastname" ;
 	    $ActivityCode = "Add Student";
-	    $AdminPhoto = $_SESSION['profile']['Photo'];
-	    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-	    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+	    $AdminID = $_SESSION['profile']['AdminID'];
+	    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 		$result2 = mysqli_query($conn, $sql2);
 		
 		$result = mysqli_query($conn,$sql);       
@@ -88,9 +87,8 @@ function deleteStudent(){
     $Activity = "deleted Student User";
     $BoldText = "$id_number - $firstname $lastname" ;
     $ActivityCode = "Delete Student";
-    $AdminPhoto = $_SESSION['profile']['Photo'];
-    $AdminName = $_SESSION['profile']['FirstName'].' '.$_SESSION['profile']['LastName'];
-    $sql2 = "INSERT INTO activities(AdminPhoto, AdminName, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminPhoto', '$AdminName', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
+    $AdminID = $_SESSION['profile']['AdminID'];
+    $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
 
@@ -154,10 +152,10 @@ function unblockStudent(){
 
 	//For Activity Log
 	session_start();
-    $AdminID = $_SESSION['profile']['AdminID'];
     $Activity = "unblocked Student User";
     $BoldText = "$id_number - $firstname $lastname" ;
     $ActivityCode = "Unblock Student";
+    $AdminID = $_SESSION['profile']['AdminID'];
     $sql2 = "INSERT INTO activities(AdminID, Activity, BoldText, ActivityCode, DateDone) VALUES('$AdminID', '$Activity', '$BoldText', '$ActivityCode', NOW() ) " ;
 	$result2 = mysqli_query($conn, $sql2);
 
