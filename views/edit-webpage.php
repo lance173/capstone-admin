@@ -15,7 +15,7 @@
             </div>            
 
             <div class="page-heading">
-                <h3 class="page-title"> Add New Page </h3>
+                <h3 class="page-title"> Edit Page </h3>
             </div>
 
             <div class="row">
