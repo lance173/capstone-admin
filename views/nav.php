@@ -7,7 +7,7 @@
         <!-- START HEADER-->
         <header class="header">
             <div class="page-brand">
-                <a class="link" href="index.php">
+                <a class="link" href="home.php">
                     <span class="brand"> <img src="../assets/img/usclibsystem-transp-whitetxt.png" width="60px" height="30px" />
                         <span class="brand-tip"> <img src="../assets/img/usc-completelogo-whitetxt.png" width="150px" height="35px" /> </span>
                     </span>
